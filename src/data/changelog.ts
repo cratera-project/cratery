@@ -1,0 +1,94 @@
+export type ChangelogEntry = {
+  date: string
+  title: string
+  items: string[]
+}
+
+
+export const CHANGELOG: ChangelogEntry[] = [
+  {
+    date: '2026-08-28',
+    title: 'Quest Solution Explanations & Cloudflare Turnstile Fixes',
+    items: [
+      'Resolved a Cloudflare Turnstile challenge bug that could cause quest submission buttons to get stuck or fail verification.',
+      'Fixed quest solution explanations across all 632 built-in and community quizzes to ensure explanations are fully accessible upon answer reveal.',
+      'Added in-depth solution and walkthrough toggles for interactive coding challenges.',
+      'Fixed note template forking in Cratery Notes.',
+    ],
+  },
+  {
+    date: '2026-08-27',
+    title: 'Interactive Notes (Google Colab for Rust) & Live MicroVM Notebooks',
+    items: [
+      'Create, organize, and publish Google Colab-style notebooks combining rich Markdown explanations with live runnable Rust code cells.',
+      'Run any code cell directly inside isolated Firecracker microVMs with microsecond latency, live terminal output, stdout/stderr, and RSS memory accounting.',
+      'Keep personal research and drafts private, or publish publicly to the community gallery with tag filtering and search.',
+      '1-click social sharing intents (X/Twitter, LinkedIn, Reddit), Discord markdown links, and HTML iframe embed codes for blogs and documentation.',
+      'Clone community notebooks directly into your personal workspace to experiment, modify, and build upon existing Rust code.',
+      'Pre-built interactive notebooks covering Ownership & Moves, Fearless Concurrency, Zero-Cost Iterators, Smart Pointers, Error Handling, C FFI, and Dynamic Polymorphism.',
+      'Real-time code execution counters (runs_count), view tracking, and fork metrics that scale smoothly with community activity.',
+    ],
+  },
+  {
+    date: '2026-08-24',
+    title: 'Interactive Learn Documentation & Step-by-Step Rust Curriculum',
+    items: [
+      'Released the comprehensive Learn curriculum (/learn): 14 structured chapters covering core to advanced Rust mechanics from basic syntax to unsafe internals.',
+      'In-Line Executable Code Snippets: Edit and execute any tutorial code snippet in-place with instant microVM feedback without leaving the chapter.',
+      'Chapter Navigation & Shortcuts: Quick-jump table of contents, responsive mobile chapter drawer, and keyboard navigation between lesson sections.',
+      'Deep Dive Topic Coverage: Dedicated chapters for Ownership & Borrowing, Non-Lexical Lifetimes, Concurrency Primitives, Trait Architecture, Macro Metaprogramming, and C FFI Interop.',
+    ],
+  },
+  {
+    date: '2026-08-21',
+    title: '150 New Deep-Dive Quests, Discord Bot & Live Web Sync',
+    items: [
+      'Added 150 new Rust mastery quests across all 9 core tracks: advanced lifetimes, concurrency patterns, raw pointers, trait dispatch, zero-cost iterators, and macro hygiene.',
+      'Expanded the Daily Challenge rotation pool with all 150 new free questions for daily streak progression.',
+      'Released the official Cratery Discord Bot (/panel, /race, /quiz, /daily, /forge, /run) with instant 1-click multiplayer game lobbies.',
+      'Zero-friction Message Context Menu: Right click any Rust code snippet in Discord to execute in isolated hardware microVMs.',
+      'End-to-end real-time XP and question progress sync between Discord and your official Cratery profile.',
+    ],
+  },
+  {
+    date: '2026-08-20',
+    title: 'Cratera SDK, Rate Limits & MicroVM Multiplexer Contest',
+    items: [
+      'Released the official cratera client SDK on npm (npm install cratera) with zero runtime dependencies and dual ESM/CJS support.',
+      'New Weekly Contest: The MicroVM Frame Multiplexer — reassemble interleaved, out-of-order Firecracker vsock byte streams with microsecond telemetry.',
+      'Upgraded Developer API quotas: Free tier increased to 250 req/day (15 req/min burst limit), Supporter tier to 10,000 req/day (60 req/min burst limit).',
+      'Expanded microVM execution engine with multi-language compiler runtimes across 9 languages (Rust 2024, Python 3.12, TypeScript, Node.js 24, Go, C++, C, Java, and C# Mono).',
+    ],
+  },
+  {
+    date: '2026-08-19',
+    title: 'Advanced Quests & Firecracker Judge',
+    items: [
+      'In-browser code execution for Advanced Quests powered by a hardware-isolated Firecracker microVM judge.',
+      '5 hands-on challenges: Byte Arena Allocator, Lock-Free Broadcast Queue, Prefix Trie Map, ChunkBy Iterator Adapter, and Type-Safe AnyMap Container.',
+      'Run quick sample tests or submit for full validation with microsecond runtime accounting and anonymous RSS memory tracking.',
+      'View personal best percentiles vs other solvers, and browse full history of runs and submissions with 1-click code restore.',
+    ],
+  },
+  {
+    date: '2026-08-17',
+    title: 'Full mobile support and navigation',
+    items: [
+      'Redesigned mobile navigation with a pixel drawer menu for quick access to all quest types, supporter perks, ranks, and contests.',
+      'Code blocks now scale properly on phones with smooth touch scrolling and responsive font sizing.',
+      'Added safe area support for modern phone notches and bottom bars.',
+      'Improved touch targets, button wrapping, and layout stability across every page.',
+    ],
+  },
+  {
+    date: '2026-08-14',
+    title: 'Cards, rivals, creator XP',
+    items: [
+      'Public profiles unfurl as a generated card: pfp, rank title, XP, and direct profile link. Share profile cards anywhere.',
+      'Quest authors earn 25 XP on publish and 5 XP each time a signed-in rustacean first-solves a quest. Creators have a dedicated leaderboard tab.',
+      'Challenge a teammate: two logged-in players, the same 1–5 quizzes, 24 hours, W–L on the profile card.',
+      'Rank-up moment and +XP after a correct answer. Profile XP now matches the public rank (including author XP).',
+      'Phone nav uses a menu instead of clipped chips. Weekly contest stacks on small screens.',
+    ],
+  },
+]

@@ -1,0 +1,42 @@
+name = "cratery"
+compatibility_date = "2025-01-24"
+compatibility_flags = ["nodejs_compat"]
+main = "functions/auth.ts"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+[triggers]
+# Thursday 00:05 UTC — weekly contest broadcast
+# Daily 18:00 UTC — streak-at-risk nudge
+crons = ["5 0 * * 4", "0 18 * * *"]
+
+[vars]
+MAILTRAP_SENDER_NAME = "Cratery"
+
+# Optional Secrets / Vars (Set via `wrangler secret put <NAME>` or Cloudflare dashboard):
+#   CUSTOMERIO_BROADCAST_ID  Optional broadcast campaign ID
+#   SUPABASE_URL
+#   SUPABASE_SERVICE_ROLE_KEY
+#   JWT_SECRET
+#   APP_URL
+#   TURNSTILE_SECRET
+#   MAILTRAP_API_TOKEN
+#   MAILTRAP_SENDER_EMAIL
+#   GRADE_URL            (Cloudflare Tunnel origin, e.g. https://grade.example.com)
+#   GRADE_INTERNAL_KEY   (same value as grade-fc GRADE_INTERNAL_KEY)
+#   CF_ACCESS_CLIENT_ID  (Cloudflare Access Service Token Client ID)
+#   CF_ACCESS_CLIENT_SECRET (Cloudflare Access Service Token Client Secret)
+#   CUSTOMERIO_WRITE_KEY     CDP / Data Pipelines write key (identify)
+#   CUSTOMERIO_APP_API_KEY   App API key (trigger broadcast) — not the write key
+#   INTERNAL_JOB_SECRET      Bearer token for internal admin endpoints
+#   DISCORD_PUBLIC_KEY       Discord Application Public Key (for Ed25519 webhook verification)
+#   DISCORD_TOKEN            Discord Bot Token (for command deployment)
+#   DISCORD_CLIENT_ID        Discord Application Client ID
+#
+# Frontend (.env.local):
+#   VITE_SUPABASE_URL
+#   VITE_SUPABASE_ANON_KEY
+

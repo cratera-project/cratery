@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --stone-darkest: #1a1a1a;
+  --stone-dark: #3c3c3c;
+  --stone-medium: #7c7c7c;
+  --stone-light: #c6c6c6;
+  --stone-lightest: #ebebeb;
+
+  --grass-green: #7cb342;
+  --redstone-red: #e05545;
+  --diamond-blue: #42a5f5;
+  --gold-yellow: #ffa000;
+  --emerald-green: #00c853;
+  --obsidian-purple: #7b1fa2;
+
+  --rust-orange: #ce422b;
+  --rust-orange-dark: #a0321f;
+
+  --night: #16171b;
+  --night-panel: #1f2126;
+  --night-raised: #2a2d34;
+  --night-edge: #3a3e47;
+
+  --inventory-bg: var(--night);
+  --slot-bg: #23252b;
+  --tooltip-bg: #100010;
+}
+
+@layer base {
+  html {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+    color-scheme: dark;
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--night);
+    color: #e8e9ec;
+    overflow-x: hidden;
+    width: 100%;
+    min-height: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a {
+    color: var(--diamond-blue);
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+@layer components {
+  .pixel-ui {
+    image-rendering: pixelated;
+  }
+
+  /* Pixel chrome stays crisp; body reading stays smooth */
+  .pixel-text,
+  .font-pixel {
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    font-variant-ligatures: none;
+  }
+
+  /* Softer long-form reading (prompts, explanations, descriptions) */
+  .read-body {
+    font-family: 'VT323', ui-monospace, SFMono-Regular, Menlo, monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: auto;
+    letter-spacing: 0.02em;
+    line-height: 1.45;
+  }
+
+  pre {
+    white-space: pre;
+    overflow-x: auto;
+    font-feature-settings: normal;
+  }
+}

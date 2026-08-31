@@ -1,0 +1,43 @@
+
+const RESERVED_USERNAMES = new Set([
+  'category',
+  'contest',
+  'contest-list',
+  'fated-five',
+  'profile',
+  'supporter',
+  'terms',
+  'privacy',
+  'create',
+  'quests',
+  'community',
+  'leaderboard',
+  'auth',
+  'api',
+  'refund',
+  'realms',
+  'home',
+  'blog',
+  'roadmap',
+  'advanced',
+  'verify',
+  'reset-password',
+  'rival',
+  'rivals',
+  'notifications',
+  'changelog',
+  'changes',
+  'admin',
+  'administrator',
+  'root',
+  'support',
+  'cratery',
+  'www',
+  'mail',
+  'static',
+  'assets',
+])
+
+export function isReservedUsername(username: string): boolean {
+  return RESERVED_USERNAMES.has(username.toLowerCase())
+}

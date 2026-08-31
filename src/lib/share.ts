@@ -1,0 +1,102 @@
+
+export const SITE_URL = 'https://cratery.cratera.org'
+
+export function absoluteUrl(pathOrUrl: string): string {
+  if (pathOrUrl.startsWith('http://') || pathOrUrl.startsWith('https://')) return pathOrUrl
+  const path = pathOrUrl.startsWith('/') ? pathOrUrl : `/${pathOrUrl}`
+  return `${SITE_URL}${path}`
+}
+
+
+export function currentShareUrl(pathname: string = window.location.pathname): string {
+  return absoluteUrl(pathname)
+}
+
+export function profileOgImageUrl(username: string, version?: string): string {
+  const q = version ? `?v=${encodeURIComponent(version)}` : ''
+  return `${SITE_URL}/api/og/${encodeURIComponent(username)}.png${q}`
+}
+
+export function profileBadgeSvgUrl(username: string): string {
+  return `${SITE_URL}/api/badge/${encodeURIComponent(username)}.svg`
+}
+
+export function githubReadmeMarkdown(username: string): string {
+  return `[![Cratery Profile](${profileBadgeSvgUrl(username)})](${profileShareUrl(username)})`
+}
+
+export function githubReadmeHtml(username: string): string {
+  return `<a href="${profileShareUrl(username)}"><img src="${profileBadgeSvgUrl(username)}" alt="${username}'s Cratery Profile" /></a>`
+}
+
+export function profileShareUrl(username: string): string {
+  return absoluteUrl(`/${username}`)
+}
+
+export function rivalShareUrl(id: string): string {
+  return absoluteUrl(`/rival/${id}`)
+}
+
+export function fatedFiveShareText(options: { correct: number; total: number; emojis: string }): string {
+  return `Cratery Practice 5 ⚡ ${options.correct}/${options.total}\n${options.emojis}\n\n${SITE_URL}/fated-five`
+}
+
+export function contestBenchmarkShareText(options: {
+  title: string
+  url: string
+  runMs?: string
+  memoryKb?: string
+  percentile?: number
+}): string {
+  const metrics: string[] = []
+  if (options.runMs) metrics.push(`⏱️ ${options.runMs}`)
+  if (options.memoryKb) metrics.push(`💾 ${options.memoryKb}`)
+  if (typeof options.percentile === 'number' && options.percentile > 0) {
+    metrics.push(`⚡ Beats ${options.percentile}%`)
+  }
+  const metricStr = metrics.length ? ` (${metrics.join(' · ')})` : ''
+  return `Cratery Rust Challenge ⚡ ${options.title} AC ✓${metricStr}\n\n${options.url}`
+}
+
+export function xIntentUrl(url: string, text: string): string {
+  const u = new URL('https://twitter.com/intent/tweet')
+  u.searchParams.set('text', text)
+  u.searchParams.set('url', url)
+  return u.href
+}
+
+export function linkedInShareUrl(url: string): string {
+  const u = new URL('https://www.linkedin.com/sharing/share-offsite/')
+  u.searchParams.set('url', url)
+  return u.href
+}
+
+export async function copyText(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text)
+    return true
+  } catch {
+    try {
+      const el = document.createElement('textarea')
+      el.value = text
+      el.setAttribute('readonly', '')
+      el.style.position = 'fixed'
+      el.style.left = '-9999px'
+      document.body.appendChild(el)
+      el.select()
+      const ok = document.execCommand('copy')
+      document.body.removeChild(el)
+      return ok
+    } catch {
+      return false
+    }
+  }
+}
+
+export function canNativeShare(data: ShareData): boolean {
+  try {
+    return typeof navigator.share === 'function' && (navigator.canShare?.(data) ?? true)
+  } catch {
+    return false
+  }
+}

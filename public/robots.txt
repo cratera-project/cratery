@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://cratery.cratera.org/sitemap.xml
+
+# Crawl-delay (optional, polite)
+Crawl-delay: 1
+
+# Block non-content paths
+Disallow: /api/
+Disallow: /profile
+Disallow: /fated-five

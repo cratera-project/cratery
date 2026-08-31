@@ -1,0 +1,72 @@
+# ==============================================================================
+# Cratery Cloudflare Worker Environment Configuration Template
+# ==============================================================================
+# Copy this file to `.dev.vars` for local development with `wrangler dev`.
+# DO NOT commit `.dev.vars` or any real API keys/credentials to version control.
+#
+# NOTE: Cratery is designed to run offline / standalone out-of-the-box!
+# The question catalog, coding trials, and progress tracking work locally without
+# any of these services configured.
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. CORE AUTH & DATABASE (Optional for cloud sync and user accounts)
+# ------------------------------------------------------------------------------
+# Supabase project URL and service role secret key for server-side operations
+SUPABASE_URL=https://your-project.supabase.co
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+
+# Secret used to sign and verify custom JWT session tokens (generate with: openssl rand -hex 32)
+JWT_SECRET=generate_with_openssl_rand_hex_32
+
+# Public origin of your deployment (used for verification links and CORS)
+APP_URL=https://cratery.cratera.org
+
+# Cloudflare Turnstile CAPTCHA secret for bot prevention on public endpoints
+TURNSTILE_SECRET=your-turnstile-secret
+
+# Internal API authentication token for cron/admin maintenance endpoints
+INTERNAL_JOB_SECRET=generate_with_openssl_rand_hex_32
+
+# ------------------------------------------------------------------------------
+# 2. TRANSACTIONAL EMAIL (Optional - used for account verification & password reset)
+# ------------------------------------------------------------------------------
+# Mailtrap API token for sending transactional emails (or leave unset to skip email delivery)
+MAILTRAP_API_TOKEN=your-mailtrap-api-token
+MAILTRAP_SENDER_EMAIL=noreply@yourdomain.com
+
+# ------------------------------------------------------------------------------
+# 3. ANALYTICS & LIFECYCLE (Optional - Customer.io CDP integration)
+# ------------------------------------------------------------------------------
+# Customer.io Data Pipelines / CDP write key (for user profile sync and event tracking)
+CUSTOMERIO_WRITE_KEY=your-cdp-write-key
+
+# Customer.io App API key (for triggering newsletter / contest broadcasts)
+CUSTOMERIO_APP_API_KEY=your-app-api-key
+
+# Customer.io newsletter broadcast campaign ID
+CUSTOMERIO_BROADCAST_ID=12345
+
+# ------------------------------------------------------------------------------
+# 4. REMOTE CODE EXECUTION JUDGE (Optional - Cratera MicroVM Cluster)
+# ------------------------------------------------------------------------------
+# URL of your remote Firecracker microVM grading backend (Cratera)
+GRADE_URL=https://grade.rustu.org
+GRADE_INTERNAL_KEY=your-grade-internal-key
+
+# Optional Cloudflare Access Service Token credentials if protecting the judge endpoint
+CF_ACCESS_CLIENT_ID=your-cf-access-client-id
+CF_ACCESS_CLIENT_SECRET=your-cf-access-client-secret
+
+# ------------------------------------------------------------------------------
+# 5. DISCORD BOT INTEGRATION (Optional - for community Discord slash commands)
+# ------------------------------------------------------------------------------
+# DISCORD_PUBLIC_KEY=your-discord-app-public-key
+# DISCORD_TOKEN=your-discord-bot-token
+# DISCORD_CLIENT_ID=your-discord-client-id
+
+# ------------------------------------------------------------------------------
+# 6. LOCAL DEVELOPMENT & DEBUG FLAGS
+# ------------------------------------------------------------------------------
+# Set DISABLE_RATE_LIMITS=1 to disable all hourly and burst rate limits in local testing
+DISABLE_RATE_LIMITS=1
