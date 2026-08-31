@@ -18,6 +18,14 @@ pub fn duplicate_items(v: Vec<String>) -> (Vec<String>, Vec<String>) {
 }
 ```
 
+# Solution
+```rust
+pub fn duplicate_items(v: Vec<String>) -> (Vec<String>, Vec<String>) {
+    let copy = v.clone();
+    (v, copy)
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

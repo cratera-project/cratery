@@ -24,6 +24,20 @@ pub fn add_to_halves(slice: &mut [i32]) {
 }
 ```
 
+# Solution
+```rust
+pub fn add_to_halves(slice: &mut [i32]) {
+    let mid = slice.len() / 2;
+    let (left, right) = slice.split_at_mut(mid);
+    for x in left.iter_mut() {
+        *x += 10;
+    }
+    for x in right.iter_mut() {
+        *x += 20;
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

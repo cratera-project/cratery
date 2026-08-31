@@ -17,6 +17,13 @@ pub fn filter_containing<'a>(slices: &[&'a str], needle: &str) -> Vec<&'a str> {
 }
 ```
 
+# Solution
+```rust
+pub fn filter_containing<'a>(slices: &[&'a str], needle: &str) -> Vec<&'a str> {
+    slices.iter().copied().filter(|s| s.contains(needle)).collect()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

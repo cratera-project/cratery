@@ -31,6 +31,27 @@ pub fn channel_sum(numbers: Vec<i32>) -> i32 {
 }
 ```
 
+# Solution
+```rust
+use std::sync::mpsc;
+use std::thread;
+
+pub fn channel_sum(numbers: Vec<i32>) -> i32 {
+    let (tx, rx) = mpsc::channel();
+    thread::spawn(move || {
+        for n in numbers {
+            tx.send(n).unwrap();
+        }
+    });
+
+    let mut sum = 0;
+    while let Ok(val) = rx.recv() {
+        sum += val;
+    }
+    sum
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

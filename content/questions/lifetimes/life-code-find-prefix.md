@@ -20,6 +20,16 @@ pub fn extract_prefix<'a>(s: &'a str, delimiter: char) -> &'a str {
 }
 ```
 
+# Solution
+```rust
+pub fn extract_prefix<'a>(s: &'a str, delimiter: char) -> &'a str {
+    match s.find(delimiter) {
+        Some(pos) => &s[..pos],
+        None => s,
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

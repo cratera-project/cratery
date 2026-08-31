@@ -32,6 +32,28 @@ impl Add for Vec2 {
 }
 ```
 
+# Solution
+```rust
+use std::ops::Add;
+
+#[derive(Debug, PartialEq, Clone, Copy)]
+pub struct Vec2 {
+    pub x: i32,
+    pub y: i32,
+}
+
+impl Add for Vec2 {
+    type Output = Self;
+
+    fn add(self, rhs: Self) -> Self::Output {
+        Self {
+            x: self.x + rhs.x,
+            y: self.y + rhs.y,
+        }
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

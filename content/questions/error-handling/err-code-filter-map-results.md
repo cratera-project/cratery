@@ -17,6 +17,13 @@ pub fn collect_successes<T, E>(results: Vec<Result<T, E>>) -> Vec<T> {
 }
 ```
 
+# Solution
+```rust
+pub fn collect_successes<T, E>(results: Vec<Result<T, E>>) -> Vec<T> {
+    results.into_iter().filter_map(|r| r.ok()).collect()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

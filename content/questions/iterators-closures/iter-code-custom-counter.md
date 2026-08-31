@@ -32,6 +32,28 @@ impl Iterator for Counter {
 }
 ```
 
+# Solution
+```rust
+pub struct Counter {
+    pub current: u32,
+    pub end: u32,
+}
+
+impl Iterator for Counter {
+    type Item = u32;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        if self.current < self.end {
+            let val = self.current;
+            self.current += 1;
+            Some(val)
+        } else {
+            None
+        }
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

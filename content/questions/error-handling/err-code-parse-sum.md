@@ -19,6 +19,15 @@ pub fn parse_and_sum(a: &str, b: &str) -> Result<i32, std::num::ParseIntError> {
 }
 ```
 
+# Solution
+```rust
+pub fn parse_and_sum(a: &str, b: &str) -> Result<i32, std::num::ParseIntError> {
+    let n1: i32 = a.parse()?;
+    let n2: i32 = b.parse()?;
+    Ok(n1 + n2)
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

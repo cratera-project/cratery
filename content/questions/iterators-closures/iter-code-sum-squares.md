@@ -17,6 +17,13 @@ pub fn sum_even_squares(nums: &[i32]) -> i32 {
 }
 ```
 
+# Solution
+```rust
+pub fn sum_even_squares(nums: &[i32]) -> i32 {
+    nums.iter().filter(|&&x| x % 2 == 0).map(|&x| x * x).sum()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

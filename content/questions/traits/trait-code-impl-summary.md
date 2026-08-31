@@ -28,6 +28,24 @@ impl Summary for Article {
 }
 ```
 
+# Solution
+```rust
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+
+pub struct Article {
+    pub title: String,
+    pub author: String,
+}
+
+impl Summary for Article {
+    fn summarize(&self) -> String {
+        format!("{} by {}", self.title, self.author)
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

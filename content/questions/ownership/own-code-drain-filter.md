@@ -18,6 +18,13 @@ pub fn retain_below(v: &mut Vec<i32>, threshold: i32) {
 }
 ```
 
+# Solution
+```rust
+pub fn retain_below(v: &mut Vec<i32>, threshold: i32) {
+    v.retain(|&x| x < threshold);
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

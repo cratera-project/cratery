@@ -19,6 +19,15 @@ pub fn parse_and_reciprocal(s: &str) -> Result<f64, &'static str> {
 }
 ```
 
+# Solution
+```rust
+pub fn parse_and_reciprocal(s: &str) -> Result<f64, &'static str> {
+    s.parse::<f64>()
+        .map_err(|_| "invalid number")
+        .and_then(|v| if v == 0.0 { Err("zero division") } else { Ok(1.0 / v) })
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

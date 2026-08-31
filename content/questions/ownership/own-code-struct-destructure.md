@@ -23,6 +23,18 @@ pub fn consume_user(user: User) -> (String, u32) {
 }
 ```
 
+# Solution
+```rust
+pub struct User {
+    pub name: String,
+    pub age: u32,
+}
+
+pub fn consume_user(user: User) -> (String, u32) {
+    (user.name, user.age)
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

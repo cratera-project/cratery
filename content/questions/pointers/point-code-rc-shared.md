@@ -21,6 +21,17 @@ pub fn share_and_count(item: String) -> (Rc<String>, usize) {
 }
 ```
 
+# Solution
+```rust
+use std::rc::Rc;
+
+pub fn share_and_count(item: String) -> (Rc<String>, usize) {
+    let original = Rc::new(item);
+    let clone = Rc::clone(&original);
+    (clone, Rc::strong_count(&original))
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

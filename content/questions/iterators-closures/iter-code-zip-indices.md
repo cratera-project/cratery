@@ -17,6 +17,13 @@ pub fn dot_product(a: &[i32], b: &[i32]) -> i32 {
 }
 ```
 
+# Solution
+```rust
+pub fn dot_product(a: &[i32], b: &[i32]) -> i32 {
+    a.iter().zip(b.iter()).map(|(x, y)| x * y).sum()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

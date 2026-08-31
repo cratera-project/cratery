@@ -23,6 +23,19 @@ macro_rules! calc_min {
 }
 ```
 
+# Solution
+```rust
+#[macro_export]
+macro_rules! calc_min {
+    ($a:expr, $b:expr) => {
+        if $a < $b { $a } else { $b }
+    };
+    ($a:expr, $b:expr, $c:expr) => {
+        calc_min!(calc_min!($a, $b), $c)
+    };
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

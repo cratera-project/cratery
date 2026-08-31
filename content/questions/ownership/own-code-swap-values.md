@@ -18,6 +18,13 @@ pub fn swap_strings(a: &mut String, b: &mut String) {
 }
 ```
 
+# Solution
+```rust
+pub fn swap_strings(a: &mut String, b: &mut String) {
+    std::mem::swap(a, b);
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

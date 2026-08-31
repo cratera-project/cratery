@@ -32,6 +32,28 @@ impl Node {
 }
 ```
 
+# Solution
+```rust
+pub struct Node {
+    pub val: i32,
+    pub next: Option<Box<Node>>,
+}
+
+impl Node {
+    pub fn new(val: i32) -> Self {
+        Self { val, next: None }
+    }
+
+    pub fn push(&mut self, val: i32) {
+        let mut curr = self;
+        while let Some(ref mut next) = curr.next {
+            curr = next;
+        }
+        curr.next = Some(Box::new(Node::new(val)));
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

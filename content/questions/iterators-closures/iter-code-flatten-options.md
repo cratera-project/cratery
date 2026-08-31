@@ -17,6 +17,13 @@ pub fn flatten_options(opts: Vec<Option<i32>>) -> Vec<i32> {
 }
 ```
 
+# Solution
+```rust
+pub fn flatten_options(opts: Vec<Option<i32>>) -> Vec<i32> {
+    opts.into_iter().flatten().collect()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

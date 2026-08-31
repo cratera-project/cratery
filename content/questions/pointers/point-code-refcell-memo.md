@@ -33,6 +33,29 @@ impl SharedCounter {
 }
 ```
 
+# Solution
+```rust
+use std::cell::RefCell;
+
+pub struct SharedCounter {
+    count: RefCell<u64>,
+}
+
+impl SharedCounter {
+    pub fn new(initial: u64) -> Self {
+        Self { count: RefCell::new(initial) }
+    }
+
+    pub fn increment(&self) {
+        *self.count.borrow_mut() += 1;
+    }
+
+    pub fn get(&self) -> u64 {
+        *self.count.borrow()
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

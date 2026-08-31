@@ -30,6 +30,26 @@ impl Default for ServerConfig {
 }
 ```
 
+# Solution
+```rust
+#[derive(Debug, PartialEq)]
+pub struct ServerConfig {
+    pub host: String,
+    pub port: u16,
+    pub max_conns: usize,
+}
+
+impl Default for ServerConfig {
+    fn default() -> Self {
+        Self {
+            host: String::from("127.0.0.1"),
+            port: 8080,
+            max_conns: 1000,
+        }
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

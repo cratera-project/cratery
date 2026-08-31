@@ -23,6 +23,19 @@ pub fn normalize_str<'a>(s: &'a str) -> Cow<'a, str> {
 }
 ```
 
+# Solution
+```rust
+use std::borrow::Cow;
+
+pub fn normalize_str<'a>(s: &'a str) -> Cow<'a, str> {
+    if s.contains(' ') {
+        Cow::Owned(s.to_lowercase())
+    } else {
+        Cow::Borrowed(s)
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

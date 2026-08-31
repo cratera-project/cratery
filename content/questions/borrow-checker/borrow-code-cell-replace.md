@@ -21,6 +21,17 @@ pub fn add_to_cell(cell: &Cell<i32>, val: i32) -> i32 {
 }
 ```
 
+# Solution
+```rust
+use std::cell::Cell;
+
+pub fn add_to_cell(cell: &Cell<i32>, val: i32) -> i32 {
+    let new_val = cell.get() + val;
+    cell.set(new_val);
+    new_val
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

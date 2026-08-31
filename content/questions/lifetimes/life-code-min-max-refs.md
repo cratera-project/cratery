@@ -22,6 +22,18 @@ pub fn min_max_refs<'a>(slice: &'a [i32]) -> Option<(&'a i32, &'a i32)> {
 }
 ```
 
+# Solution
+```rust
+pub fn min_max_refs<'a>(slice: &'a [i32]) -> Option<(&'a i32, &'a i32)> {
+    if slice.is_empty() {
+        return None;
+    }
+    let min = slice.iter().min()?;
+    let max = slice.iter().max()?;
+    Some((min, max))
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

@@ -20,6 +20,16 @@ pub fn spawn_sum_reader(data: Arc<Vec<i32>>) -> thread::JoinHandle<i32> {
 }
 ```
 
+# Solution
+```rust
+use std::sync::Arc;
+use std::thread;
+
+pub fn spawn_sum_reader(data: Arc<Vec<i32>>) -> thread::JoinHandle<i32> {
+    thread::spawn(move || data.iter().sum())
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

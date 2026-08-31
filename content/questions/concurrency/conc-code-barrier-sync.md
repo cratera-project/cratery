@@ -31,6 +31,27 @@ pub fn sync_workers(n_workers: usize) -> Vec<usize> {
 }
 ```
 
+# Solution
+```rust
+use std::sync::{Arc, Barrier};
+use std::thread;
+
+pub fn sync_workers(n_workers: usize) -> Vec<usize> {
+    let barrier = Arc::new(Barrier::new(n_workers));
+    let mut handles = Vec::new();
+
+    for i in 0..n_workers {
+        let b = Arc::clone(&barrier);
+        handles.push(thread::spawn(move || {
+            b.wait();
+            i
+        }));
+    }
+
+    handles.into_iter().map(|h| h.join().unwrap()).collect()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

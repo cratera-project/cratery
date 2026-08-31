@@ -17,6 +17,13 @@ pub fn require_present<T>(opt: Option<T>, err_msg: &'static str) -> Result<T, &'
 }
 ```
 
+# Solution
+```rust
+pub fn require_present<T>(opt: Option<T>, err_msg: &'static str) -> Result<T, &'static str> {
+    opt.ok_or(err_msg)
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

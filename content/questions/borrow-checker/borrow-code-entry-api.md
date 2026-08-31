@@ -19,6 +19,15 @@ pub fn record_word(map: &mut HashMap<String, usize>, word: &str) {
 }
 ```
 
+# Solution
+```rust
+use std::collections::HashMap;
+
+pub fn record_word(map: &mut HashMap<String, usize>, word: &str) {
+    *map.entry(word.to_string()).or_insert(0) += 1;
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

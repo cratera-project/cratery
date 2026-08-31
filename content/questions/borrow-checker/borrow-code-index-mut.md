@@ -22,6 +22,18 @@ pub fn double_first_even(slice: &mut [i32]) -> bool {
 }
 ```
 
+# Solution
+```rust
+pub fn double_first_even(slice: &mut [i32]) -> bool {
+    if let Some(first) = slice.iter_mut().find(|x| **x % 2 == 0) {
+        *first *= 2;
+        true
+    } else {
+        false
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

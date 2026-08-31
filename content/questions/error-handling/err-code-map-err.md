@@ -17,6 +17,13 @@ pub fn parse_id(s: &str) -> Result<u32, String> {
 }
 ```
 
+# Solution
+```rust
+pub fn parse_id(s: &str) -> Result<u32, String> {
+    s.parse::<u32>().map_err(|e| format!("invalid id: {}", e))
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

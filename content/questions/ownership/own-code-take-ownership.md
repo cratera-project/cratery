@@ -18,6 +18,14 @@ pub fn append_suffix(mut s: String, suffix: &str) -> String {
 }
 ```
 
+# Solution
+```rust
+pub fn append_suffix(mut s: String, suffix: &str) -> String {
+    s.push_str(suffix);
+    s
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

@@ -530,12 +530,32 @@ export function QuestionPage() {
               kind={gradeKind}
             />
 
-            {showCodingSolution && q.explanation && (
-              <div className="mt-4 border-3 border-gold bg-gold/10 p-4 shadow-pixel space-y-2">
+            {showCodingSolution && (
+              <div className="mt-4 border-3 border-gold bg-gold/10 p-4 shadow-pixel space-y-3">
                 <div className="font-pixel text-[10px] uppercase text-gold">Official Solution & Explanation</div>
-                <div className="text-ink">
-                  <MarkdownBody>{q.explanation}</MarkdownBody>
-                </div>
+                {q.solutionCode ? (
+                  <div>
+                    <div className="mb-1 font-pixel text-[10px] uppercase text-ink-dim">Solution Code</div>
+                    <CodeBlock code={q.solutionCode} />
+                    <div className="mt-2 flex gap-2">
+                      <PixelButton
+                        size="sm"
+                        variant="secondary"
+                        onClick={() => {
+                          setCode(q.solutionCode!)
+                          setToast('Solution loaded into editor')
+                        }}
+                      >
+                        Load into editor
+                      </PixelButton>
+                    </div>
+                  </div>
+                ) : null}
+                {q.explanation ? (
+                  <div className="text-ink">
+                    <MarkdownBody>{q.explanation}</MarkdownBody>
+                  </div>
+                ) : null}
               </div>
             )}
 

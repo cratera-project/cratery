@@ -19,6 +19,15 @@ pub fn apply_each<F: FnMut(&mut i32)>(slice: &mut [i32], mut f: F) {
 }
 ```
 
+# Solution
+```rust
+pub fn apply_each<F: FnMut(&mut i32)>(slice: &mut [i32], mut f: F) {
+    for x in slice.iter_mut() {
+        f(x);
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

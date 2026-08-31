@@ -33,6 +33,29 @@ impl AtomicFlag {
 }
 ```
 
+# Solution
+```rust
+use std::sync::atomic::{AtomicBool, Ordering};
+
+pub struct AtomicFlag {
+    flag: AtomicBool,
+}
+
+impl AtomicFlag {
+    pub fn new() -> Self {
+        Self { flag: AtomicBool::new(false) }
+    }
+
+    pub fn set(&self) {
+        self.flag.store(true, Ordering::SeqCst);
+    }
+
+    pub fn is_set(&self) -> bool {
+        self.flag.load(Ordering::SeqCst)
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

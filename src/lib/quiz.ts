@@ -26,6 +26,7 @@ export type Question = {
   kind?: QuestionKind
   code?: string
   testHarness?: string
+  solutionCode?: string
   language: 'rust'
   options?: QuizOption[]
   correctIndex?: number

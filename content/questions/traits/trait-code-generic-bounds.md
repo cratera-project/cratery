@@ -17,6 +17,13 @@ pub fn greater<T: Ord>(a: T, b: T) -> T {
 }
 ```
 
+# Solution
+```rust
+pub fn greater<T: Ord>(a: T, b: T) -> T {
+    if a > b { a } else { b }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

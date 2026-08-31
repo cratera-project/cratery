@@ -17,6 +17,13 @@ pub fn triplet_maxima(nums: &[i32]) -> Vec<i32> {
 }
 ```
 
+# Solution
+```rust
+pub fn triplet_maxima(nums: &[i32]) -> Vec<i32> {
+    nums.windows(3).map(|w| *w.iter().max().unwrap()).collect()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

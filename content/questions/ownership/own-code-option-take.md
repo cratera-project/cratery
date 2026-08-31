@@ -18,6 +18,13 @@ pub fn extract_val(opt: &mut Option<String>) -> Option<String> {
 }
 ```
 
+# Solution
+```rust
+pub fn extract_val(opt: &mut Option<String>) -> Option<String> {
+    opt.take()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

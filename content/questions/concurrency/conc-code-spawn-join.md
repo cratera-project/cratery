@@ -21,6 +21,17 @@ pub fn parallel_sum(a: i32, b: i32) -> i32 {
 }
 ```
 
+# Solution
+```rust
+use std::thread;
+
+pub fn parallel_sum(a: i32, b: i32) -> i32 {
+    let h1 = thread::spawn(move || a * 2);
+    let h2 = thread::spawn(move || b * 3);
+    h1.join().unwrap() + h2.join().unwrap()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

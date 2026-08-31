@@ -29,6 +29,25 @@ pub fn safe_sqrt_div(val: f64, divisor: f64) -> Result<f64, MathError> {
 }
 ```
 
+# Solution
+```rust
+#[derive(Debug, PartialEq)]
+pub enum MathError {
+    DivisionByZero,
+    NegativeSquareRoot,
+}
+
+pub fn safe_sqrt_div(val: f64, divisor: f64) -> Result<f64, MathError> {
+    if divisor == 0.0 {
+        return Err(MathError::DivisionByZero);
+    }
+    if val < 0.0 {
+        return Err(MathError::NegativeSquareRoot);
+    }
+    Ok(val.sqrt() / divisor)
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

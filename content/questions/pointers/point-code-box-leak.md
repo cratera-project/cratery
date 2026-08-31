@@ -17,6 +17,13 @@ pub fn make_static_str(s: String) -> &'static str {
 }
 ```
 
+# Solution
+```rust
+pub fn make_static_str(s: String) -> &'static str {
+    Box::leak(s.into_boxed_str())
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

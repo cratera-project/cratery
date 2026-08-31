@@ -19,6 +19,15 @@ pub fn increment_counter(cnt: &mut u64, times: usize) {
 }
 ```
 
+# Solution
+```rust
+pub fn increment_counter(cnt: &mut u64, times: usize) {
+    for _ in 0..times {
+        *cnt += 1;
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

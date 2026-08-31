@@ -25,6 +25,21 @@ impl<T> Deref for Wrapped<T> {
 }
 ```
 
+# Solution
+```rust
+use std::ops::Deref;
+
+pub struct Wrapped<T>(pub T);
+
+impl<T> Deref for Wrapped<T> {
+    type Target = T;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

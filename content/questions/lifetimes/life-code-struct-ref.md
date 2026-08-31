@@ -27,6 +27,23 @@ impl<'a> TextView<'a> {
 }
 ```
 
+# Solution
+```rust
+pub struct TextView<'a> {
+    pub content: &'a str,
+}
+
+impl<'a> TextView<'a> {
+    pub fn new(content: &'a str) -> Self {
+        Self { content }
+    }
+
+    pub fn first_char(&self) -> Option<char> {
+        self.content.chars().next()
+    }
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

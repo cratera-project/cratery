@@ -23,6 +23,19 @@ pub fn update_player(p: &mut Player, points: u32, suffix: &str) {
 }
 ```
 
+# Solution
+```rust
+pub struct Player {
+    pub score: u32,
+    pub name: String,
+}
+
+pub fn update_player(p: &mut Player, points: u32, suffix: &str) {
+    p.score += points;
+    p.name.push_str(suffix);
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}

@@ -21,6 +21,17 @@ pub fn read_shared_map(map: &RwLock<HashMap<String, i32>>, key: &str) -> Option<
 }
 ```
 
+# Solution
+```rust
+use std::collections::HashMap;
+use std::sync::RwLock;
+
+pub fn read_shared_map(map: &RwLock<HashMap<String, i32>>, key: &str) -> Option<i32> {
+    let reader = map.read().unwrap();
+    reader.get(key).copied()
+}
+```
+
 # Test Harness
 ```rust
 {{SOLUTION}}
