@@ -71,6 +71,7 @@ export function QuestionPage() {
   const [reportOpen, setReportOpen] = useState(false)
   const [reportSent, setReportSent] = useState(false)
   const [showHint, setShowHint] = useState(false)
+  const [showCodingSolution, setShowCodingSolution] = useState(false)
   const [showKbTip, setShowKbTip] = useState(() => {
     try {
       return localStorage.getItem(KB_TIP_KEY) !== '1'
@@ -173,6 +174,7 @@ export function QuestionPage() {
     setLocalSubmitted(initialSubmitted || isSolvedLocally || Boolean(record?.isCorrect))
     setSubmitting(false)
     setShowHint(false)
+    setShowCodingSolution(false)
     setSubmitError(null)
     setTurnstileFailed(false)
     if (q?.kind === 'coding') {
@@ -247,6 +249,9 @@ export function QuestionPage() {
     if (!qid) return
     setReportOpen(false)
     setReportSent(false)
+    setShowHint(false)
+    setShowCodingSolution(false)
+    setToast(null)
     let cancelled = false
     getQuestStats(qid).then((live) => {
       if (!cancelled) setStats(live)
@@ -260,8 +265,6 @@ export function QuestionPage() {
   const next = idx >= 0 && idx < qs.length - 1 ? qs[idx + 1] : null
   const backTo = returnPath || `/category/${slug}`
   const backLabel = fromPractice ? 'Practice 5' : 'Topic'
-
-  const [showCodingSolution, setShowCodingSolution] = useState(false)
 
   const submit = async () => {
     if (!q || selectedDisplay === null || localSubmitted || submitting) return

@@ -37,6 +37,18 @@ export function TutorialQuestRunner({ quest }: Props) {
 
   
   useEffect(() => {
+    setShowSolution(false)
+    setShowHint(false)
+    setResult(null)
+    setToast(null)
+    try {
+      setCode(localStorage.getItem(TUT_DRAFT_PREFIX + quest.id) || quest.starterCode)
+    } catch {
+      setCode(quest.starterCode)
+    }
+  }, [quest.id, quest.starterCode])
+
+  useEffect(() => {
     try {
       localStorage.setItem(TUT_DRAFT_PREFIX + quest.id, code)
     } catch {
