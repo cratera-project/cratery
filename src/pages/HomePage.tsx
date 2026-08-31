@@ -175,12 +175,12 @@ export function HomePage() {
 
         return (
           <PixelPanel className="!border-rust-orange/60 bg-gradient-to-r from-rust-orange/10 via-night-panel to-night-panel !p-3.5 sm:!p-4 shadow-pixel">
-            <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-3">
+            <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between min-w-0">
+              <div className="flex items-center gap-3 min-w-0 flex-1">
                 <InventorySlot className="h-11 w-11 shrink-0 border-rust-orange/50 bg-rust-orange/20">
                   <span className="text-xl">⭐</span>
                 </InventorySlot>
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-2">
                     <span className="font-pixel text-[9px] uppercase tracking-wider text-rust-orange">
                       Daily · {formattedDate}
@@ -192,26 +192,26 @@ export function HomePage() {
                   <div className="mt-0.5 truncate font-pixel text-xs uppercase text-ink">
                     {daily.title}
                   </div>
-                  <div className="font-code text-xs text-ink-dim">
+                  <div className="truncate font-code text-xs text-ink-dim">
                     {dailyCat ? `${dailyCat.icon} ${dailyCat.name}` : 'Rust Challenge'} · Syncs with Discord <code className="text-rust-orange">/daily</code>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 shrink-0">
+              <div className="flex items-center gap-2 shrink-0 sm:self-center">
                 {isDailySolved ? (
                   <div className="flex items-center gap-2.5">
                     <span className="font-pixel text-[10px] uppercase text-emerald">
                       ✓ Solved Today
                     </span>
-                    <Link to={getDailyQuestionHref()}>
+                    <Link to={getDailyQuestionHref()} className="shrink-0">
                       <PixelButton size="sm" variant="secondary">
                         Review
                       </PixelButton>
                     </Link>
                   </div>
                 ) : (
-                  <Link to={getDailyQuestionHref()}>
+                  <Link to={getDailyQuestionHref()} className="shrink-0">
                     <PixelButton size="sm" variant="primary">
                       Solve Daily (+20 XP) →
                     </PixelButton>
@@ -225,12 +225,12 @@ export function HomePage() {
 
       {/* Cratera Open Source Engine Announcement */}
       <PixelPanel className="!border-emerald/60 bg-gradient-to-r from-emerald/10 via-night-panel to-night-panel !p-3.5 sm:!p-4 shadow-pixel">
-        <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-3">
+        <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between min-w-0">
+          <div className="flex items-center gap-3 min-w-0 flex-1">
             <InventorySlot className="h-11 w-11 shrink-0 border-emerald/50 bg-emerald/20">
               <span className="text-xl">🦀</span>
             </InventorySlot>
-            <div className="min-w-0">
+            <div className="min-w-0 flex-1">
               <div className="flex items-center gap-2">
                 <span className="font-pixel text-[9px] uppercase tracking-wider text-emerald">
                   Engine Update · Open Source
@@ -239,20 +239,21 @@ export function HomePage() {
                   Cratera is Live
                 </span>
               </div>
-              <div className="mt-0.5 font-pixel text-xs uppercase text-ink">
+              <div className="mt-0.5 truncate font-pixel text-xs uppercase text-ink">
                 Cratera microVM Code Execution Engine is Now Open Source
               </div>
-              <div className="font-code text-xs text-ink-dim">
+              <div className="truncate font-code text-xs text-ink-dim">
                 Hardware-isolated KVM sandbox built in Rust · 30 languages · Test or self-host it today
               </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2 shrink-0 sm:self-center">
             <a
               href="https://cratera.org"
               target="_blank"
               rel="noopener noreferrer"
+              className="shrink-0"
             >
               <PixelButton size="sm" variant="secondary">
                 Live Demo ↗
@@ -262,6 +263,7 @@ export function HomePage() {
               href="https://github.com/cratera-project/cratera"
               target="_blank"
               rel="noopener noreferrer"
+              className="shrink-0"
             >
               <PixelButton size="sm" className="!bg-emerald hover:!bg-emerald/80 !text-black !border-black">
                 GitHub Repo →
