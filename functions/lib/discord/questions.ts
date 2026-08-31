@@ -1,12 +1,14 @@
-import { ownershipQuestions } from '../../../src/data/questions/ownership'
-import { lifetimesQuestions } from '../../../src/data/questions/lifetimes'
-import { traitsQuestions } from '../../../src/data/questions/traits'
-import { concurrencyQuestions } from '../../../src/data/questions/concurrency'
-import { pointersQuestions } from '../../../src/data/questions/pointers'
-import { macrosQuestions } from '../../../src/data/questions/macros'
-import { errorHandlingQuestions } from '../../../src/data/questions/error-handling'
-import { iteratorsClosuresQuestions } from '../../../src/data/questions/iterators-closures'
-import { borrowCheckerQuestions } from '../../../src/data/questions/borrow-checker'
+import {
+  ownershipQuestions,
+  lifetimesQuestions,
+  traitsQuestions,
+  concurrencyQuestions,
+  pointersQuestions,
+  macrosQuestions,
+  errorHandlingQuestions,
+  iteratorsClosuresQuestions,
+  borrowCheckerQuestions,
+} from '../../../src/data/questions'
 import { interactiveQuests } from '../../../src/data/interactiveQuests'
 import { categories } from '../../../src/data/categories'
 import { getDailyQuestion } from '../../../src/lib/daily'

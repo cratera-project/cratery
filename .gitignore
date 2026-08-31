@@ -36,3 +36,4 @@ dist-ssr
 # Cloudflare Wrangler local/dev state
 .wrangler/
 target/
+src/data/generated/

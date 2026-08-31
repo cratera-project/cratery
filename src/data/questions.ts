@@ -1,14 +1,25 @@
 import type { Question } from '../lib/quiz'
+import {
+  ownershipMarkdownQuestions,
+  borrowCheckerMarkdownQuestions,
+  lifetimesMarkdownQuestions,
+  traitsMarkdownQuestions,
+  concurrencyMarkdownQuestions,
+  pointersMarkdownQuestions,
+  macrosMarkdownQuestions,
+  errorHandlingMarkdownQuestions,
+  iteratorsClosuresMarkdownQuestions,
+} from './generated'
 
-import { ownershipQuestions } from './questions/ownership'
-import { lifetimesQuestions } from './questions/lifetimes'
-import { traitsQuestions } from './questions/traits'
-import { concurrencyQuestions } from './questions/concurrency'
-import { pointersQuestions } from './questions/pointers'
-import { macrosQuestions } from './questions/macros'
-import { errorHandlingQuestions } from './questions/error-handling'
-import { iteratorsClosuresQuestions } from './questions/iterators-closures'
-import { borrowCheckerQuestions } from './questions/borrow-checker'
+export const ownershipQuestions = ownershipMarkdownQuestions
+export const borrowCheckerQuestions = borrowCheckerMarkdownQuestions
+export const lifetimesQuestions = lifetimesMarkdownQuestions
+export const traitsQuestions = traitsMarkdownQuestions
+export const concurrencyQuestions = concurrencyMarkdownQuestions
+export const pointersQuestions = pointersMarkdownQuestions
+export const macrosQuestions = macrosMarkdownQuestions
+export const errorHandlingQuestions = errorHandlingMarkdownQuestions
+export const iteratorsClosuresQuestions = iteratorsClosuresMarkdownQuestions
 
 export const questions: Question[] = [
   ...ownershipQuestions,

@@ -12,7 +12,7 @@
  */
 
 import { execFileSync } from 'child_process'
-import { existsSync, readFileSync, writeFileSync } from 'fs'
+import { existsSync, readFileSync, readdirSync, writeFileSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -113,18 +113,13 @@ function getFileLastMod(relPath, fallbackDate) {
 }
 
 function extractQuestionIds(categorySlug) {
-  const filePath = resolve(rootDir, 'src', 'data', 'questions', `${categorySlug}.ts`)
+  const catDir = resolve(rootDir, 'content', 'questions', categorySlug)
   try {
-    const content = readFileSync(filePath, 'utf-8')
-    const ids = []
-    const regex = /id:\s*['"]([^'"]+)['"]/g
-    let match
-    while ((match = regex.exec(content)) !== null) {
-      ids.push(match[1])
-    }
-    return ids
+    if (!existsSync(catDir)) return []
+    return readdirSync(catDir)
+      .filter((f) => f.endsWith('.md'))
+      .map((f) => f.replace(/\.md$/, ''))
   } catch {
-    console.warn(`Warning: Could not read ${filePath}`)
     return []
   }
 }
@@ -187,7 +182,7 @@ function buildSitemap() {
 
   // Category and Question pages
   for (const slug of categorySlugs) {
-    const catFile = `src/data/questions/${slug}.ts`
+    const catFile = `src/data/generated/${slug}.ts`
     const locCat = `${SITE_URL}/category/${slug}`
     const previousCatDate = existingLastmods.get(locCat) || TODAY
     const catLastMod = getFileLastMod(catFile, previousCatDate)
