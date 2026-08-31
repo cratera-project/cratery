@@ -7,13 +7,13 @@
     "dev": "vite",
     "dev:full": "npm run build && npm run preview",
     "build": "node scripts/generate-sitemap.js && npm run generate:answers && npm run check:questions && tsc -b && vite build",
-    "sitemap": "node scripts/generate-sitemap.js",
+    "sitemap": "node scripts/generate-sitemap.js --force",
     "generate:answers": "node scripts/generate-builtin-answers.mjs",
     "check:questions": "node scripts/generate-question-catalog.mjs && node scripts/check-questions.mjs && node scripts/check-contest-ids.mjs",
     "backfill:customerio": "npx tsx scripts/backfill_customerio.ts",
     "lint": "eslint . && npm run check:questions",
     "preview": "wrangler dev",
-    "deploy": "npm run build && wrangler deploy",
+    "deploy": "GENERATE_SITEMAP=1 npm run build && wrangler deploy",
     "deploy:discord": "node scripts/deploy-discord-commands.mjs"
   },
   "dependencies": {

@@ -35,6 +35,9 @@ MAILTRAP_SENDER_NAME = "Cratery"
 #   DISCORD_PUBLIC_KEY       Discord Application Public Key (for Ed25519 webhook verification)
 #   DISCORD_TOKEN            Discord Bot Token (for command deployment)
 #   DISCORD_CLIENT_ID        Discord Application Client ID
+#   LIMIT_USER_EXECUTION_HOURLY  (Override user executions per hour, default: 250)
+#   LIMIT_GUEST_RUN_HOURLY       (Override guest runs per hour, default: 100)
+#   LIMIT_DEV_DAILY              (Override developer API daily quota, default: 250)
 #
 # Frontend (.env.local):
 #   VITE_SUPABASE_URL

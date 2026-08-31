@@ -3,14 +3,7 @@ import { getSessionUser } from './session'
 import { createSupabaseClient, type Env } from './supabase'
 import { consumeRateLimit, getClientIP } from './rateLimit'
 import { trackCodeExecution } from './executionStats'
-
-const DAILY_LIMIT = 250
-const BURST_PER_MIN = 30
-const IP_BURST_PER_MIN = 60
-const IP_DAILY_LIMIT = 500
-
-const MAX_CODE_BYTES = 64 * 1024
-const MAX_HARNESS_BYTES = 256 * 1024
+import { getDeveloperLimits } from './limits'
 
 async function sha256Hex(text: string): Promise<string> {
     const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text))
@@ -108,9 +101,10 @@ export async function handleDeveloperExecute(request: Request, env: Env): Promis
     }
 
     
+    const devLimits = getDeveloperLimits(env)
     const ip = getClientIP(request)
-    const burstLimit = BURST_PER_MIN
-    const ipBurstLimit = IP_BURST_PER_MIN
+    const burstLimit = devLimits.burstPerMin
+    const ipBurstLimit = devLimits.ipBurstPerMin
     const [underBurst, underIpBurst] = await Promise.all([
         consumeRateLimit(env, `dev:burst:${auth.userId}`, burstLimit, 60, { failOpen: false }),
         consumeRateLimit(env, `dev:burst:ip:${ip}`, ipBurstLimit, 60, { failOpen: false }),
@@ -133,16 +127,16 @@ export async function handleDeveloperExecute(request: Request, env: Env): Promis
     const underIpDaily = await consumeRateLimit(
         env,
         `dev:daily:ip:${ip}:${today}`,
-        IP_DAILY_LIMIT,
+        devLimits.ipDailyLimit,
         86400,
         { failOpen: false }
     )
     if (!underIpDaily) {
         return json(
             {
-                error: `Device/IP daily limit reached (${IP_DAILY_LIMIT} req/day across accounts). Resets at 00:00 UTC.`,
+                error: `Device/IP daily limit reached (${devLimits.ipDailyLimit} req/day across accounts). Resets at 00:00 UTC.`,
                 quota: {
-                    limit: IP_DAILY_LIMIT,
+                    limit: devLimits.ipDailyLimit,
                     remaining: 0,
                     resetsAt: getNextMidnightUtc(),
                 },
@@ -152,7 +146,7 @@ export async function handleDeveloperExecute(request: Request, env: Env): Promis
     }
 
     
-    const limit = DAILY_LIMIT
+    const limit = devLimits.dailyQuota
     const supabase = createSupabaseClient(env)
 
     let usedToday = 0
@@ -202,11 +196,11 @@ export async function handleDeveloperExecute(request: Request, env: Env): Promis
     if (!code.trim()) {
         return json({ error: 'Code cannot be empty' }, 400)
     }
-    if (new TextEncoder().encode(code).length > MAX_CODE_BYTES) {
-        return json({ error: 'Code exceeds maximum size of 64 KB' }, 400)
+    if (new TextEncoder().encode(code).length > devLimits.maxCodeBytes) {
+        return json({ error: `Code exceeds maximum size of ${Math.round(devLimits.maxCodeBytes / 1024)} KB` }, 400)
     }
-    if (new TextEncoder().encode(harness).length > MAX_HARNESS_BYTES) {
-        return json({ error: 'Harness exceeds maximum size of 256 KB' }, 400)
+    if (new TextEncoder().encode(harness).length > devLimits.maxHarnessBytes) {
+        return json({ error: `Harness exceeds maximum size of ${Math.round(devLimits.maxHarnessBytes / 1024)} KB` }, 400)
     }
     if (harness.trim() && !harness.includes('{{SOLUTION}}')) {
         return json({ error: 'Harness must contain {{SOLUTION}} template marker' }, 400)
@@ -342,7 +336,8 @@ export async function handleGetDeveloperStatus(request: Request, env: Env): Prom
         return json({ error: 'Authentication required' }, 401)
     }
 
-    const limit = DAILY_LIMIT
+    const devLimits = getDeveloperLimits(env)
+    const limit = devLimits.dailyQuota
     const today = getTodayUtcString()
     const supabase = createSupabaseClient(env)
 
@@ -382,7 +377,7 @@ export async function handleGetDeveloperStatus(request: Request, env: Env): Prom
                 used: usedToday,
                 remaining: Math.max(0, limit - usedToday),
                 resetsAt: getNextMidnightUtc(),
-                rateLimitPerMin: BURST_PER_MIN,
+                rateLimitPerMin: devLimits.burstPerMin,
                 totalRunMs,
             },
         },

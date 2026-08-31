@@ -22,6 +22,22 @@ const outputPath = resolve(rootDir, 'public', 'sitemap.xml')
 const SITE_URL = 'https://cratery.cratera.org'
 const TODAY = new Date().toISOString().split('T')[0]
 
+const isCI = Boolean(
+  process.env.CI ||
+  process.env.CF_PAGES ||
+  process.env.GITHUB_ACTIONS
+)
+const isProd = process.env.NODE_ENV === 'production'
+const isForced =
+  process.argv.includes('--force') ||
+  process.env.GENERATE_SITEMAP === '1' ||
+  process.env.GENERATE_SITEMAP === 'true'
+
+if (!isCI && !isProd && !isForced) {
+  console.log('ℹ Skipping sitemap generation for local build (run "npm run sitemap" or set GENERATE_SITEMAP=1 to run)')
+  process.exit(0)
+}
+
 const staticPages = [
   { path: '/', file: 'src/pages/HomePage.tsx', priority: '1.0', changefreq: 'weekly' },
   { path: '/learn', file: 'src/pages/TutorialPage.tsx', priority: '0.9', changefreq: 'weekly' },

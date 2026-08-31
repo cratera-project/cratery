@@ -1,7 +1,4 @@
-
-
-export const EXECUTION_LIMITS = {
-  
+export const DEFAULT_EXECUTION_LIMITS = {
   developerApi: {
     name: 'Cratera Developer API',
     authType: 'API Key (cr_live_...) or Session Bearer Token',
@@ -13,23 +10,28 @@ export const EXECUTION_LIMITS = {
       ipDailyShield: 500,
       maxExecutionMs: 10_000,
       maxCodeBytes: 64 * 1024,
+      maxHarnessBytes: 256 * 1024,
     },
   },
 
-  
-  
   websiteExecution: {
     name: 'Cratery Playground & Contest Judge',
     engine: 'Hardware-isolated Linux Firecracker microVM',
     guest: {
       runsPerHour: 100,
-      submitsPerHour: 0,
+      submitsPerHour: 100,
+      burstPerMin: 15,
       windowSeconds: 3600,
     },
     registeredUser: {
-      dailyQuota: 250,
-      burstPerMin: 20,
-      windowSeconds: 86400,
+      hourlyQuota: 250,
+      burstRunPerMin: 20,
+      burstSubmitPerMin: 15,
+      windowSeconds: 3600,
+    },
+    code: {
+      maxCodeBytes: 64 * 1024,
+      maxHarnessBytes: 256 * 1024,
     },
     clientCache: {
       enabled: true,
@@ -38,3 +40,5 @@ export const EXECUTION_LIMITS = {
     },
   },
 } as const
+
+export const EXECUTION_LIMITS = DEFAULT_EXECUTION_LIMITS

@@ -66,7 +66,25 @@ CF_ACCESS_CLIENT_SECRET=your-cf-access-client-secret
 # DISCORD_CLIENT_ID=your-discord-client-id
 
 # ------------------------------------------------------------------------------
-# 6. LOCAL DEVELOPMENT & DEBUG FLAGS
+# 6. EXECUTION & RATE LIMITS (Optional - defaults apply if not set)
+# ------------------------------------------------------------------------------
+# Website judge execution limits (defaults: 100/hr for guest, 250/hr for user)
+# LIMIT_GUEST_RUN_HOURLY=100
+# LIMIT_GUEST_SUBMIT_HOURLY=100
+# LIMIT_GUEST_BURST_PER_MIN=15
+# LIMIT_USER_EXECUTION_HOURLY=250
+# LIMIT_USER_BURST_RUN=20
+# LIMIT_USER_BURST_SUBMIT=15
+# MAX_CODE_BYTES=65536
+# MAX_HARNESS_BYTES=262144
+
+# Developer API limits (defaults: 250/day, 30 burst/min, 500 IP daily)
+# LIMIT_DEV_DAILY=250
+# LIMIT_DEV_BURST_PER_MIN=30
+# LIMIT_DEV_IP_DAILY=500
+
+# ------------------------------------------------------------------------------
+# 7. LOCAL DEVELOPMENT & DEBUG FLAGS
 # ------------------------------------------------------------------------------
 # Set DISABLE_RATE_LIMITS=1 to disable all hourly and burst rate limits in local testing
 DISABLE_RATE_LIMITS=1

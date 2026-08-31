@@ -7,13 +7,7 @@ import { loadTotalXp } from './xp'
 import { rankForXp } from '../../src/lib/ranks'
 import { trackCodeExecution } from './executionStats'
 
-const MAX_CODE = 64 * 1024
-const MAX_HARNESS = 256 * 1024
-
-
-const GUEST_RUN = { ip: 100, burst: 15, window: 3600 } as const
-const RUN = { user: 180, ip: 240, burst: 20, window: 3600 } as const
-const SUBMIT = { user: 120, ip: 160, burst: 15, window: 3600 } as const
+import { getJudgeLimits } from './limits'
 
 export type GradeKind = 'run' | 'submit'
 
@@ -133,11 +127,13 @@ async function handleGrade(
     if (!code.trim() || !harness.trim()) {
         return json({ error: 'code and harness are required' }, 400)
     }
-    if (code.length > MAX_CODE) {
-        return json({ error: 'Code too large (max 64KB)' }, 400)
+    const limits = getJudgeLimits(env)
+
+    if (code.length > limits.code.maxCodeBytes) {
+        return json({ error: `Code too large (max ${Math.round(limits.code.maxCodeBytes / 1024)}KB)` }, 400)
     }
-    if (harness.length > MAX_HARNESS) {
-        return json({ error: 'Harness too large (max 256KB)' }, 400)
+    if (harness.length > limits.code.maxHarnessBytes) {
+        return json({ error: `Harness too large (max ${Math.round(limits.code.maxHarnessBytes / 1024)}KB)` }, 400)
     }
     if ((harness.match(/\{\{SOLUTION\}\}/g) ?? []).length !== 1) {
         return json({ error: 'Harness must contain {{SOLUTION}} exactly once' }, 400)
@@ -199,10 +195,10 @@ async function handleGrade(
     const ip = getClientIP(request)
 
     if (!user) {
-        
+        const guestHourlyCap = kind === 'run' ? limits.guest.runsPerHour : limits.guest.submitsPerHour
         const [ipHourlyOk, ipBurstOk] = await Promise.all([
-            consumeRateLimit(env, `grade:${kind}:guest:ip:${ip}`, GUEST_RUN.ip, GUEST_RUN.window),
-            consumeRateLimit(env, `grade:burst:${kind}:guest:ip:${ip}`, GUEST_RUN.burst, 60, { failOpen: false }),
+            consumeRateLimit(env, `grade:${kind}:guest:ip:${ip}`, guestHourlyCap, limits.guest.windowSeconds),
+            consumeRateLimit(env, `grade:burst:${kind}:guest:ip:${ip}`, limits.guest.burstPerMin, 60, { failOpen: false }),
         ])
 
         if (!ipBurstOk) {
@@ -218,33 +214,37 @@ async function handleGrade(
         if (!ipHourlyOk) {
             return json(
                 {
-                    error: `Guest limit reached (${GUEST_RUN.ip} executions/hr). Sign up for free (5s) to get 250 executions/day, save progress, and earn XP!`,
+                    error: `Guest limit reached (${guestHourlyCap} executions/hr). Sign up for free (5s) to get ${limits.user.hourlyQuota} executions/hr, save progress, and earn XP!`,
                     tier: 'guest',
-                    limit: GUEST_RUN.ip,
+                    limit: guestHourlyCap,
                     requiresSignup: true,
                 },
                 429
             )
         }
     } else {
-        const today = new Date().toISOString().split('T')[0]
-        const userDailyOk = await consumeRateLimit(env, `grade:daily:user:${user.sub}:${today}`, 250, 86400)
-        if (!userDailyOk) {
+        const userHourlyOk = await consumeRateLimit(
+            env,
+            `grade:hourly:user:${user.sub}`,
+            limits.user.hourlyQuota,
+            limits.user.windowSeconds
+        )
+        if (!userHourlyOk) {
             return json(
                 {
-                    error: 'Daily execution limit reached (250 executions/day). Resets at 00:00 UTC.',
-                    limit: 250,
+                    error: `Execution limit reached (${limits.user.hourlyQuota} executions/hr). Please try again later.`,
+                    limit: limits.user.hourlyQuota,
                     rateLimited: true,
                 },
                 429
             )
         }
 
-        const cap = kind === 'run' ? RUN : SUBMIT
+        const userBurst = kind === 'run' ? limits.user.burstRunPerMin : limits.user.burstSubmitPerMin
 
         const [userBurstOk, ipBurstOk] = await Promise.all([
-            consumeRateLimit(env, `grade:burst:${kind}:user:${user.sub}`, cap.burst, 60, { failOpen: false }),
-            consumeRateLimit(env, `grade:burst:${kind}:ip:${ip}`, cap.burst * 2, 60, { failOpen: false }),
+            consumeRateLimit(env, `grade:burst:${kind}:user:${user.sub}`, userBurst, 60, { failOpen: false }),
+            consumeRateLimit(env, `grade:burst:${kind}:ip:${ip}`, userBurst * 2, 60, { failOpen: false }),
         ])
         if (!userBurstOk || !ipBurstOk) {
             return json(

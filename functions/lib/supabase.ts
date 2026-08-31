@@ -22,6 +22,33 @@ export interface Env {
     DISCORD_CLIENT_ID?: string
     DISABLE_RATE_LIMITS?: string
     LOCAL_DEV?: string
+    LIMIT_GUEST_RUN_HOURLY?: string | number
+    GUEST_RUN_HOURLY?: string | number
+    LIMIT_GUEST_SUBMIT_HOURLY?: string | number
+    GUEST_SUBMIT_HOURLY?: string | number
+    LIMIT_GUEST_BURST_PER_MIN?: string | number
+    GUEST_BURST_PER_MIN?: string | number
+    LIMIT_GUEST_WINDOW_SECONDS?: string | number
+    GUEST_WINDOW_SECONDS?: string | number
+    LIMIT_USER_EXECUTION_HOURLY?: string | number
+    LIMIT_USER_RUN_HOURLY?: string | number
+    USER_RUN_HOURLY?: string | number
+    LIMIT_USER_BURST_RUN?: string | number
+    USER_BURST_RUN?: string | number
+    LIMIT_USER_BURST_SUBMIT?: string | number
+    USER_BURST_SUBMIT?: string | number
+    LIMIT_USER_WINDOW_SECONDS?: string | number
+    USER_WINDOW_SECONDS?: string | number
+    MAX_CODE_BYTES?: string | number
+    MAX_HARNESS_BYTES?: string | number
+    LIMIT_DEV_DAILY?: string | number
+    DEV_DAILY_LIMIT?: string | number
+    LIMIT_DEV_BURST_PER_MIN?: string | number
+    DEV_BURST_PER_MIN?: string | number
+    LIMIT_DEV_IP_BURST_PER_MIN?: string | number
+    DEV_IP_BURST_PER_MIN?: string | number
+    LIMIT_DEV_IP_DAILY?: string | number
+    DEV_IP_DAILY_LIMIT?: string | number
 }
 
 export function createSupabaseClient(env: Env): SupabaseClient {
