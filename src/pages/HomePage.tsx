@@ -24,6 +24,7 @@ import {
 import { questHref } from '../lib/communityNav'
 import { getDailyQuestion, getDailyQuestionHref } from '../lib/daily'
 import { InteractiveCategoryCard } from '../components/InteractiveCategoryCard'
+import { InlineMarkdown } from '../components/ui/InlineMarkdown'
 import {
   buildWebSiteSchema,
   buildOrganizationSchema,
@@ -190,7 +191,7 @@ export function HomePage() {
                     </span>
                   </div>
                   <div className="mt-0.5 truncate font-pixel text-xs uppercase text-ink">
-                    {daily.title}
+                    <InlineMarkdown text={daily.title} variant="title" />
                   </div>
                   <div className="truncate font-code text-xs text-ink-dim">
                     {dailyCat ? `${dailyCat.icon} ${dailyCat.name}` : 'Rust Challenge'} · Syncs with Discord <code className="text-rust-orange">/daily</code>
@@ -418,7 +419,7 @@ export function HomePage() {
                 className="pixel-ui block border-4 border-black/60 bg-night-panel p-4 shadow-pixel transition-all duration-100 ease-linear hover:-translate-y-1 hover:shadow-pixel-lg"
               >
                 <div className="font-pixel text-[10px] uppercase leading-relaxed text-ink">
-                  {q.title}
+                  <InlineMarkdown text={q.title} variant="title" />
                 </div>
                 <div className="mt-2 font-code text-base text-ink-dim">
                   by <span className="text-rust-orange">{q.username}</span>

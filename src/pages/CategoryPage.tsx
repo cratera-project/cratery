@@ -14,6 +14,7 @@ import { SEO } from '../components/SEO'
 import { buildBreadcrumbSchema, buildCourseSchema } from '../components/seo-schemas'
 import { getQuestStatsBatch, type QuestAnswerStats } from '../lib/userQuests'
 import { isContestSolvedLocally } from '../lib/grade'
+import { InlineMarkdown } from '../components/ui/InlineMarkdown'
 
 type OfficialSort =
   | 'difficulty'
@@ -172,7 +173,7 @@ export function CategoryPage() {
                           )}
                         </div>
                         <h2 className={`mt-1 font-pixel text-xs uppercase break-words sm:text-sm ${isSolved ? 'text-emerald-300' : 'text-ink'}`}>
-                          {q.title}
+                          <InlineMarkdown text={q.title} variant="title" />
                         </h2>
                         {q.signature && (
                           <div className="mt-1 font-code text-xs text-ink-faint truncate">
@@ -323,7 +324,9 @@ export function CategoryPage() {
                           · {solve_count} attempts · {correct_count} solved
                         </span>
                       </div>
-                      <div className="read-body text-lg sm:text-xl text-ink break-words">{q.title}</div>
+                      <div className="read-body text-lg sm:text-xl text-ink break-words">
+                        <InlineMarkdown text={q.title} />
+                      </div>
                     </div>
                     <div
                       className={`flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center border-3 border-black/60 font-code text-lg sm:text-xl shadow-pixel ${

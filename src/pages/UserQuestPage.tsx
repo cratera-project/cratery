@@ -507,7 +507,7 @@ export function UserQuestPage() {
 
       <div className="flex flex-wrap items-start justify-between gap-3">
         <h1 className="min-w-0 font-pixel text-sm uppercase tracking-[0.02em] text-ink">
-          {quest.title}
+          <InlineMarkdown text={quest.title} variant="title" />
         </h1>
         {isCoding ? (
           <ShareBar
@@ -538,7 +538,7 @@ export function UserQuestPage() {
         <>
           <PixelPanel>
             <div className="mb-4 read-body text-2xl leading-snug whitespace-pre-wrap text-ink">
-              {quest.prompt}
+              <InlineMarkdown text={quest.prompt} />
             </div>
             {quest.hint ? (
               <div className="mb-4 space-y-3">
@@ -548,7 +548,9 @@ export function UserQuestPage() {
                 {showHint ? (
                   <div className="border-3 border-gold bg-gold/10 p-4 shadow-pixel">
                     <div className="font-pixel text-[10px] uppercase text-gold">Hint</div>
-                    <div className="mt-2 read-body text-xl leading-relaxed text-ink">{quest.hint}</div>
+                    <div className="mt-2 read-body text-xl leading-relaxed text-ink">
+                      <InlineMarkdown text={quest.hint} />
+                    </div>
                   </div>
                 ) : null}
               </div>
@@ -611,7 +613,9 @@ export function UserQuestPage() {
           {quest.code ? <CodeBlock code={quest.code} language="rust" /> : null}
 
           <PixelPanel>
-            <div className="mb-4 read-body text-2xl leading-snug text-ink">{quest.prompt}</div>
+            <div className="mb-4 read-body text-2xl leading-snug text-ink">
+              <InlineMarkdown text={quest.prompt} />
+            </div>
 
             <div className="grid gap-2.5" role="listbox" aria-label="Answer options">
               {order.map((storedIndex, displayIndex) => {
@@ -690,7 +694,9 @@ export function UserQuestPage() {
             {showHint && !submitted && quest.hint ? (
               <div className="mt-4 border-3 border-gold bg-gold/10 p-4 shadow-pixel">
                 <div className="font-pixel text-[10px] uppercase text-gold">Hint</div>
-                <div className="mt-2 read-body text-xl leading-relaxed text-ink">{quest.hint}</div>
+                <div className="mt-2 read-body text-xl leading-relaxed text-ink">
+                  <InlineMarkdown text={quest.hint} />
+                </div>
               </div>
             ) : null}
           </PixelPanel>

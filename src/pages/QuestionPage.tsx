@@ -435,7 +435,7 @@ export function QuestionPage() {
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h1 className="min-w-0 font-pixel text-sm uppercase tracking-[0.02em] text-ink">
-            {q.title}
+            <InlineMarkdown text={q.title} variant="title" />
           </h1>
           <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
             {isDailyQuestion(q.id) && (
@@ -479,8 +479,8 @@ export function QuestionPage() {
       {isCoding ? (
         <>
           <PixelPanel>
-            <div className="mb-4 read-body text-2xl leading-snug whitespace-pre-wrap text-ink">
-              {q.prompt}
+            <div className="mb-4 read-body text-2xl leading-snug text-ink">
+              <InlineMarkdown text={q.prompt} />
             </div>
             {q.hint ? (
               <div className="mb-4 space-y-3">
@@ -490,7 +490,9 @@ export function QuestionPage() {
                 {showHint ? (
                   <div className="border-3 border-gold bg-gold/10 p-4 shadow-pixel">
                     <div className="font-pixel text-[10px] uppercase text-gold">Hint</div>
-                    <div className="mt-2 read-body text-xl leading-relaxed text-ink">{getHint(q)}</div>
+                    <div className="mt-2 read-body text-xl leading-relaxed text-ink">
+                      <InlineMarkdown text={getHint(q)} />
+                    </div>
                   </div>
                 ) : null}
               </div>
@@ -593,7 +595,9 @@ export function QuestionPage() {
       ) : (
         <>
           <PixelPanel>
-            <div className="mb-4 read-body text-2xl leading-snug text-ink">{q.prompt}</div>
+            <div className="mb-4 read-body text-2xl leading-snug text-ink">
+              <InlineMarkdown text={q.prompt} />
+            </div>
 
             <div className="grid gap-2.5" role="listbox" aria-label="Answer options">
               {order.map((storedIndex, displayIndex) => {
@@ -674,7 +678,7 @@ export function QuestionPage() {
               <div className="mt-4 border-3 border-gold bg-gold/10 p-4 shadow-pixel">
                 <div className="font-pixel text-[10px] uppercase text-gold">Hint</div>
                 <div className="mt-2 read-body text-xl leading-relaxed text-ink">
-                  {getHint(q)}
+                  <InlineMarkdown text={getHint(q)} />
                 </div>
               </div>
             ) : null}

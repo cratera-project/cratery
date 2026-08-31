@@ -61,9 +61,15 @@ export const TurnstileWidget = forwardRef<TurnstileHandle, TurnstileWidgetProps>
           sitekey: TURNSTILE_SITE_KEY,
           action: TURNSTILE_ACTION,
           theme: 'auto',
+          retry: 'auto',
+          'retry-interval': 1500,
+          'refresh-expired': 'auto',
           callback: (token) => onTokenRef.current(token),
           'expired-callback': () => onTokenRef.current(''),
-          'error-callback': () => fail(),
+          'error-callback': (error) => {
+            console.warn('Turnstile challenge error:', error)
+            fail()
+          },
         })
       }
 

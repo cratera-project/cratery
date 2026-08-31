@@ -9,6 +9,7 @@ import { SEO } from '../components/SEO'
 import { difficultyLabel, type Question } from '../lib/quiz'
 import { ChallengeButton } from '../components/ChallengeButton'
 import { copyText, fatedFiveShareText, xIntentUrl, SITE_URL } from '../lib/share'
+import { InlineMarkdown } from '../components/ui/InlineMarkdown'
 
 const SESSION_KEY = 'cratery_practice5_ids'
 
@@ -205,9 +206,11 @@ export function FatedFivePage() {
                       </div>
                     </InventorySlot>
                     <div className="min-w-0 flex-1">
-                      <div className="font-pixel text-[9px] sm:text-[10px] uppercase break-words">{quest.title}</div>
+                      <div className="font-pixel text-[9px] sm:text-[10px] uppercase break-words">
+                        <InlineMarkdown text={quest.title} variant="title" />
+                      </div>
                       <div className="truncate read-body text-base sm:text-lg text-ink-dim">
-                        {quest.prompt}
+                        <InlineMarkdown text={quest.prompt} />
                       </div>
                     </div>
                     <div

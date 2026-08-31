@@ -1,5 +1,6 @@
-
-export const TURNSTILE_SITE_KEY = '0x4AAAAAAEKJyPPGdDIHbIKG'
+export const TURNSTILE_SITE_KEY =
+  (typeof import.meta !== 'undefined' && import.meta.env?.VITE_TURNSTILE_SITE_KEY) ||
+  '0x4AAAAAAEKJyPPGdDIHbIKG'
 
 export const TURNSTILE_ACTION = 'turnstile-spin-v2'
 
@@ -21,8 +22,11 @@ declare global {
           action?: string
           callback?: (token: string) => void
           'expired-callback'?: () => void
-          'error-callback'?: () => void
+          'error-callback'?: (error?: string | number) => void
           theme?: 'light' | 'dark' | 'auto'
+          retry?: 'auto' | 'never'
+          'retry-interval'?: number
+          'refresh-expired'?: 'auto' | 'manual' | 'never'
         }
       ) => string
       reset: (widgetId?: string) => void
@@ -45,28 +49,59 @@ export function loadTurnstile(): Promise<void> {
       reject(err)
     }
 
-    const existing = document.querySelector<HTMLScriptElement>('script[data-cf-turnstile]')
-    if (existing) {
-      existing.addEventListener('load', () => resolve(), { once: true })
-      existing.addEventListener(
-        'error',
-        () => fail(new Error('Turnstile failed to load')),
-        { once: true }
-      )
+    if (window.turnstile) {
+      resolve()
       return
     }
 
-    const script = document.createElement('script')
-    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
-    script.async = true
-    script.defer = true
-    script.dataset.cfTurnstile = '1'
-    script.onload = () => resolve()
-    script.onerror = () => {
-      script.remove()
-      fail(new Error('Turnstile failed to load'))
+    const existing = document.querySelector<HTMLScriptElement>('script[data-cf-turnstile]')
+    if (existing) {
+      if (window.turnstile) {
+        resolve()
+        return
+      }
+      let elapsed = 0
+      const poll = setInterval(() => {
+        elapsed += 50
+        if (window.turnstile) {
+          clearInterval(poll)
+          resolve()
+        } else if (elapsed > 4000) {
+          clearInterval(poll)
+          existing.remove()
+          inject()
+        }
+      }, 50)
+      return
     }
-    document.head.appendChild(script)
+
+    inject()
+
+    function inject() {
+      const script = document.createElement('script')
+      script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+      script.async = true
+      script.defer = true
+      script.dataset.cfTurnstile = '1'
+      script.onload = () => {
+        let elapsed = 0
+        const poll = setInterval(() => {
+          elapsed += 50
+          if (window.turnstile) {
+            clearInterval(poll)
+            resolve()
+          } else if (elapsed > 3000) {
+            clearInterval(poll)
+            resolve()
+          }
+        }, 50)
+      }
+      script.onerror = () => {
+        script.remove()
+        fail(new Error('Turnstile failed to load'))
+      }
+      document.head.appendChild(script)
+    }
   })
 
   return scriptPromise
