@@ -75,10 +75,13 @@ export function TutorialPage() {
   }, [currentLesson])
 
   const tutorialMarkdownPath = useMemo(() => {
-    if (!currentLesson || !chapter) return ''
-    const chNum = String(chapter.number).padStart(2, '0')
-    const lNum = String(currentLesson.lessonNumber).padStart(2, '0')
-    return `content/tutorials/chapter-${chNum}-${chapter.id}/${lNum}-${currentLesson.id}.md`
+    if (!currentLesson) return ''
+    return (
+      currentLesson.filePath ||
+      (chapter
+        ? `content/tutorials/chapter-${String(chapter.number).padStart(2, '0')}-${chapter.id}/${currentLesson.id}.md`
+        : '')
+    )
   }, [currentLesson, chapter])
 
   

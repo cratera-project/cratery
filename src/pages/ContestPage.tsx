@@ -420,7 +420,7 @@ export function ContestPage() {
 
             {!isTrial ? (
               <div className="flex justify-end pt-2 pb-1">
-                <EditOnGitHub filePath={`content/contests/${contest.id}.md`} />
+                <EditOnGitHub filePath={contest.filePath || `content/contests/${contest.id}.md`} />
               </div>
             ) : null}
 

@@ -69,6 +69,7 @@ export type Contest = {
   testHarness: string
   solutionUnlocksAt?: string
   loadSolution?: () => Promise<ContestSolution>
+  filePath?: string
 }
 
 export function getContestLanguages(contest: Contest): readonly SupportedLanguage[] {

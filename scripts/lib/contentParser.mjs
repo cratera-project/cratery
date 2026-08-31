@@ -139,6 +139,9 @@ export function parseQuestionMarkdown(filePath) {
   const hint = sections['hint'] || fm.hint || ''
   const explanation = sections['explanation'] || ''
 
+  const relPath = filePath.replace(/\\/g, '/').split('/content/')[1]
+  const contentFilePath = relPath ? `content/${relPath}` : filePath
+
   if (kind === 'coding') {
     const code = extractCodeBlock(sections['starter code'] || sections['code'] || '')
     const testHarness = extractCodeBlock(sections['test harness'] || sections['harness'] || '')
@@ -158,6 +161,7 @@ export function parseQuestionMarkdown(filePath) {
       explanation,
       difficulty,
       tags,
+      filePath: contentFilePath,
     }
   }
 
@@ -178,6 +182,7 @@ export function parseQuestionMarkdown(filePath) {
     explanation,
     difficulty,
     tags,
+    filePath: contentFilePath,
   }
 }
 
@@ -248,6 +253,9 @@ export function parseContestMarkdown(filePath) {
     }
   }
 
+  const relPath = filePath.replace(/\\/g, '/').split('/content/')[1]
+  const contentFilePath = relPath ? `content/${relPath}` : filePath
+
   return {
     id,
     title,
@@ -263,6 +271,7 @@ export function parseContestMarkdown(filePath) {
     starterCodes: Object.keys(starterCodes).length > 0 ? starterCodes : undefined,
     supportedLanguages,
     testHarness,
+    filePath: contentFilePath,
   }
 }
 
@@ -445,6 +454,9 @@ export function parseLessonMarkdown(filePath) {
     }
   }
 
+  const relPath = filePath.replace(/\\/g, '/').split('/content/')[1]
+  const contentFilePath = relPath ? `content/${relPath}` : filePath
+
   return {
     id,
     chapterId,
@@ -460,6 +472,7 @@ export function parseLessonMarkdown(filePath) {
     commonMistakes,
     keyTakeaways,
     quests,
+    filePath: contentFilePath,
   }
 }
 

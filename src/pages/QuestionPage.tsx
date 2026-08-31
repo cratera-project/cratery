@@ -445,7 +445,7 @@ export function QuestionPage() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <EditOnGitHub filePath={`content/questions/${slug}/${q.id}.md`} />
+          <EditOnGitHub filePath={q.filePath || `content/questions/${slug}/${q.id}.md`} />
           {!reportOpen && !reportSent ? (
             <PixelButton size="sm" variant="danger" onClick={() => setReportOpen(true)}>
               Report

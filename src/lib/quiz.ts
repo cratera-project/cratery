@@ -35,6 +35,7 @@ export type Question = {
   explanation: string
   difficulty: Difficulty
   tags: string[]
+  filePath?: string
 }
 
 const CATEGORY_HINTS: Record<string, string> = {
