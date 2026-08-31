@@ -1,0 +1,7 @@
+{
+  "id": "generics-traits",
+  "number": 7,
+  "title": "Generics & Traits: Zero-Cost Abstractions",
+  "description": "Write flexible code with generics, define shared behavior with traits, and master compiler monomorphization.",
+  "icon": "⚡"
+}

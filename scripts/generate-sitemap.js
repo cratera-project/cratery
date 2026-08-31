@@ -142,42 +142,25 @@ function buildSitemap() {
   }
 
   // Contest pages
-  const contestFiles = [
-    'src/data/contests.ts',
-    'src/data/practiceContests.ts',
-    'src/data/contestCalendar.ts',
-  ]
-  const contestLastMod = contestFiles
-    .map((f) => getFileLastMod(f, TODAY))
-    .sort()
-    .reverse()[0] || TODAY
-
+  // Contest pages
   try {
-    const dataDir = resolve(rootDir, 'src', 'data')
-    const contestSrc = [
-      readFileSync(resolve(dataDir, 'contests.ts'), 'utf-8'),
-      readFileSync(resolve(dataDir, 'practiceContests.ts'), 'utf-8'),
-      readFileSync(resolve(dataDir, 'contestCalendar.ts'), 'utf-8'),
-    ].join('\n')
-    const contestIds = [
-      ...contestSrc.matchAll(/id:\s*['"]([^'"]+)['"]/g),
-      ...contestSrc.matchAll(/contestCalendarEntry\(['"]([^'"]+)['"]\)/g),
-    ].map((m) => m[1])
-    const seen = new Set()
-    for (const id of contestIds) {
-      if (seen.has(id)) continue
-      seen.add(id)
-      const loc = `${SITE_URL}/contest/${id}`
-      const previousDate = existingLastmods.get(loc) || contestLastMod
-      urls.push({
-        loc,
-        lastmod: previousDate,
-        changefreq: 'weekly',
-        priority: '0.7',
-      })
+    const contestsDir = resolve(rootDir, 'content', 'contests')
+    if (existsSync(contestsDir)) {
+      const files = readdirSync(contestsDir).filter((f) => f.endsWith('.md'))
+      for (const file of files) {
+        const id = file.replace(/\.md$/, '')
+        const loc = `${SITE_URL}/contest/${id}`
+        const previousDate = existingLastmods.get(loc) || TODAY
+        urls.push({
+          loc,
+          lastmod: previousDate,
+          changefreq: 'weekly',
+          priority: '0.7',
+        })
+      }
     }
   } catch {
-    console.warn('Warning: Could not read contest data files')
+    console.warn('Warning: Could not read contest content files')
   }
 
   // Category and Question pages
@@ -208,41 +191,39 @@ function buildSitemap() {
 
   // Tutorial lesson pages
   try {
-    const chaptersDir = resolve(rootDir, 'src', 'data', 'tutorial', 'chapters')
-    const chapterFiles = [
-      'chapter1Basics.ts',
-      'chapter2ControlFlow.ts',
-      'chapter3Ownership.ts',
-      'chapter4StructsEnums.ts',
-      'chapter5Collections.ts',
-      'chapter6ErrorHandling.ts',
-      'chapter7GenericsTraits.ts',
-      'chapter8Lifetimes.ts',
-      'chapter9IteratorsClosures.ts',
-      'chapter10SmartPointers.ts',
-      'chapter11Concurrency.ts',
-    ]
-    for (const cf of chapterFiles) {
-      const fullPath = resolve(chaptersDir, cf)
-      if (existsSync(fullPath)) {
-        const content = readFileSync(fullPath, 'utf-8')
-        const lessonMatches = [...content.matchAll(/id:\s*['"](\d{2}-[a-z0-9-]+)['"]/g)]
-        const cfLastMod = getFileLastMod(`src/data/tutorial/chapters/${cf}`, TODAY)
-        for (const m of lessonMatches) {
-          const lessonId = m[1]
-          const loc = `${SITE_URL}/learn/${lessonId}`
-          const previousDate = existingLastmods.get(loc) || cfLastMod
-          urls.push({
-            loc,
-            lastmod: previousDate,
-            changefreq: 'weekly',
-            priority: '0.8',
-          })
+    const tutorialsDir = resolve(rootDir, 'content', 'tutorials')
+    if (existsSync(tutorialsDir)) {
+      const chapterDirs = readdirSync(tutorialsDir)
+        .map((name) => resolve(tutorialsDir, name))
+        .filter((p) => {
+          try {
+            return statSync(p).isDirectory()
+          } catch {
+            return false
+          }
+        })
+
+      for (const chDir of chapterDirs) {
+        const lessonFiles = readdirSync(chDir).filter((f) => f.endsWith('.md'))
+        for (const lf of lessonFiles) {
+          const content = readFileSync(resolve(chDir, lf), 'utf-8')
+          const idMatch = content.match(/^id:\s*([^\r\n]+)/m)
+          if (idMatch) {
+            const lessonId = idMatch[1].trim()
+            const loc = `${SITE_URL}/learn/${lessonId}`
+            const previousDate = existingLastmods.get(loc) || TODAY
+            urls.push({
+              loc,
+              lastmod: previousDate,
+              changefreq: 'weekly',
+              priority: '0.8',
+            })
+          }
         }
       }
     }
   } catch {
-    console.warn('Warning: Could not read tutorial chapter files')
+    console.warn('Warning: Could not read tutorial content files')
   }
 
   return `<?xml version="1.0" encoding="UTF-8"?>

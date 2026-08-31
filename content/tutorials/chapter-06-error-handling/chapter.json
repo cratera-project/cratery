@@ -1,0 +1,7 @@
+{
+  "id": "error-handling",
+  "number": 6,
+  "title": "Error Handling: Robustness by Design",
+  "description": "Unrecoverable panic! vs recoverable Result<T, E>, the ? operator, and error combinators.",
+  "icon": "⚠️"
+}

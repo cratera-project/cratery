@@ -1,0 +1,7 @@
+{
+  "id": "iterators-closures",
+  "number": 9,
+  "title": "Iterators & Closures: Functional Rust",
+  "description": "Master anonymous functions, closure capture traits (Fn, FnMut, FnOnce), and zero-cost iterator adapters.",
+  "icon": "🔁"
+}

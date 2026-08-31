@@ -37,3 +37,6 @@ dist-ssr
 .wrangler/
 target/
 src/data/generated/
+src/data/questionCatalog.json
+src/data/questionCatalog.ts
+functions/lib/builtinCorrect.ts

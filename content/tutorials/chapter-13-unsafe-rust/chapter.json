@@ -1,0 +1,7 @@
+{
+  "id": "unsafe-rust",
+  "number": 13,
+  "title": "Unsafe Rust & Systems Programming",
+  "description": "Unlocking Rust’s superpowers: raw pointers, calling foreign C APIs via FFI, and maintaining unsafe invariants.",
+  "icon": "🛡️"
+}

@@ -1,0 +1,7 @@
+{
+  "id": "control-flow",
+  "number": 2,
+  "title": "Functions & Control Flow",
+  "description": "Understand expression-oriented programming, statement vs expression returns, conditionals, and loops.",
+  "icon": "⚡"
+}
