@@ -540,7 +540,7 @@ export function QuestionPage() {
                 {q.solutionCode ? (
                   <div>
                     <div className="mb-1 font-pixel text-[10px] uppercase text-ink-dim">Solution Code</div>
-                    <CodeBlock code={q.solutionCode} />
+                    <CodeBlock code={q.solutionCode} executable={false} />
                     <div className="mt-2 flex gap-2">
                       <PixelButton
                         size="sm"

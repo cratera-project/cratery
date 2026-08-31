@@ -61,7 +61,19 @@ export function isKnownContestId(id: string): boolean {
   return (
     (CONTEST_IDS as readonly string[]).includes(id) ||
     (INTERACTIVE_QUEST_IDS as readonly string[]).includes(id) ||
-    id.startsWith('uq:')
+    id.startsWith('uq:') ||
+    id.startsWith('own-') ||
+    id.startsWith('borrow-') ||
+    id.startsWith('life-') ||
+    id.startsWith('trait-') ||
+    id.startsWith('err-') ||
+    id.startsWith('iter-') ||
+    id.startsWith('closure-') ||
+    id.startsWith('point-') ||
+    id.startsWith('ptr-') ||
+    id.startsWith('conc-') ||
+    id.startsWith('macro-') ||
+    id.startsWith('tut-')
   )
 }
 

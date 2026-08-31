@@ -72,24 +72,33 @@ export function linkedInShareUrl(url: string): string {
 }
 
 export async function copyText(text: string): Promise<boolean> {
-  try {
-    await navigator.clipboard.writeText(text)
-    return true
-  } catch {
+  if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
     try {
-      const el = document.createElement('textarea')
-      el.value = text
-      el.setAttribute('readonly', '')
-      el.style.position = 'fixed'
-      el.style.left = '-9999px'
-      document.body.appendChild(el)
-      el.select()
-      const ok = document.execCommand('copy')
-      document.body.removeChild(el)
-      return ok
+      await navigator.clipboard.writeText(text)
+      return true
     } catch {
-      return false
+      // Fallback below
     }
+  }
+
+  try {
+    const el = document.createElement('textarea')
+    el.value = text
+    el.setAttribute('readonly', '')
+    el.style.position = 'absolute'
+    el.style.left = '0'
+    el.style.top = '0'
+    el.style.opacity = '0'
+    el.style.pointerEvents = 'none'
+    el.style.zIndex = '-1'
+    document.body.appendChild(el)
+    el.focus()
+    el.select()
+    const ok = document.execCommand('copy')
+    document.body.removeChild(el)
+    return ok
+  } catch {
+    return false
   }
 }
 

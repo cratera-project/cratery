@@ -3,6 +3,7 @@ import { consumeRateLimit, getClientIP } from './rateLimit'
 import { getSessionUser } from './session'
 import { createSupabaseClient, type Env } from './supabase'
 import { isKnownContestId, officialHarnessHash } from '../../src/data/contestIds'
+import { BUILTIN_ANSWERS } from './builtinCorrect'
 import { loadTotalXp } from './xp'
 import { rankForXp } from '../../src/lib/ranks'
 import { trackCodeExecution } from './executionStats'
@@ -10,6 +11,10 @@ import { trackCodeExecution } from './executionStats'
 import { getJudgeLimits } from './limits'
 
 export type GradeKind = 'run' | 'submit'
+
+export function isValidProblemId(id: string): boolean {
+    return isKnownContestId(id) || id in BUILTIN_ANSWERS || id.startsWith('uq:') || id.startsWith('tut-')
+}
 
 
 const SERVER_EXEC_CACHE_MAX = 500
@@ -173,10 +178,10 @@ async function handleGrade(
     }
 
     const contestIdRaw = typeof body.contestId === 'string' ? body.contestId.trim() : ''
-    if (contestIdRaw && !isKnownContestId(contestIdRaw)) {
+    if (contestIdRaw && !isValidProblemId(contestIdRaw)) {
         return json({ error: 'Invalid contest problem ID' }, 400)
     }
-    const contestId = kind === 'submit' && isKnownContestId(contestIdRaw) ? contestIdRaw : ''
+    const contestId = kind === 'submit' && isValidProblemId(contestIdRaw) ? contestIdRaw : ''
 
     
     if (kind === 'submit' && contestId) {
@@ -309,16 +314,9 @@ async function handleGrade(
                 const supabase = createSupabaseClient(env)
                 scoreUpdated = await recordContestScore(env, user.sub, contestId, harness, data)
 
-                let catSlug = 'interactive'
-                if (contestId.startsWith('own-')) catSlug = 'ownership'
-                else if (contestId.startsWith('borrow-')) catSlug = 'borrow-checker'
-                else if (contestId.startsWith('life-')) catSlug = 'lifetimes'
-                else if (contestId.startsWith('trait-')) catSlug = 'traits'
-                else if (contestId.startsWith('err-')) catSlug = 'error-handling'
-                else if (contestId.startsWith('iter-')) catSlug = 'iterators-closures'
-                else if (contestId.startsWith('point-')) catSlug = 'pointers'
-                else if (contestId.startsWith('conc-')) catSlug = 'concurrency'
-                else if (contestId.startsWith('macro-')) catSlug = 'macros'
+                const catSlug =
+                    BUILTIN_ANSWERS[contestId]?.categorySlug ??
+                    (contestId.startsWith('tut-') ? 'tutorial' : 'interactive')
 
                 
                 const { data: existingAnswer } = await supabase
