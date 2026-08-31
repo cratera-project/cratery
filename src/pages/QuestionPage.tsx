@@ -32,6 +32,7 @@ import { reportRivalAnswer } from '../lib/rivals'
 import { MonacoEditor } from '../components/ui/MonacoEditor'
 import { gradeRun, gradeSubmit, isContestSolvedLocally, type GradeRunResult } from '../lib/grade'
 import { GradeResultPanel } from '../components/GradeResultPanel'
+import { EditOnGitHub } from '../components/EditOnGitHub'
 
 const DRAFT_PREFIX = 'cratery_question_coding_'
 
@@ -443,11 +444,14 @@ export function QuestionPage() {
             )}
           </div>
         </div>
-        {!reportOpen && !reportSent ? (
-          <PixelButton size="sm" variant="danger" onClick={() => setReportOpen(true)}>
-            Report
-          </PixelButton>
-        ) : null}
+        <div className="flex items-center gap-2">
+          <EditOnGitHub filePath={`content/questions/${slug}/${q.id}.md`} />
+          {!reportOpen && !reportSent ? (
+            <PixelButton size="sm" variant="danger" onClick={() => setReportOpen(true)}>
+              Report
+            </PixelButton>
+          ) : null}
+        </div>
       </div>
 
       {!isCoding && q.code ? <CodeBlock code={q.code} language="rust" /> : null}

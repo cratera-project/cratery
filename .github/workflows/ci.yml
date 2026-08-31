@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Compile markdown content
+        run: npm run build:content && npm run generate:answers
+
       - name: Run linter & quality checks
         run: npm run lint
 

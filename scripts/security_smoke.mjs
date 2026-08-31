@@ -1,6 +1,7 @@
 /**
  * Focused security smoke checks (no network). Run: node scripts/security_smoke.mjs
  */
+import { execSync } from 'node:child_process'
 import { readFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -18,6 +19,12 @@ function assert(cond, msg) {
 }
 
 // 1) Builtin answers include categorySlug (server-owned metadata)
+if (!existsSync(join(root, 'functions/lib/builtinCorrect.ts'))) {
+  execSync('node scripts/compile-content.mjs && node scripts/generate-builtin-answers.mjs', {
+    cwd: root,
+    stdio: 'ignore',
+  })
+}
 const builtin = readFileSync(join(root, 'functions/lib/builtinCorrect.ts'), 'utf8')
 assert(builtin.includes('BUILTIN_ANSWERS'), 'builtin answers map present')
 assert(builtin.includes('categorySlug'), 'builtin answers include categorySlug')

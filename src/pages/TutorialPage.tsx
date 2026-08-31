@@ -18,6 +18,7 @@ import { MarkdownBody } from '../components/MarkdownBody'
 import { InlineMarkdown } from '../components/ui/InlineMarkdown'
 import { stripMarkdown } from '../lib/markdown'
 import { SEO } from '../components/SEO'
+import { EditOnGitHub } from '../components/EditOnGitHub'
 import {
   ChevronLeft,
   ChevronRight,
@@ -72,6 +73,13 @@ export function TutorialPage() {
   const prevLesson = useMemo(() => {
     return currentLesson ? getPrevLesson(currentLesson.id) : undefined
   }, [currentLesson])
+
+  const tutorialMarkdownPath = useMemo(() => {
+    if (!currentLesson || !chapter) return ''
+    const chNum = String(chapter.number).padStart(2, '0')
+    const lNum = String(currentLesson.lessonNumber).padStart(2, '0')
+    return `content/tutorials/chapter-${chNum}-${chapter.id}/${lNum}-${currentLesson.id}.md`
+  }, [currentLesson, chapter])
 
   
   useEffect(() => {
@@ -365,10 +373,16 @@ export function TutorialPage() {
               </div>
             </section>
 
+            {tutorialMarkdownPath ? (
+              <div className="flex justify-end pt-6 pb-2">
+                <EditOnGitHub filePath={tutorialMarkdownPath} />
+              </div>
+            ) : null}
+
             {/* Next / Previous Chapter Navigation Cards */}
             <nav
               aria-label="Lesson navigation"
-              className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8 border-t-2 border-night-edge"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t-2 border-night-edge"
             >
               {prevLesson ? (
                 <Link
