@@ -1,0 +1,7 @@
+{
+  "id": "lifetimes",
+  "number": 8,
+  "title": "Lifetimes & Borrow Checker Mastery",
+  "description": "Understand reference validity: lifetime parameters, elision rules, and structs holding borrowed references.",
+  "icon": "⏳"
+}

@@ -1,46 +1,14 @@
-/**
- * Question quality gate for Cratery.
- * Fails if correct answers are systematically the longest option,
- * or if option lengths within a question are badly unbalanced.
- *
- * Checks built-in questions and catalog topics.
- *
- * Usage: node scripts/check-questions.mjs
- */
-
-import { readFileSync, readdirSync } from 'fs'
-import { resolve, dirname } from 'path'
-import { fileURLToPath } from 'url'
+import { readdirSync } from 'node:fs'
+import { resolve, dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { loadQuestionsFromDir } from './lib/contentParser.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const dir = resolve(__dirname, '..', 'src', 'data', 'questions')
+const contentDir = resolve(__dirname, '..', 'content', 'questions')
 
-const MAX_UNIQUE_LONGEST_RATIO = 0.20 // chance ~25%; bank must not favor longest
-const MAX_LENGTH_SPREAD = 0.30 // (max-min)/mean within one question
-const MAX_CORRECT_OVER_MEDIAN = 1.22 // correct len / median of other options
-
-function parseQuestions(src, file) {
-  const questions = []
-  const idHits = [...src.matchAll(/id:\s*['"]([^'"]+)['"]/g)]
-  for (let i = 0; i < idHits.length; i++) {
-    const id = idHits[i][1]
-    const start = idHits[i].index
-    const end = i + 1 < idHits.length ? idHits[i + 1].index : src.length
-    const block = src.slice(start, end)
-    const correctIndex = Number(block.match(/correctIndex:\s*(\d+)/)?.[1])
-    const optionsSection = block.split(/options:\s*\[/)[1]?.split(/correctIndex/)[0] || ''
-    const optTexts = [...optionsSection.matchAll(/text:\s*(`(?:\\`|[^`])*`|'(?:\\'|[^'])*'|"(?:\\"|[^"])*")/g)].map(
-      (m) => {
-        let s = m[1]
-        s = s.startsWith('`') ? s.slice(1, -1) : s.slice(1, -1)
-        return s.replace(/\\'/g, "'").replace(/\\"/g, '"').replace(/\\n/g, '\n')
-      }
-    )
-    if (optTexts.length < 4 || Number.isNaN(correctIndex)) continue
-    questions.push({ id, file, correctIndex, options: optTexts.slice(0, 4) })
-  }
-  return questions
-}
+const MAX_UNIQUE_LONGEST_RATIO = 0.20
+const MAX_LENGTH_SPREAD = 0.30
+const MAX_CORRECT_OVER_MEDIAN = 1.22
 
 function median(nums) {
   const s = [...nums].sort((a, b) => a - b)
@@ -54,8 +22,10 @@ function checkBank(all, label) {
   const dist = [0, 0, 0, 0]
 
   for (const q of all) {
+    if (!q.options || q.options.length < 4 || q.correctIndex === undefined) continue
+
     dist[q.correctIndex]++
-    const lens = q.options.map((o) => o.length)
+    const lens = q.options.map((o) => o.text.length)
     const mean = lens.reduce((a, b) => a + b, 0) / lens.length
     const max = Math.max(...lens)
     const min = Math.min(...lens)
@@ -88,7 +58,8 @@ function checkBank(all, label) {
     }
   }
 
-  const uniqueLongestPct = uniqueLongestCorrect / all.length
+  const validCount = all.filter((q) => q.options && q.options.length >= 4).length
+  const uniqueLongestPct = validCount > 0 ? uniqueLongestCorrect / validCount : 0
   if (uniqueLongestPct > MAX_UNIQUE_LONGEST_RATIO) {
     issues.push({
       id: '*',
@@ -98,7 +69,7 @@ function checkBank(all, label) {
     })
   }
 
-  const maxShare = Math.max(...dist) / all.length
+  const maxShare = validCount > 0 ? Math.max(...dist) / validCount : 0
   if (maxShare > 0.4) {
     issues.push({
       id: '*',
@@ -108,7 +79,7 @@ function checkBank(all, label) {
     })
   }
 
-  console.log(`\n[${label}] Checked ${all.length} questions`)
+  console.log(`\n[${label}] Checked ${validCount} questions`)
   console.log(
     `Unique-longest-correct: ${uniqueLongestCorrect} (${(uniqueLongestPct * 100).toFixed(1)}%)`
   )
@@ -136,7 +107,6 @@ function shuffledIndices(n, seed) {
   return idx
 }
 
-/** Keep in sync with src/lib/optionOrder.ts pickPermutation. */
 function pickPermutation(id, n, correctIndex, prev) {
   for (let salt = 0; salt < 64; salt++) {
     const order = shuffledIndices(n, salt === 0 ? id : `${id}#${salt}`)
@@ -154,9 +124,11 @@ function checkDisplayRuns(all, label) {
   const issues = []
   const byFile = new Map()
   for (const q of all) {
-    const list = byFile.get(q.file) || []
-    list.push(q)
-    byFile.set(q.file, list)
+    if (q.options && q.options.length >= 4 && q.correctIndex !== undefined) {
+      const list = byFile.get(q.categorySlug) || []
+      list.push(q)
+      byFile.set(q.categorySlug, list)
+    }
   }
   const LAB = 'ABCD'
   for (const [file, qs] of byFile) {
@@ -189,12 +161,18 @@ function checkDisplayRuns(all, label) {
   return issues
 }
 
-const files = readdirSync(dir).filter((f) => f.endsWith('.ts'))
-const builtins = files.flatMap((f) => parseQuestions(readFileSync(resolve(dir, f), 'utf8'), f))
+const allQuestions = []
+for (const cat of readdirSync(contentDir)) {
+  const catDir = join(contentDir, cat)
+  const qs = loadQuestionsFromDir(catDir)
+  for (const q of qs) {
+    allQuestions.push({ ...q, file: cat })
+  }
+}
 
 const issues = [
-  ...checkBank(builtins, 'built-in'),
-  ...checkDisplayRuns(builtins, 'built-in'),
+  ...checkBank(allQuestions, 'built-in'),
+  ...checkDisplayRuns(allQuestions, 'built-in'),
 ]
 
 if (issues.length) {

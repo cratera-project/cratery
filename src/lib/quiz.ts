@@ -26,6 +26,7 @@ export type Question = {
   kind?: QuestionKind
   code?: string
   testHarness?: string
+  solutionCode?: string
   language: 'rust'
   options?: QuizOption[]
   correctIndex?: number
@@ -34,6 +35,7 @@ export type Question = {
   explanation: string
   difficulty: Difficulty
   tags: string[]
+  filePath?: string
 }
 
 const CATEGORY_HINTS: Record<string, string> = {

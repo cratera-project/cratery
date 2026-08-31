@@ -1,0 +1,7 @@
+{
+  "id": "smart-pointers",
+  "number": 10,
+  "title": "Smart Pointers & Memory Layout",
+  "description": "Manage heap allocation with Box<T>, shared ownership with Rc/Arc, and interior mutability with RefCell.",
+  "icon": "📦"
+}

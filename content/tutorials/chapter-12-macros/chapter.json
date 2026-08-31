@@ -1,0 +1,7 @@
+{
+  "id": "macros",
+  "number": 12,
+  "title": "Macros & Metaprogramming",
+  "description": "Code that writes code: master declarative `macro_rules!` and procedural macros for zero-cost metaprogramming.",
+  "icon": "✨"
+}

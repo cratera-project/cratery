@@ -1,0 +1,7 @@
+{
+  "id": "getting-started",
+  "number": 1,
+  "title": "Getting Started & The Basics",
+  "description": "Master the anatomy of a Rust program, cargo, immutable bindings, scalar types, and compound collections.",
+  "icon": "🚀"
+}

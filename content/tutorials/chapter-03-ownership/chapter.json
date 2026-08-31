@@ -1,0 +1,7 @@
+{
+  "id": "ownership",
+  "number": 3,
+  "title": "Ownership & The Borrow Checker",
+  "description": "Understand the core of Rust: Move semantics, RAII memory cleanup, shared borrows, and mutable references.",
+  "icon": "🔒"
+}

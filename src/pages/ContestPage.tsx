@@ -22,6 +22,7 @@ import { gradeRun, gradeSubmit, saveContestRun, isContestSolvedLocally, type Gra
 import { GradeResultPanel } from '../components/GradeResultPanel'
 import { ContestStatsModal } from '../components/ContestStats'
 import { QuestComments } from '../components/QuestComments'
+import { EditOnGitHub } from '../components/EditOnGitHub'
 import { useProgressStore } from '../store/progressStore'
 import {
   formatUnlockCountdown,
@@ -416,6 +417,12 @@ export function ContestPage() {
                 </div>
               ) : null}
             </div>
+
+            {!isTrial ? (
+              <div className="flex justify-end pt-2 pb-1">
+                <EditOnGitHub filePath={contest.filePath || `content/contests/${contest.id}.md`} />
+              </div>
+            ) : null}
 
             {/* Comments Section */}
             <div className="mt-4">

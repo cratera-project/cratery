@@ -32,6 +32,7 @@ import { reportRivalAnswer } from '../lib/rivals'
 import { MonacoEditor } from '../components/ui/MonacoEditor'
 import { gradeRun, gradeSubmit, isContestSolvedLocally, type GradeRunResult } from '../lib/grade'
 import { GradeResultPanel } from '../components/GradeResultPanel'
+import { EditOnGitHub } from '../components/EditOnGitHub'
 
 const DRAFT_PREFIX = 'cratery_question_coding_'
 
@@ -443,11 +444,14 @@ export function QuestionPage() {
             )}
           </div>
         </div>
-        {!reportOpen && !reportSent ? (
-          <PixelButton size="sm" variant="danger" onClick={() => setReportOpen(true)}>
-            Report
-          </PixelButton>
-        ) : null}
+        <div className="flex items-center gap-2">
+          <EditOnGitHub filePath={q.filePath || `content/questions/${slug}/${q.id}.md`} />
+          {!reportOpen && !reportSent ? (
+            <PixelButton size="sm" variant="danger" onClick={() => setReportOpen(true)}>
+              Report
+            </PixelButton>
+          ) : null}
+        </div>
       </div>
 
       {!isCoding && q.code ? <CodeBlock code={q.code} language="rust" /> : null}
@@ -530,12 +534,32 @@ export function QuestionPage() {
               kind={gradeKind}
             />
 
-            {showCodingSolution && q.explanation && (
-              <div className="mt-4 border-3 border-gold bg-gold/10 p-4 shadow-pixel space-y-2">
+            {showCodingSolution && (
+              <div className="mt-4 border-3 border-gold bg-gold/10 p-4 shadow-pixel space-y-3">
                 <div className="font-pixel text-[10px] uppercase text-gold">Official Solution & Explanation</div>
-                <div className="text-ink">
-                  <MarkdownBody>{q.explanation}</MarkdownBody>
-                </div>
+                {q.solutionCode ? (
+                  <div>
+                    <div className="mb-1 font-pixel text-[10px] uppercase text-ink-dim">Solution Code</div>
+                    <CodeBlock code={q.solutionCode} />
+                    <div className="mt-2 flex gap-2">
+                      <PixelButton
+                        size="sm"
+                        variant="secondary"
+                        onClick={() => {
+                          setCode(q.solutionCode!)
+                          setToast('Solution loaded into editor')
+                        }}
+                      >
+                        Load into editor
+                      </PixelButton>
+                    </div>
+                  </div>
+                ) : null}
+                {q.explanation ? (
+                  <div className="text-ink">
+                    <MarkdownBody>{q.explanation}</MarkdownBody>
+                  </div>
+                ) : null}
               </div>
             )}
 

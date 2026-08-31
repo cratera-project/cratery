@@ -67,6 +67,7 @@ export type TutorialLesson = {
   commonMistakes: CommonMistake[]
   keyTakeaways: string[]
   quests: TutorialQuest[]
+  filePath?: string
 }
 
 export type TutorialChapter = {

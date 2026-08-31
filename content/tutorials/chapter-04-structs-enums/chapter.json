@@ -1,0 +1,7 @@
+{
+  "id": "structs-enums",
+  "number": 4,
+  "title": "Structs, Enums & Pattern Matching",
+  "description": "Design custom domain models with structs, methods, algebraic enums, and exhaustive pattern matching.",
+  "icon": "💎"
+}

@@ -11,8 +11,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes('/src/data/questions/')) {
-            const match = id.match(/\/src\/data\/questions\/([^/.]+)\.ts/)
+          if (id.includes('/src/data/generated/')) {
+            const match = id.match(/\/src\/data\/generated\/([^/.]+)\.ts/)
             if (match && match[1] !== 'index') {
               return `questions-${match[1]}`
             }

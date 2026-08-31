@@ -142,6 +142,53 @@ export const CONTEST_SOLUTIONS: Record<string, ContestSolution> = {
   }
 }
 
+const CONTEST_ID_ALIASES: Record<string, string> = {
+  'versioned-kv': 'versioned-kv',
+  '2026-08-27-versioned-kv': 'versioned-kv',
+  'frame-multiplexer': 'frame-multiplexer',
+  '2026-08-20-frame-multiplexer': 'frame-multiplexer',
+  'lexicon': 'alien-lexicon',
+  'alien-lexicon': 'alien-lexicon',
+  '2026-08-13-lexicon': 'alien-lexicon',
+  'scheduler': 'interval-task-scheduler',
+  'interval-task-scheduler': 'interval-task-scheduler',
+  '2026-08-06-scheduler': 'interval-task-scheduler',
+  'dag-path': 'dag-path-value',
+  'dag-path-value': 'dag-path-value',
+  '2026-02-12-dag-path': 'dag-path-value',
+  'coalescer': 'request-coalescer',
+  'request-coalescer': 'request-coalescer',
+  '2026-02-05-coalescer': 'request-coalescer',
+  'cache': 'lifetime-safe-cache',
+  'lifetime-safe-cache': 'lifetime-safe-cache',
+  '2026-01-29-cache': 'lifetime-safe-cache',
+  'lru-cache': 'lru-cache',
+  '2025-12-04-lru-cache': 'lru-cache',
+  'string-interner': 'string-interner',
+  '2025-12-11-string-interner': 'string-interner',
+  'bst': 'binary-search-tree',
+  'binary-search-tree': 'binary-search-tree',
+  '2025-12-18-bst': 'binary-search-tree',
+  'thread-counter': 'thread-safe-counter',
+  'thread-safe-counter': 'thread-safe-counter',
+  '2025-12-25-thread-counter': 'thread-safe-counter',
+  'config-errors': 'config-errors',
+  '2026-01-01-config-errors': 'config-errors',
+  'iterator-pipeline': 'iterator-pipeline',
+  '2026-01-08-iterator-pipeline': 'iterator-pipeline',
+  'lifetime-slices': 'lifetime-slices',
+  '2026-01-15-lifetime-slices': 'lifetime-slices',
+  'ring-buffer': 'ring-buffer',
+  '2026-01-22-ring-buffer': 'ring-buffer',
+}
+
 export function getContestSolution(id: string): ContestSolution | undefined {
-  return CONTEST_SOLUTIONS[id]
+  if (CONTEST_SOLUTIONS[id]) return CONTEST_SOLUTIONS[id]
+  const alias = CONTEST_ID_ALIASES[id]
+  if (alias && CONTEST_SOLUTIONS[alias]) return CONTEST_SOLUTIONS[alias]
+  const stripped = id.replace(/^\d{4}-\d{2}-\d{2}-/, '')
+  if (CONTEST_SOLUTIONS[stripped]) return CONTEST_SOLUTIONS[stripped]
+  const strippedAlias = CONTEST_ID_ALIASES[stripped]
+  if (strippedAlias && CONTEST_SOLUTIONS[strippedAlias]) return CONTEST_SOLUTIONS[strippedAlias]
+  return undefined
 }

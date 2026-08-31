@@ -1,0 +1,7 @@
+{
+  "id": "collections",
+  "number": 5,
+  "title": "Standard Collections in Depth",
+  "description": "Master vectors, heap allocations, UTF-8 strings, and hash maps with the Entry API.",
+  "icon": "📦"
+}

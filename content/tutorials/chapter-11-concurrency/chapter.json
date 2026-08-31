@@ -1,0 +1,7 @@
+{
+  "id": "concurrency",
+  "number": 11,
+  "title": "Fearless Concurrency",
+  "description": "Parallel programming without data races: thread spawning, message channels, and Arc<Mutex<T>>.",
+  "icon": "⚔️"
+}
