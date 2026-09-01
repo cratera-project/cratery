@@ -155,11 +155,14 @@ async function maybeComplete(
     if (!n) return row
     if (!row.challenger_done_at || !row.opponent_done_at) return row
 
-    let winner: string | null = null
-    if (row.challenger_correct > row.opponent_correct) winner = row.challenger_id
-    else if (row.opponent_correct > row.challenger_correct) winner = row.opponent_id
-    else if (row.challenger_done_at <= row.opponent_done_at) winner = row.challenger_id
-    else winner = row.opponent_id
+    const winner =
+        row.challenger_correct > row.opponent_correct
+            ? row.challenger_id
+            : row.opponent_correct > row.challenger_correct
+              ? row.opponent_id
+              : row.challenger_done_at <= row.opponent_done_at
+                ? row.challenger_id
+                : row.opponent_id
 
     const { data } = await supabase
         .from('rivals')
