@@ -349,12 +349,12 @@ export default {
                 )
             }
             if (path === '/api/quest-stats' && request.method === 'GET') {
-                return await withPublicCache(request, env, 'quest-stats', 60, () =>
+                return await withPublicCache(request, env, 'quest-stats', 200, () =>
                     handleGetQuestStats(request, env)
                 )
             }
             if (path === '/api/quest-stats-batch' && request.method === 'GET') {
-                return await withPublicCache(request, env, 'quest-stats-batch', 60, () =>
+                return await withPublicCache(request, env, 'quest-stats-batch', 200, () =>
                     handleGetQuestStatsBatch(request, env)
                 )
             }

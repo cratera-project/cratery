@@ -1462,15 +1462,51 @@ export async function handleGetQuestStats(request: Request, env: Env): Promise<R
     }
 
     const supabase = createSupabaseClient(env)
+    let stats = { solve_count: 0, correct_count: 0 }
+
     const { data, error } = await supabase.rpc('get_quest_stats', { p_question_id: questionId })
-    if (error) {
-        console.error('get_quest_stats failed:', error)
-        return errorResponse('Failed to load quest stats', 500, env, request)
+    if (!error && data && (Number(data.solve_count) > 0 || Number(data.correct_count) > 0)) {
+        stats = {
+            solve_count: Number(data.solve_count) || 0,
+            correct_count: Number(data.correct_count) || 0,
+        }
+    } else {
+        const { data: row } = await supabase
+            .from('quest_answer_stats')
+            .select('solve_count, correct_count')
+            .eq('question_id', questionId)
+            .maybeSingle()
+
+        if (row && (Number(row.solve_count) > 0 || Number(row.correct_count) > 0)) {
+            stats = {
+                solve_count: Number(row.solve_count) || 0,
+                correct_count: Number(row.correct_count) || 0,
+            }
+        } else {
+            const { count: totalCount } = await supabase
+                .from('quest_answers')
+                .select('*', { count: 'exact', head: true })
+                .eq('question_id', questionId)
+
+            if (totalCount && totalCount > 0) {
+                const { count: correctCount } = await supabase
+                    .from('quest_answers')
+                    .select('*', { count: 'exact', head: true })
+                    .eq('question_id', questionId)
+                    .eq('is_correct', true)
+
+                stats = {
+                    solve_count: totalCount,
+                    correct_count: correctCount || 0,
+                }
+            }
+        }
     }
+
     return jsonResponse(
         {
             status: 'ok',
-            stats: data ?? { solve_count: 0, correct_count: 0 },
+            stats,
         },
         200,
         env,
@@ -1487,30 +1523,61 @@ export async function handleGetQuestStatsBatch(request: Request, env: Env): Prom
     }
 
     const ids = [...new Set(raw.split(',').map((s) => s.trim()).filter(Boolean))]
-    if (ids.length === 0 || ids.length > 120) {
-        return errorResponse('ids must include 1–120 question ids', 400, env, request)
+    if (ids.length === 0 || ids.length > 300) {
+        return errorResponse('ids must include 1–300 question ids', 400, env, request)
     }
     if (ids.some((id) => id.length > 80)) {
         return errorResponse('invalid question id', 400, env, request)
     }
 
     const supabase = createSupabaseClient(env)
+    const stats: Record<string, { solve_count: number; correct_count: number }> = {}
+
     const { data, error } = await supabase.rpc('get_quest_stats_batch', {
         p_question_ids: ids,
     })
-    if (error) {
-        console.error('get_quest_stats_batch failed:', error)
-        return errorResponse('Failed to load quest stats', 500, env, request)
-    }
 
-    const stats: Record<string, { solve_count: number; correct_count: number }> = {}
-    if (data && typeof data === 'object') {
+    if (!error && data && typeof data === 'object') {
         for (const [qid, row] of Object.entries(
             data as Record<string, { solve_count: number; correct_count: number }>
         )) {
             stats[qid] = {
                 solve_count: Number(row.solve_count) || 0,
                 correct_count: Number(row.correct_count) || 0,
+            }
+        }
+    } else {
+        const { data: rows } = await supabase
+            .from('quest_answer_stats')
+            .select('question_id, solve_count, correct_count')
+            .in('question_id', ids)
+
+        if (rows && Array.isArray(rows)) {
+            for (const r of rows) {
+                stats[r.question_id] = {
+                    solve_count: Number(r.solve_count) || 0,
+                    correct_count: Number(r.correct_count) || 0,
+                }
+            }
+        }
+    }
+
+    const missingIds = ids.filter((id) => !stats[id] || stats[id].solve_count === 0)
+    if (missingIds.length > 0) {
+        const { data: answers } = await supabase
+            .from('quest_answers')
+            .select('question_id, is_correct')
+            .in('question_id', missingIds)
+
+        if (answers && answers.length > 0) {
+            for (const a of answers) {
+                if (!stats[a.question_id]) {
+                    stats[a.question_id] = { solve_count: 0, correct_count: 0 }
+                }
+                stats[a.question_id].solve_count += 1
+                if (a.is_correct) {
+                    stats[a.question_id].correct_count += 1
+                }
             }
         }
     }

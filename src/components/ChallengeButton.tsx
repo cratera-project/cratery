@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { PixelButton } from './ui/PixelButton'
 import { AuthModal } from './AuthModal'
 import { useAuth } from '../context/AuthContext'
-import { copyText } from '../lib/share'
-import { createRival, inviteUrl } from '../lib/rivals'
+import { createRival } from '../lib/rivals'
 
 type Props = {
   questionIds?: string[]
@@ -25,7 +24,6 @@ export function ChallengeButton({
   const navigate = useNavigate()
   const [showAuth, setShowAuth] = useState(false)
   const [busy, setBusy] = useState(false)
-  const [copied, setCopied] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   const run = async () => {
@@ -42,16 +40,13 @@ export function ChallengeButton({
       setError(res.error ?? 'Could not create challenge')
       return
     }
-    const url = inviteUrl(res.rival.id)
-    const ok = await copyText(url)
-    setCopied(ok)
     navigate(`/rival/${res.rival.id}`)
   }
 
   return (
     <>
       <PixelButton size={size} variant="secondary" className={className} onClick={() => void run()}>
-        {busy ? 'Creating…' : copied ? 'Invite copied' : label}
+        {busy ? 'Creating…' : label}
       </PixelButton>
       {error ? <p className="mt-1 font-code text-base text-redstone">{error}</p> : null}
       <AuthModal isOpen={showAuth} onClose={() => setShowAuth(false)} initialTab="signup" />

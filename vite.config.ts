@@ -16,7 +16,7 @@ export default defineConfig({
             if (match && match[1] !== 'index') {
               return `questions-${match[1]}`
             }
-            return 'questions'
+            return
           }
           if (!id.includes('node_modules')) return
 

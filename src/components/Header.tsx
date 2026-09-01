@@ -8,8 +8,7 @@ import { AuthModal } from './AuthModal'
 import { StreakIcon } from './StreakIcon'
 import { RankUpModal } from './RankUpModal'
 import { ChevronDown, BookOpen, Users, Dices, Swords, Plus, Menu, X, Trophy, Swords as ContestIcon, Code2, Mail, Terminal, Sparkles, MessageSquare, Bot, FileCode } from 'lucide-react'
-import { createRival, inviteUrl } from '../lib/rivals'
-import { copyText } from '../lib/share'
+import { createRival } from '../lib/rivals'
 import { ZULIP_COMMUNITY_URL, DISCORD_BOT_INVITE_URL } from '../lib/constants'
 
 
@@ -87,8 +86,6 @@ export function Header() {
       setQuestsOpen(false)
       setMobileMenuOpen(false)
       if (res.rival?.id) {
-        const url = inviteUrl(res.rival.id)
-        void copyText(url)
         navigate(`/rival/${res.rival.id}`)
       }
     } finally {

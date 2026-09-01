@@ -18,7 +18,7 @@ Solve 680+ questions covering ownership, lifetimes, traits, concurrency, memory 
 
 **Cratery is designed to test whether you understand Rust, not just whether you can generate working code.**
 
-[Explore Live Platform](https://cratery.cratera.org) • [Quick Start](#quick-start) • [Curriculum](#curriculum) • [Deployment](#deployment-and-self-hosting)
+[Explore Live Platform](https://cratery.cratera.org) • [Quick Start](#quick-start) • [Curriculum](#curriculum) • [Content & Maintainability](#content-architecture--maintainability) • [Deployment](#deployment-and-self-hosting)
 
 <br />
 <br />
@@ -132,6 +132,28 @@ Production deployments route code submissions to Cratera, a Firecracker-based mi
 
 ---
 
+## Content Architecture & Maintainability
+
+All educational content across the platform including quiz questions, weekly algorithm contests, and interactive tutorial chapters are managed as structured Markdown (`.md`) files with YAML frontmatter in the [`content/`](content/) directory:
+
+```text
+content/
+├── questions/                  # Topic-organized quiz questions (680+ files)
+│   ├── borrow-checker/
+│   ├── concurrency/
+│   ├── error-handling/
+│   ├── iterators-closures/
+│   ├── lifetimes/
+│   ├── macros/
+│   ├── ownership/
+│   ├── pointers/
+│   └── traits/
+├── contests/                   # Weekly coding contests, signatures, and test harnesses
+└── tutorials/                  # Tutorial chapters, concepts, and embedded drills
+```
+
+---
+
 ## Deployment and Self-Hosting
 
 ### Cloudflare Workers Deployment
@@ -159,10 +181,13 @@ Configure optional environment secrets in Cloudflare Workers or `.dev.vars`:
 
 ## Quality Assurance & Verification
 
-Every question and code trial passes automated validation to prevent ambiguous answers and formatting defects:
+Every question, contest, and code trial passes automated validation to prevent ambiguous answers and formatting defects:
 
 ```bash
-# Run question catalog validation
+# Compile markdown content into generated TypeScript data
+npm run build:content
+
+# Run question catalog validation and contest ID checks
 npm run check:questions
 
 # Execute linting and static analysis
@@ -192,12 +217,12 @@ npm run build
 Contributions expand the catalog and refine educational explanations. Submit new questions, fix errata, or improve editor features through pull requests:
 
 1. Fork the repository.
-2. Add new question definitions to `src/data/questions/`.
-3. Validate question integrity with `npm run check:questions`.
+2. Add or update Markdown content in `content/questions/<category>/`, `content/contests/`, or `content/tutorials/`.
+3. Validate content integrity with `npm run check:questions`.
 4. Ensure all builds succeed with `npm run build`.
 5. Open a descriptive pull request.
 
-Review `CONTRIBUTING.md` for detailed question schema specifications and formatting standards.
+Review [`content/questions/README.md`](content/questions/README.md) and [`CONTRIBUTING.md`](CONTRIBUTING.md) for detailed question quality rules and formatting standards.
 
 ---
 

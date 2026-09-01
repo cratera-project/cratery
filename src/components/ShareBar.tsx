@@ -85,7 +85,6 @@ export function ShareBar({ url, text, size = 'sm', className }: Props) {
             target="_blank"
             rel="noopener noreferrer"
             className={itemClass}
-            onClick={() => setOpen(false)}
           >
             Share on X
           </a>
@@ -95,7 +94,6 @@ export function ShareBar({ url, text, size = 'sm', className }: Props) {
             target="_blank"
             rel="noopener noreferrer"
             className={itemClass}
-            onClick={() => setOpen(false)}
           >
             LinkedIn
           </a>

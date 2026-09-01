@@ -300,24 +300,32 @@ export async function getQuestStatsBatch(
 ): Promise<Record<string, QuestAnswerStats>> {
   const out: Record<string, QuestAnswerStats> = {}
   if (questionIds.length === 0) return out
-  try {
-    const res = await fetch(
-      `/api/quest-stats-batch?ids=${encodeURIComponent(questionIds.join(','))}`
-    )
-    if (res.ok) {
-      const body = (await res.json()) as { stats?: Record<string, QuestAnswerStats> }
-      if (body.stats) {
-        for (const [id, stats] of Object.entries(body.stats)) {
-          out[id] = {
-            solve_count: Number(stats.solve_count) || 0,
-            correct_count: Number(stats.correct_count) || 0,
+  const chunks: string[][] = []
+  for (let i = 0; i < questionIds.length; i += 100) {
+    chunks.push(questionIds.slice(i, i + 100))
+  }
+  await Promise.all(
+    chunks.map(async (chunk) => {
+      try {
+        const res = await fetch(
+          `/api/quest-stats-batch?ids=${encodeURIComponent(chunk.join(','))}`
+        )
+        if (res.ok) {
+          const body = (await res.json()) as { stats?: Record<string, QuestAnswerStats> }
+          if (body.stats) {
+            for (const [id, stats] of Object.entries(body.stats)) {
+              out[id] = {
+                solve_count: Number(stats.solve_count) || 0,
+                correct_count: Number(stats.correct_count) || 0,
+              }
+            }
           }
         }
+      } catch {
+        /* ignore */
       }
-    }
-  } catch {
-    /* ignore */
-  }
+    })
+  )
   return out
 }
 
