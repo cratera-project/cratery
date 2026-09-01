@@ -1288,7 +1288,22 @@ export async function handleGetSiteStats(request: Request, env: Env): Promise<Re
         console.error('get_site_stats failed:', error)
         return errorResponse('Failed to load site stats', 500, env, request)
     }
-    return jsonResponse({ status: 'ok', stats: data }, 200, env, request, LIVE_STATS_CACHE)
+
+    const stats =
+        data && typeof data === 'object' && !Array.isArray(data)
+            ? { ...(data as Record<string, unknown>) }
+            : {}
+
+    const { count, error: countError } = await supabase
+        .from('custom_users')
+        .select('id', { count: 'exact', head: true })
+    if (countError) {
+        console.error('custom_users member count failed:', countError)
+    } else if (count != null) {
+        stats.members = count
+    }
+
+    return jsonResponse({ status: 'ok', stats }, 200, env, request, LIVE_STATS_CACHE)
 }
 
 export async function handleGetPublicProfile(request: Request, env: Env): Promise<Response> {

@@ -1,4 +1,5 @@
 import { customAuth } from './customAuth'
+import { isLocalDev } from './turnstile'
 import type { AvatarConfig } from './avatar'
 
 export type NoteCellType = 'markdown' | 'code'
@@ -465,23 +466,29 @@ export async function listCommunityNotes(params?: {
 
 
 export async function listMyNotes(): Promise<UserNote[]> {
-  try {
-    const res = await apiRequest<{ status: string; notes?: UserNote[] }>('/api/notes?mine=true')
-    if (res.notes && Array.isArray(res.notes)) {
-      return res.notes.map((n) => ({
-        ...n,
-        views_count: Number(n.views_count) || 0,
-        runs_count: Number(n.runs_count) || 0,
-        forks_count: Number(n.forks_count) || 0,
-      }))
+  if (!isLocalDev) {
+    try {
+      const res = await apiRequest<{ status: string; notes?: UserNote[] }>('/api/notes?mine=true')
+      if (res.notes && Array.isArray(res.notes)) {
+        return res.notes.map((n) => ({
+          ...n,
+          views_count: Number(n.views_count) || 0,
+          runs_count: Number(n.runs_count) || 0,
+          forks_count: Number(n.forks_count) || 0,
+        }))
+      }
+    } catch {
+      /* fallback */
     }
-  } catch {
-    /* fallback */
   }
 
   const currentUser = customAuth.getUser()
   const local = getLocalNotes()
-  const filtered = currentUser ? local.filter((n) => n.author_id === currentUser.id) : local
+  const filtered = isLocalDev
+    ? local
+    : currentUser
+      ? local.filter((n) => n.author_id === currentUser.id)
+      : []
   return filtered.map((n) => ({
     ...n,
     views_count: Number(n.views_count) || 0,
@@ -555,32 +562,33 @@ export async function createNote(
   draft: NoteDraft
 ): Promise<{ ok: boolean; note?: UserNote; error?: string }> {
   const currentUser = customAuth.getUser()
-  if (!currentUser) {
-    return { ok: false, error: 'You must be signed in to create and share interactive notes.' }
+
+  if (!isLocalDev) {
+    if (!currentUser) {
+      return { ok: false, error: 'You must be signed in to create and share interactive notes.' }
+    }
+    try {
+      const res = await apiRequest<{ status: string; note?: UserNote; error?: string }>('/api/notes', {
+        method: 'POST',
+        body: JSON.stringify(draft),
+      })
+
+      if (res.note) {
+        clearActiveNoteDraft()
+        return { ok: true, note: res.note }
+      }
+      if (res.error) {
+        return { ok: false, error: res.error }
+      }
+    } catch (err: unknown) {
+      console.warn('Backend note creation failed, saving locally:', err)
+    }
   }
 
-  try {
-    const res = await apiRequest<{ status: string; note?: UserNote; error?: string }>('/api/notes', {
-      method: 'POST',
-      body: JSON.stringify(draft),
-    })
-
-    if (res.note) {
-      clearActiveNoteDraft()
-      return { ok: true, note: res.note }
-    }
-    if (res.error) {
-      return { ok: false, error: res.error }
-    }
-  } catch (err: unknown) {
-    console.warn('Backend note creation failed, saving locally:', err)
-  }
-
-  
   const newNote: UserNote = {
     id: `local_${Date.now()}_${Math.random().toString(36).slice(2, 7)}`,
-    author_id: currentUser.id,
-    author_username: currentUser.username,
+    author_id: currentUser ? currentUser.id : 'local-user',
+    author_username: currentUser ? currentUser.username : 'You (Local)',
     author_avatar: null,
     slug:
       draft.title
@@ -662,32 +670,34 @@ export async function forkNote(
   noteId: string
 ): Promise<{ ok: boolean; note?: UserNote; error?: string }> {
   const currentUser = customAuth.getUser()
-  if (!currentUser) {
-    return { ok: false, error: 'Sign in to fork notes into your workspace.' }
-  }
 
-  try {
-    const res = await apiRequest<{ status: string; note?: UserNote; error?: string }>(
-      '/api/notes/fork',
-      {
-        method: 'POST',
-        body: JSON.stringify({ note_id: noteId }),
-      }
-    )
-    if (res.note) return { ok: true, note: res.note }
-    if (res.error) {
-      const errLower = res.error.toLowerCase()
-      if (
-        errLower.includes('limit') ||
-        errLower.includes('sign in') ||
-        errLower.includes('private') ||
-        errLower.includes('authorized')
-      ) {
-        return { ok: false, error: res.error }
-      }
+  if (!isLocalDev) {
+    if (!currentUser) {
+      return { ok: false, error: 'Sign in to fork notes into your workspace.' }
     }
-  } catch {
-    /* fallback */
+    try {
+      const res = await apiRequest<{ status: string; note?: UserNote; error?: string }>(
+        '/api/notes/fork',
+        {
+          method: 'POST',
+          body: JSON.stringify({ note_id: noteId }),
+        }
+      )
+      if (res.note) return { ok: true, note: res.note }
+      if (res.error) {
+        const errLower = res.error.toLowerCase()
+        if (
+          errLower.includes('limit') ||
+          errLower.includes('sign in') ||
+          errLower.includes('private') ||
+          errLower.includes('authorized')
+        ) {
+          return { ok: false, error: res.error }
+        }
+      }
+    } catch {
+      /* fallback */
+    }
   }
 
   const source = await getNote(noteId)

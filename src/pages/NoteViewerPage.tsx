@@ -8,6 +8,7 @@ import { PixelPanel } from '../components/ui/PixelPanel'
 import { PixelButton } from '../components/ui/PixelButton'
 import { AuthModal } from '../components/AuthModal'
 import { SEO } from '../components/SEO'
+import { isLocalDev } from '../lib/turnstile'
 import {
   FileCode,
   Share2,
@@ -61,7 +62,7 @@ export function NoteViewerPage() {
   }, [id])
 
   const handleFork = async () => {
-    if (!user) {
+    if (!user && !isLocalDev) {
       setShowAuthModal(true)
       return
     }
@@ -116,7 +117,12 @@ export function NoteViewerPage() {
     )
   }
 
-  const isAuthor = user && user.id === note.author_id
+  const isAuthor =
+    (user && user.id === note.author_id) ||
+    (isLocalDev &&
+      (note.author_id === 'local-user' ||
+        note.author_id === 'local-dev-user-id' ||
+        note.id.startsWith('local_')))
   const markdownCellsCount = note.cells.filter((c) => c.type === 'markdown').length
   const codeCellsCount = note.cells.filter((c) => c.type === 'code').length
 

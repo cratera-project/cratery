@@ -11,6 +11,7 @@ export const CHANGELOG: ChangelogEntry[] = [
     title: 'Guest Solution Rates & Community Stats Update',
     items: [
       'Synced the database for missing guest solution rates and solve counts to global stats so guest contributions are accurately included in total quests answered.',
+      'Fixed the homepage rustacean count to use registered accounts (custom_users) instead of verified profiles, which had stalled at 203.',
     ],
   },
   {

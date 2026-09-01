@@ -766,7 +766,12 @@ async function handleVerify(request: Request, env: Env, ctx: ExecutionContext): 
         return errorResponse('Failed to verify email', 400, env, request)
     }
 
-    await supabase.from('profiles').upsert({ id: user.id, username: user.username })
+    const { error: profileError } = await supabase
+        .from('profiles')
+        .upsert({ id: user.id, username: user.username })
+    if (profileError) {
+        console.error('profile upsert after verify failed:', profileError)
+    }
 
     ctx.waitUntil(
         syncCustomerioOnVerify(env, {

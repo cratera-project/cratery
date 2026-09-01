@@ -19,6 +19,7 @@ import { PixelPanel } from '../components/ui/PixelPanel'
 import { PixelButton } from '../components/ui/PixelButton'
 import { AuthModal } from '../components/AuthModal'
 import { SEO } from '../components/SEO'
+import { isLocalDev } from '../lib/turnstile'
 import {
   Save,
   Globe,
@@ -189,7 +190,7 @@ export function NoteEditorPage() {
   }
 
   const handleSave = async () => {
-    if (!user) {
+    if (!user && !isLocalDev) {
       setShowAuthModal(true)
       return
     }
@@ -229,7 +230,7 @@ export function NoteEditorPage() {
   }
 
   const handleDelete = async () => {
-    if (!id || !user) return
+    if (!id || (!user && !isLocalDev)) return
     setSaving(true)
     try {
       const res = await deleteNote(id)

@@ -551,19 +551,23 @@ export async function handleCreateNote(request: Request, env: Env): Promise<Resp
     }
 
     
-    const maxNotebooks = 50
-    const { count, error: countError } = await supabase
-        .from('user_notes')
-        .select('id', { count: 'exact', head: true })
-        .eq('author_id', user.id)
+    const skipNotebookQuota =
+        env.LOCAL_DEV === '1' || env.LOCAL_DEV === 'true'
+    if (!skipNotebookQuota) {
+        const maxNotebooks = 50
+        const { count, error: countError } = await supabase
+            .from('user_notes')
+            .select('id', { count: 'exact', head: true })
+            .eq('author_id', user.id)
 
-    if (!countError && (count ?? 0) >= maxNotebooks) {
-        return errorResponse(
-            'Limit of 50 notebooks reached. Delete unused notebooks to create more.',
-            403,
-            env,
-            request
-        )
+        if (!countError && (count ?? 0) >= maxNotebooks) {
+            return errorResponse(
+                'Limit of 50 notebooks reached. Delete unused notebooks to create more.',
+                403,
+                env,
+                request
+            )
+        }
     }
 
     let body: any
@@ -841,19 +845,23 @@ export async function handleForkNote(request: Request, env: Env): Promise<Respon
     }
 
     
-    const maxNotebooks = 50
-    const { count, error: countError } = await supabase
-        .from('user_notes')
-        .select('id', { count: 'exact', head: true })
-        .eq('author_id', user.id)
+    const skipNotebookQuota =
+        env.LOCAL_DEV === '1' || env.LOCAL_DEV === 'true'
+    if (!skipNotebookQuota) {
+        const maxNotebooks = 50
+        const { count, error: countError } = await supabase
+            .from('user_notes')
+            .select('id', { count: 'exact', head: true })
+            .eq('author_id', user.id)
 
-    if (!countError && (count ?? 0) >= maxNotebooks) {
-        return errorResponse(
-            'Limit of 50 notebooks reached. Delete unused notebooks to fork more.',
-            403,
-            env,
-            request
-        )
+        if (!countError && (count ?? 0) >= maxNotebooks) {
+            return errorResponse(
+                'Limit of 50 notebooks reached. Delete unused notebooks to fork more.',
+                403,
+                env,
+                request
+            )
+        }
     }
 
     const rawTitle = `Fork of ${sourceNote.title || 'Untitled Note'}`.trim()

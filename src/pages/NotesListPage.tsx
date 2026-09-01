@@ -11,6 +11,7 @@ import { PixelPanel } from '../components/ui/PixelPanel'
 import { PixelButton } from '../components/ui/PixelButton'
 import { AuthModal } from '../components/AuthModal'
 import { SEO } from '../components/SEO'
+import { isLocalDev } from '../lib/turnstile'
 import {
   FileCode,
   Plus,
@@ -54,7 +55,7 @@ export function NotesListPage() {
           setLoading(false)
         }
       } else {
-        if (!user) {
+        if (!user && !isLocalDev) {
           if (!cancelled) {
             setMyNotes([])
             setLoading(false)
@@ -76,13 +77,14 @@ export function NotesListPage() {
   }, [activeTab, searchQuery, selectedTag, sortMode, user])
 
   const maxQuota = 50
+  const notesUnlimited = isLocalDev
 
   const handleCreateNew = () => {
-    if (!user) {
+    if (!user && !isLocalDev) {
       setShowAuthModal(true)
       return
     }
-    if (myNotes.length >= maxQuota) {
+    if (!notesUnlimited && myNotes.length >= maxQuota) {
       alert('Limit of 50 notebooks reached. Please delete unused notebooks to create more.')
       return
     }
@@ -147,7 +149,7 @@ export function NotesListPage() {
               <div
                 key={tmpl.id}
                 onClick={() => {
-                  if (!user) {
+                  if (!user && !isLocalDev) {
                     setShowAuthModal(true)
                   } else {
                     navigate(`/notes/new?template=${tmpl.id}`)
@@ -191,7 +193,7 @@ export function NotesListPage() {
             <button
               type="button"
               onClick={() => {
-                if (!user) {
+                if (!user && !isLocalDev) {
                   setShowAuthModal(true)
                 } else {
                   setActiveTab('mine')
@@ -205,7 +207,12 @@ export function NotesListPage() {
             >
               <User className="h-3.5 w-3.5" />
               <span>
-                My Notes {user ? `(${myNotes.length}/${maxQuota})` : ''}
+                My Notes{' '}
+                {notesUnlimited
+                  ? `(${myNotes.length})`
+                  : user
+                    ? `(${myNotes.length}/${maxQuota})`
+                    : ''}
               </span>
             </button>
           </div>
@@ -239,20 +246,30 @@ export function NotesListPage() {
         </div>
 
         {/* My Notes Quota Banner */}
-        {activeTab === 'mine' && user && (
+        {activeTab === 'mine' && (user || isLocalDev) && (
           <div className="flex flex-wrap items-center justify-between gap-3 border-2 border-night-edge bg-night p-3">
             <div className="flex items-center gap-2 font-pixel text-[9px] uppercase text-ink">
               <FileCode className="h-3.5 w-3.5 text-diamond" />
               <span>
-                Notebook Quota:{' '}
-                <strong
-                  className={
-                    myNotes.length >= maxQuota ? 'text-heart' : 'text-rust-orange'
-                  }
-                >
-                  {myNotes.length}
-                </strong>{' '}
-                / {maxQuota} notebooks used
+                {notesUnlimited ? (
+                  <>
+                    Local Notebooks:{' '}
+                    <strong className="text-rust-orange">{myNotes.length}</strong>{' '}
+                    (no limit)
+                  </>
+                ) : (
+                  <>
+                    Notebook Quota:{' '}
+                    <strong
+                      className={
+                        myNotes.length >= maxQuota ? 'text-heart' : 'text-rust-orange'
+                      }
+                    >
+                      {myNotes.length}
+                    </strong>{' '}
+                    / {maxQuota} notebooks used
+                  </>
+                )}
               </span>
             </div>
           </div>

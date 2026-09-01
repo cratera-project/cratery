@@ -304,7 +304,7 @@ export function Header() {
                 </Link>
               ) : null}
 
-              {/* Platform Dropdown (Contests + Supporter + Developer API + Contact) */}
+              {/* Platform dropdown */}
               <div className="relative shrink-0" ref={platformRef}>
                 <button
                   type="button"
@@ -457,7 +457,7 @@ export function Header() {
             ref={mobileMenuRef}
             className="border-t-4 border-black/60 bg-night-panel p-3 space-y-3 md:hidden animate-in fade-in slide-in-from-top-2 duration-150"
           >
-            {/* Top Cards: Supporter & Learn */}
+            {/* Mobile nav cards */}
             <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
               <Link
                 to="/notes"

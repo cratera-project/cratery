@@ -969,7 +969,7 @@ DECLARE
     v_user_quests BIGINT;
     v_code_executions BIGINT;
 BEGIN
-    SELECT COUNT(*) INTO v_members FROM public.profiles;
+    SELECT COUNT(*) INTO v_members FROM public.custom_users;
     SELECT COALESCE(SUM(solve_count), 0) INTO v_answers FROM public.quest_answer_stats;
     SELECT COUNT(*) INTO v_user_quests FROM public.user_quests;
     SELECT COALESCE(SUM(total_executions), 0) INTO v_code_executions FROM public.code_execution_stats;
