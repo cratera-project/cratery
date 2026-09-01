@@ -5,6 +5,8 @@ main = "functions/auth.ts"
 
 [build]
 command = "npm run build"
+# Default watch is cwd; the build writes generated files there and retriggers forever.
+watch_dir = ["content"]
 
 [assets]
 directory = "./dist"

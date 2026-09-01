@@ -14,6 +14,7 @@ import {
     hasValidGuestClearance,
 } from './lib/guestClearance'
 import { loadPublicProfile } from './lib/profileData'
+import { loadCreatorLeaderboard, loadSolverLeaderboard } from './lib/leaderboard'
 import { awardAuthorXp, insertNotification, loadTotalXp, PUBLISH_XP, SOLVE_DRIP_XP } from './lib/xp'
 import { syncCustomerioAfterAnswer } from './lib/customerio-sync'
 import { incrementQuestAnswerStats } from './lib/questStats'
@@ -1281,20 +1282,16 @@ export async function handleGetLeaderboard(request: Request, env: Env): Promise<
     const limit = Math.min(100, Math.max(1, parseInt(url.searchParams.get('limit') || '25', 10) || 25))
     const kind = url.searchParams.get('kind') === 'creators' ? 'creators' : 'solvers'
     const supabase = createSupabaseClient(env)
-    if (kind === 'creators') {
-        const { data, error } = await supabase.rpc('get_creator_leaderboard', { p_limit: limit })
-        if (error) {
-            console.error('get_creator_leaderboard failed:', error)
-            return errorResponse('Failed to load leaderboard', 500, env, request)
-        }
-        return jsonResponse({ status: 'ok', kind, entries: data ?? [] }, 200, env, request, PUBLIC_CACHE)
-    }
-    const { data, error } = await supabase.rpc('get_leaderboard', { p_limit: limit })
-    if (error) {
-        console.error('get_leaderboard failed:', error)
+    try {
+        const entries =
+            kind === 'creators'
+                ? await loadCreatorLeaderboard(supabase, limit)
+                : await loadSolverLeaderboard(supabase, limit)
+        return jsonResponse({ status: 'ok', kind, entries }, 200, env, request, PUBLIC_CACHE)
+    } catch (err) {
+        console.error('leaderboard failed:', err)
         return errorResponse('Failed to load leaderboard', 500, env, request)
     }
-    return jsonResponse({ status: 'ok', kind, entries: data ?? [] }, 200, env, request, PUBLIC_CACHE)
 }
 
 type CommunityQuestRow = {

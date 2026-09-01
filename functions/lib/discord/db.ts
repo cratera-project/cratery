@@ -1,6 +1,7 @@
 import type { SupabaseClient } from '@supabase/supabase-js'
 import { rankForXp } from '../../../src/lib/ranks'
 import { loadTotalXp } from '../xp'
+import { loadSolverLeaderboard } from '../leaderboard'
 
 export type DiscordUserScore = {
   discord_id: string
@@ -317,12 +318,14 @@ export async function getCrateryLeaderboard(
 ): Promise<CrateryLeaderboardRow[]> {
   if (!supabase) return []
   try {
-    const { data, error } = await supabase.rpc('get_leaderboard', { p_limit: limit })
-    if (error || !data) {
-      console.error('[discord-db] get_leaderboard RPC error:', error)
-      return []
-    }
-    return (data as CrateryLeaderboardRow[]) || []
+    const rows = await loadSolverLeaderboard(supabase, limit)
+    return rows.map((row) => ({
+      id: row.id,
+      username: row.username,
+      total_xp: row.total_xp,
+      total_quests: row.total_quests,
+      correct_count: row.correct_count,
+    }))
   } catch (err) {
     console.error('[discord-db] Failed to load Cratery leaderboard:', err)
     return []
