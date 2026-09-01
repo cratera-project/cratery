@@ -46,7 +46,7 @@ step "Official solutions through rustc"
 node scripts/check-rust-harnesses.mjs
 
 step "ESLint"
-npx eslint .
+npx eslint . --max-warnings 0
 
 step "Typecheck app"
 npx tsc -b

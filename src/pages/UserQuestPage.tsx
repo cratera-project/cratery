@@ -182,7 +182,7 @@ export function UserQuestPage() {
         return
       }
       if (source === 'community') {
-        const rows = await getCommunityQuests(60)
+        const rows = await getCommunityQuests(100)
         const items = rows.map((q) => ({ username: q.username, slug: q.slug }))
         saveCommunityPlaylist(items)
         if (!cancelled) setPlaylist(items)

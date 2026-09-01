@@ -55,7 +55,7 @@ export function parseNavSource(value: string | null): QuestNavSource | null {
 }
 
 export function questHref(item: QuestNavItem, source: QuestNavSource | null): string {
-  const base = `/${item.username}/${item.slug}`
+  const base = `/${encodeURIComponent(item.username)}/${encodeURIComponent(item.slug)}`
   if (!source) return base
   return `${base}?from=${source}`
 }

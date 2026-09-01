@@ -67,21 +67,39 @@ fn main() {
 
     trackCodeExecution(env)
 
-    const data = (await res.json()) as Record<string, any>
+    const data = (await res.json()) as Record<string, unknown>
+    const testFailures = Array.isArray(data.testFailures)
+      ? (data.testFailures as JudgeExecutionResult['testFailures'])
+      : undefined
 
     return {
       passed: data.passed === true || data.verdict === 'AC',
-      compilationError: data.compilationError || (data.status === 'Compilation Error' ? data.message : undefined),
-      testFailures: data.testFailures,
-      executionTimeMs: typeof data.executionTime === 'number' ? Math.round(data.executionTime / 1000) : data.executionTimeMs,
-      stdout: data.stdout,
-      stderr: data.stderr || data.error,
+      compilationError:
+        typeof data.compilationError === 'string'
+          ? data.compilationError
+          : data.status === 'Compilation Error' && typeof data.message === 'string'
+            ? data.message
+            : undefined,
+      testFailures,
+      executionTimeMs:
+        typeof data.executionTime === 'number'
+          ? Math.round(data.executionTime / 1000)
+          : typeof data.executionTimeMs === 'number'
+            ? data.executionTimeMs
+            : undefined,
+      stdout: typeof data.stdout === 'string' ? data.stdout : undefined,
+      stderr:
+        typeof data.stderr === 'string'
+          ? data.stderr
+          : typeof data.error === 'string'
+            ? data.error
+            : undefined,
       unavailable: data.unavailable === true,
     }
-  } catch (err: any) {
+  } catch (err: unknown) {
     return {
       passed: false,
-      error: `Failed to connect to microVM judge: ${err.message || String(err)}`,
+      error: `Failed to connect to microVM judge: ${err instanceof Error ? err.message : String(err)}`,
     }
   }
 }

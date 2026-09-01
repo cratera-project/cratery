@@ -16,6 +16,7 @@ import {
 import { loadPublicProfile } from './lib/profileData'
 import { awardAuthorXp, insertNotification, loadTotalXp, PUBLISH_XP, SOLVE_DRIP_XP } from './lib/xp'
 import { syncCustomerioAfterAnswer } from './lib/customerio-sync'
+import { incrementQuestAnswerStats } from './lib/questStats'
 
 type AnswerBody = {
     question_id?: string
@@ -77,49 +78,7 @@ async function bumpGuestAnswerStats(
     questionId: string,
     isCorrect: boolean
 ): Promise<void> {
-    const { error: rpcError } = await supabase.rpc('increment_quest_answer_stats', {
-        p_question_id: questionId,
-        p_is_correct: isCorrect,
-    })
-    if (!rpcError) return
-
-    if (rpcError.code === 'PGRST202') {
-        console.warn(
-            'increment_quest_answer_stats missing — apply supabase/apply_guest_answer_stats.sql'
-        )
-    } else {
-        console.error('increment_quest_answer_stats RPC failed:', rpcError)
-    }
-
-    const { data: row, error: selError } = await supabase
-        .from('quest_answer_stats')
-        .select('solve_count, correct_count')
-        .eq('question_id', questionId)
-        .maybeSingle()
-
-    if (selError) {
-        console.error('guest stats fallback read failed:', selError)
-        return
-    }
-
-    if (row) {
-        const { error: updError } = await supabase
-            .from('quest_answer_stats')
-            .update({
-                solve_count: Number(row.solve_count) + 1,
-                correct_count: Number(row.correct_count) + (isCorrect ? 1 : 0),
-                updated_at: new Date().toISOString(),
-            })
-            .eq('question_id', questionId)
-        if (updError) console.error('guest stats fallback update failed:', updError)
-    } else {
-        const { error: insError } = await supabase.from('quest_answer_stats').insert({
-            question_id: questionId,
-            solve_count: 1,
-            correct_count: isCorrect ? 1 : 0,
-        })
-        if (insError) console.error('guest stats fallback insert failed:', insError)
-    }
+    await incrementQuestAnswerStats(supabase, questionId, isCorrect)
 }
 
 export async function handleSubmitQuestAnswer(
@@ -1378,20 +1337,22 @@ export async function handleListCommunityQuests(request: Request, env: Env): Pro
     const sort = parseCommunitySort(url.searchParams.get('sort'))
     const supabase = createSupabaseClient(env)
 
-    
-    const pool = Math.min(500, Math.max(limit, 100))
-    const { data, error } = await supabase
-        .from('user_quests')
-        .select('id, slug, title, kind, difficulty, created_at, author_id')
-        .order('created_at', { ascending: false })
-        .limit(pool)
-
-    if (error) {
-        console.error('list_community_quests failed:', error)
-        return errorResponse('Failed to load community quests', 500, env, request)
+    const rows: CommunityQuestRow[] = []
+    const pageSize = 1000
+    for (let from = 0; from < 20_000; from += pageSize) {
+        const { data, error } = await supabase
+            .from('user_quests')
+            .select('id, slug, title, kind, difficulty, created_at, author_id')
+            .order('created_at', { ascending: false })
+            .range(from, from + pageSize - 1)
+        if (error) {
+            console.error('list_community_quests failed:', error)
+            return errorResponse('Failed to load community quests', 500, env, request)
+        }
+        const page = (data ?? []) as CommunityQuestRow[]
+        rows.push(...page)
+        if (page.length < pageSize) break
     }
-
-    const rows = (data ?? []) as CommunityQuestRow[]
     const authorIds = [...new Set(rows.map((r) => r.author_id))]
     const usernameById = new Map<string, string>()
     if (authorIds.length > 0) {
@@ -1410,13 +1371,26 @@ export async function handleListCommunityQuests(request: Request, env: Env): Pro
 
     const statsByQuestion = new Map<string, { solve_count: number; correct_count: number }>()
     const questionIds = rows.map((r) => `uq:${r.id}`)
-    if (questionIds.length > 0) {
+    for (let i = 0; i < questionIds.length; i += 300) {
+        const chunk = questionIds.slice(i, i + 300)
         const { data: statsData, error: statsError } = await supabase.rpc('get_quest_stats_batch', {
-            p_question_ids: questionIds,
+            p_question_ids: chunk,
         })
         if (statsError) {
             console.error('list_community_quests stats failed:', statsError)
-        } else if (statsData && typeof statsData === 'object') {
+            const { data: fallbackRows } = await supabase
+                .from('quest_answer_stats')
+                .select('question_id, solve_count, correct_count')
+                .in('question_id', chunk)
+            for (const r of fallbackRows ?? []) {
+                statsByQuestion.set(r.question_id as string, {
+                    solve_count: Number(r.solve_count) || 0,
+                    correct_count: Number(r.correct_count) || 0,
+                })
+            }
+            continue
+        }
+        if (statsData && typeof statsData === 'object') {
             for (const [qid, stats] of Object.entries(
                 statsData as Record<string, { solve_count: number; correct_count: number }>
             )) {
@@ -1467,6 +1441,52 @@ export async function handleListCommunityQuests(request: Request, env: Env): Pro
     })
 
     return jsonResponse({ status: 'ok', quests: quests.slice(0, limit) }, 200, env, request, PUBLIC_CACHE)
+}
+
+export async function handleGetCommunityQuest(request: Request, env: Env): Promise<Response> {
+    const url = new URL(request.url)
+    const username = url.searchParams.get('username')?.trim()
+    const slug = url.searchParams.get('slug')?.trim().toLowerCase()
+    if (!username || username.length > 40) {
+        return errorResponse('username required', 400, env, request)
+    }
+    if (!slug || slug.length > 60) {
+        return errorResponse('slug required', 400, env, request)
+    }
+
+    const profile = await loadPublicProfile(env, username)
+    if (!profile) return errorResponse('Quest not found', 404, env, request)
+
+    const supabase = createSupabaseClient(env)
+    const { data, error } = await supabase
+        .from('user_quests')
+        .select(
+            'id, author_id, slug, title, prompt, kind, code, test_harness, options, hint, difficulty, created_at'
+        )
+        .eq('author_id', profile.id)
+        .eq('slug', slug)
+        .maybeSingle()
+
+    if (error) {
+        console.error('get_community_quest failed:', error)
+        return errorResponse('Failed to load quest', 500, env, request)
+    }
+    if (!data) return errorResponse('Quest not found', 404, env, request)
+
+    return jsonResponse(
+        {
+            status: 'ok',
+            quest: {
+                ...data,
+                kind: data.kind === 'coding' ? 'coding' : 'mcq',
+                author_avatar: profile.avatar ?? null,
+            },
+        },
+        200,
+        env,
+        request,
+        PUBLIC_CACHE
+    )
 }
 
 export async function handleGetQuestStats(request: Request, env: Env): Promise<Response> {
@@ -1577,7 +1597,7 @@ export async function handleGetQuestStatsBatch(request: Request, env: Env): Prom
         }
     }
 
-    const missingIds = ids.filter((id) => !stats[id] || stats[id].solve_count === 0)
+    const missingIds = ids.filter((id) => !stats[id])
     if (missingIds.length > 0) {
         const { data: answers } = await supabase
             .from('quest_answers')

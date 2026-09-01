@@ -19,6 +19,7 @@ import {
     handleGetSiteStats,
     handleGetLeaderboard,
     handleListCommunityQuests,
+    handleGetCommunityQuest,
     handleGetQuestStats,
     handleGetQuestStatsBatch,
     handleGetMyProgress,
@@ -347,6 +348,9 @@ export default {
                 return await withPublicCache(request, env, 'community-quests', 30, () =>
                     handleListCommunityQuests(request, env)
                 )
+            }
+            if (path === '/api/community-quest' && request.method === 'GET') {
+                return await handleGetCommunityQuest(request, env)
             }
             if (path === '/api/quest-stats' && request.method === 'GET') {
                 return await withPublicCache(request, env, 'quest-stats', 200, () =>

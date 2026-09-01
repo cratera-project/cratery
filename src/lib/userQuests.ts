@@ -1,4 +1,3 @@
-import { supabase, isSupabaseConfigured } from './supabase'
 import { customAuth } from './customAuth'
 import { questions } from '../data/questions'
 import type { AvatarConfig } from './avatar'
@@ -185,26 +184,15 @@ export async function getPublicProfile(username: string, fresh = false): Promise
 }
 
 export async function getUserQuest(username: string, slug: string): Promise<UserQuest | null> {
-  if (!isSupabaseConfigured) return null
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('id, avatar')
-    .ilike('username', username)
-    .maybeSingle()
-  if (!profile) return null
-
-  const { data, error } = await supabase
-    .from('user_quests')
-    .select(
-      'id, author_id, slug, title, prompt, kind, code, test_harness, options, hint, difficulty, created_at'
-    )
-    .eq('author_id', profile.id)
-    .eq('slug', slug)
-    .maybeSingle()
-  if (error || !data) return null
-  return {
-    ...normalizeQuest(data as UserQuest),
-    author_avatar: (profile.avatar as AvatarConfig | null) ?? null,
+  try {
+    const params = new URLSearchParams({ username, slug })
+    const res = await fetch(`/api/community-quest?${params}`)
+    if (!res.ok) return null
+    const body = (await res.json()) as { quest?: Partial<UserQuest> & { id: string } }
+    if (!body.quest?.id) return null
+    return normalizeQuest(body.quest)
+  } catch {
+    return null
   }
 }
 

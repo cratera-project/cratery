@@ -2,25 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://cratery.cratera.org/</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://cratery.cratera.org/learn</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://cratery.cratera.org/daily</loc>
-    <lastmod>2026-08-27</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://cratery.cratera.org/quests</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -32,7 +32,7 @@
   </url>
   <url>
     <loc>https://cratery.cratera.org/fated-five</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -44,7 +44,7 @@
   </url>
   <url>
     <loc>https://cratery.cratera.org/changelog</loc>
-    <lastmod>2026-08-20</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.4</priority>
   </url>
@@ -109,31 +109,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/contest/2026-08-27-versioned-kv</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/contest/2026-08-20-frame-multiplexer</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/contest/2026-08-13-lexicon</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/contest/2026-08-06-scheduler</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/contest/2026-02-12-dag-path</loc>
+    <loc>https://cratery.cratera.org/contest/2026-01-29-cache</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -145,7 +121,31 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/contest/2026-01-29-cache</loc>
+    <loc>https://cratery.cratera.org/contest/2026-02-12-dag-path</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/contest/2026-08-06-scheduler</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/contest/2026-08-13-lexicon</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/contest/2026-08-20-frame-multiplexer</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/contest/2026-08-27-versioned-kv</loc>
     <lastmod>2026-08-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -157,43 +157,19 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-move-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-box-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-copy-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-box-from-raw-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-func-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-mut-borrow-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-dangle-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-vec-push-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-partial-move-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-box-leak-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -205,55 +181,43 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-ref-lifetime-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-code-clone-vec</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-mut-immut-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-code-drain-filter</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-return-move-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-code-option-take</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-slice-borrow-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-code-struct-destructure</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-method-self-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-code-swap-values</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-tuple-move-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-code-take-ownership</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-ref-mut-scope-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-drop-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-box-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-copy-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -265,49 +229,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-reassign-mut-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-cow-clone-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-shadow-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-into-iter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-mem-replace-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-rc-vs-clone-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-partial-reborrow-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-drop-order-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-mem-take-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-dangle-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -319,61 +247,175 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-drop-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-drop-glue-order-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-drop-order-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/ownership/question/own-drop-prevent-partial-move-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-func-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-into-iter-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-into-raw-leak-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-manually-drop-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-mem-replace-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-mem-take-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-mem-take-default-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-method-self-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-move-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-mut-borrow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-mut-immut-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-partial-move-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-partial-reborrow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-pin-drop-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-rc-try-unwrap-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-rc-vs-clone-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-reassign-mut-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-ref-lifetime-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-ref-mut-scope-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-return-move-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-shadow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-slice-borrow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-slice-into-vec-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-string-shrink-to-fit-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-2</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-3</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-4</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-5</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-6</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-7</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-8</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -439,6 +481,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-20</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -499,6 +547,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-3</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-30</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -535,67 +589,37 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-code-clone-vec</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-4</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-code-take-ownership</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-5</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-code-swap-values</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-6</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-code-drain-filter</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-7</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-code-option-take</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-8</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-code-struct-destructure</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-box-leak-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-cow-clone-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-pin-drop-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-manually-drop-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-slice-into-vec-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -607,37 +631,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-into-raw-leak-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-tuple-move-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-rc-try-unwrap-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-box-from-raw-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-string-shrink-to-fit-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-mem-take-default-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/ownership/question/own-drop-glue-order-1</loc>
+    <loc>https://cratery.cratera.org/category/ownership/question/own-vec-push-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -649,31 +649,55 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-anon-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-anonymous-param-ref-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/lifetimes/question/life-basic-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-struct-1</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-filter-slices</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-elision-1</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-find-prefix</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-1</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-first-word</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-mult-1</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-longest-str</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-min-max-refs</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-struct-ref</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -685,97 +709,25 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-early-vs-late-bound-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-elision-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-elision-impl-block-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/lifetimes/question/life-elision-method-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-two-inputs-need-anno-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-misuse-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-struct-field-vs-param-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-elision-two-inputs-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-subtype-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-anon-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-outlives-bound-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-impl-elision-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-mut-reborrow-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-hrtb-intro-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-promoted-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-same-lifetime-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-return-shorter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-bound-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-mut-invariant-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -787,61 +739,145 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-variance-fn-ptr-1</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-elision-two-inputs-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-for-lifetime-fn-ptr-subtyping-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-higher-rank-trait-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-hrtb-intro-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-impl-elision-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-mult-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-multiple-lifetime-bounds-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-mut-invariant-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-mut-reborrow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-opaque-return-lifetime-capture-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-outlives-bound-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-ref-mut-invariant-param-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-return-shorter-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-same-lifetime-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-bound-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-bound-struct-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-misuse-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-promoted-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-promotion-rvalue-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-struct-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-struct-field-vs-param-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-subtype-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-2</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-3</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-4</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-5</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-6</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-7</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-8</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -907,6 +943,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-20</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -967,6 +1009,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-3</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-30</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -1003,85 +1051,37 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-longest-str</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-4</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-find-prefix</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-5</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-struct-ref</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-6</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-first-word</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-7</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-filter-slices</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-8</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-code-min-max-refs</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-variance-fn-arg-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-bound-struct-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-higher-rank-trait-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-elision-impl-block-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-anonymous-param-ref-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-multiple-lifetime-bounds-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-early-vs-late-bound-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-ref-mut-invariant-param-1</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1093,19 +1093,19 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-static-promotion-rvalue-1</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-two-inputs-need-anno-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-opaque-return-lifetime-capture-1</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-variance-fn-arg-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/lifetimes/question/life-for-lifetime-fn-ptr-subtyping-1</loc>
+    <loc>https://cratery.cratera.org/category/lifetimes/question/life-variance-fn-ptr-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1117,13 +1117,109 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-def-1</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-asref-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-assoc-const-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-associated-const-bound-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-associated-type-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-associated-type-defaults-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-auto-traits-negative-impl-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-blanket-impl-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-borrow-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cratery.cratera.org/category/traits/question/trait-bound-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-bound-same-type-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-code-add-trait</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-code-default-derive</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-code-deref</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-code-generic-bounds</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-code-impl-from</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-code-impl-summary</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-coherence-covered-type-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-def-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1141,7 +1237,55 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-disambiguation-inherent-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-dispatch-static-vs-dynamic-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-dispatch-vtable-layout-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-drop-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/traits/question/trait-dyn-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-from-into-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-gat-associated-lifetime-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-gats-lifetime-param-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-impl-trait-return-pos-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1153,7 +1297,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-bound-same-type-1</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-marker-traits-zero-size-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1165,19 +1309,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-where-clause-1</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-object-safe-sized-self-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-where-needed-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-return-impl-single-type-1</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-object-safety-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1201,43 +1339,19 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-dispatch-static-vs-dynamic-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-blanket-impl-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://cratery.cratera.org/category/traits/question/trait-orphan-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supertrait-1</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-orphan-rule-blanket-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-associated-type-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-object-safety-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-from-into-1</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-return-impl-single-type-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1249,97 +1363,19 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-drop-1</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supertrait-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-borrow-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-upcast-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-asref-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-assoc-const-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-gat-associated-lifetime-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-disambiguation-inherent-1</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supertrait-dyn-upcast-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-2</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-3</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-4</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-5</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-6</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-7</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-8</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1405,6 +1441,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-20</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -1465,6 +1507,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-3</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-30</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -1501,103 +1549,37 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-code-impl-summary</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-4</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-code-impl-from</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-5</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-code-generic-bounds</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-6</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-code-default-derive</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-7</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-code-deref</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-8</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-code-add-trait</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-supertrait-dyn-upcast-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-associated-const-bound-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-object-safe-sized-self-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-gats-lifetime-param-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-impl-trait-return-pos-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-orphan-rule-blanket-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-coherence-covered-type-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-marker-traits-zero-size-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-associated-type-defaults-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-dispatch-vtable-layout-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/traits/question/trait-auto-traits-negative-impl-1</loc>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1609,97 +1591,37 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-upcast-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-where-clause-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/traits/question/trait-where-needed-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/concurrency</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-thread-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-atomic-fence-synchronization-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-move-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-channel-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mutex-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-send-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-sync-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-static-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-scope-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mutexguard-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mpsc-iter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-condvar-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-parking-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-rwlock-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-barrier-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-poisoned-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-atomic-fetch-update-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1711,37 +1633,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mpsc-clone-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-atomic-ordering-release-acquire-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-once-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-barrier-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-thread-local-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-channel-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-scope-return-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-join-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-move-closure-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-channel-disconnection-hang-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1753,25 +1663,37 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mutex-poison-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-atomic-bool</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-lazylock-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-barrier-sync</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-sync-channel-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-mpsc-channel</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-scoped-threads-borrow-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-mutex-counter</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-rwlock-read</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-spawn-join</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1783,61 +1705,157 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-condvar-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-condvar-wait-mutex-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-join-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-lazylock-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-move-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-move-closure-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mpsc-clone-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mpsc-iter-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mutex-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mutex-poison-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mutex-poisoning-unwind-panic-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mutexguard-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-once-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-once-cell-lazy-init-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-parking-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-poisoned-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-rwlock-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/concurrency/question/conc-rwlock-read-recursion-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-rwlock-upgrade-deadlock-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-scope-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-scope-return-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-scoped-threads-borrow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-scoped-threads-stack-borrow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-send-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-static-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-2</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-3</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-4</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-5</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-6</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-7</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-8</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1903,6 +1921,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-20</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -1963,6 +1987,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-3</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-30</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -1999,37 +2029,49 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-spawn-join</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-4</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-mpsc-channel</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-5</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-mutex-counter</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-6</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-rwlock-read</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-7</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-atomic-bool</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-8</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-code-barrier-sync</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-supporter-9</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-sync-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-sync-channel-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2041,55 +2083,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-condvar-wait-mutex-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-thread-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-atomic-fetch-update-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-rwlock-upgrade-deadlock-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-once-cell-lazy-init-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-atomic-ordering-release-acquire-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-scoped-threads-stack-borrow-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-mutex-poisoning-unwind-panic-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-atomic-fence-synchronization-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/concurrency/question/conc-channel-disconnection-hang-1</loc>
+    <loc>https://cratery.cratera.org/category/concurrency/question/conc-thread-local-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2101,19 +2101,49 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-box-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/point-code-arc-clone</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/point-code-box-leak</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-thread-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/point-code-box-list</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/point-code-cow-normalize</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/point-code-rc-shared</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/point-code-refcell-memo</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-addr-of-mut-uninit-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-align-of-val-raw-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2125,31 +2155,31 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-weak-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-arc-clone-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-downgrade-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-arc-mutex-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-refcell-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-box-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-refcell-2</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-box-deref-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-refcell-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-box-leak-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2167,13 +2197,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-mutex-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-arc-mutex-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-copy-nonoverlapping-memcpy-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2185,37 +2209,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-box-deref-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-get-mut-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-arc-clone-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-pin-intro-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-cycle-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-box-leak-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-cow-to-mut-allocation-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2227,13 +2221,43 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-mutex-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-nonnull-dangling-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-null-dangling-zst-compare-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-null-mut-cast-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-offset-from-isize-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/pointers/question/ptr-once-cell-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-cow-to-mut-allocation-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-pin-intro-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2245,55 +2269,79 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-provenance-expose-addr-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-cycle-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-downgrade-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-get-mut-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-refcell-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-rc-thread-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-read-unaligned-soundness-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-refcell-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-refcell-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-slice-from-raw-parts-len-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-strict-provenance-with-addr-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-2</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-3</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-4</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-5</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-6</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-7</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-8</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2359,6 +2407,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-20</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -2419,6 +2473,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-3</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-30</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -2455,85 +2515,43 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/point-code-box-list</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-4</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/point-code-rc-shared</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-5</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/point-code-refcell-memo</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-6</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/point-code-arc-clone</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-7</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/point-code-cow-normalize</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-8</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/point-code-box-leak</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-addr-of-mut-uninit-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-null-mut-cast-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-nonnull-dangling-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-offset-from-isize-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-provenance-expose-addr-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-align-of-val-raw-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-copy-nonoverlapping-memcpy-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-read-unaligned-soundness-1</loc>
+    <loc>https://cratery.cratera.org/category/pointers/question/ptr-weak-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2545,79 +2563,31 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-slice-from-raw-parts-len-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-strict-provenance-with-addr-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/pointers/question/ptr-null-dangling-zst-compare-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://cratery.cratera.org/category/macros</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-rules-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-attr-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-match-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-code-calc-min</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-repeat-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-code-vec-of-strings</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-proc-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-hygiene-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-tt-muncher-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-export-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-paste-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-metavariable-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-compile-error-diagnostic-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2629,13 +2599,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-ident-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-trailing-comma-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-dbg-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2647,43 +2611,49 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-stmt-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-export-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-dbg-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-fragment-spec-expr-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-vec-macro-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-hygiene-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-attr-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-hygiene-dollar-crate-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-recurse-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-ident-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-optional-rep-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-ident-macro-hygiene-resolution-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-stringify-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-macro-rules-local-inner-macros-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-match-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2701,55 +2671,79 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-metavariable-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-optional-rep-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-paste-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-proc-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-proc-macro-derive-helper-attrs-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-recurse-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-repeat-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-repetition-separator-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-rules-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-stmt-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-stringify-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-stringify-stringify-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-2</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-3</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-4</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-5</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-6</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-7</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-8</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2815,6 +2809,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-20</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -2875,61 +2875,49 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-3</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-30</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-code-vec-of-strings</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-4</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-code-calc-min</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-5</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-hygiene-dollar-crate-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-6</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-fragment-spec-expr-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-7</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-tt-muncher-base-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-8</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-stringify-stringify-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-repetition-separator-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-proc-macro-derive-helper-attrs-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-macro-rules-local-inner-macros-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2941,13 +2929,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-ident-macro-hygiene-resolution-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-trailing-comma-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/macros/question/macro-compile-error-diagnostic-1</loc>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-tt-muncher-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-tt-muncher-base-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/macros/question/macro-vec-macro-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2959,91 +2959,13 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-result-vs-option-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-question-operator-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-recoverable-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-custom-types-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-option-chaining-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-from-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-anyhow-vs-thiserror-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-option-question-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-map-err-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-unwrap-or-else-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://cratery.cratera.org/category/error-handling/question/err-and-then-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-ok-or-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-transpose-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-inspect-err-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-try-from-1</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-anyhow-vs-thiserror-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3061,25 +2983,109 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-and-then-chain</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-custom-enum-error</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-filter-map-results</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-map-err</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-option-ok-or</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-parse-sum</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-context-anyhow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-control-flow-break-continue-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-custom-types-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-error-source-backtrace-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/error-handling/question/err-expect-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-try-main-1</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-from-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-option-try-result-1</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-from-residual-branch-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-question-mark-from-conversion-1</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-inspect-err-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-io-error-custom-payload-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-map-err-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-ok-or-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-option-chaining-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3091,55 +3097,67 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-option-ok-or-else-lazy-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-option-question-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-option-try-result-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-panic-catch-unwind-boundary-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-panic-location-file-line-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-question-mark-from-conversion-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-question-operator-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-recoverable-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-result-map-or-else-fallback-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-result-vs-option-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-2</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-3</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-4</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-5</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-6</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-7</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-8</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3205,6 +3223,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-20</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -3265,43 +3289,67 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-3</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-30</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-parse-sum</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-4</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-option-ok-or</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-5</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-map-err</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-6</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-custom-enum-error</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-7</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-and-then-chain</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-8</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-code-filter-map-results</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-supporter-9</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-transpose-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-try-from-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-try-main-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3313,55 +3361,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-context-anyhow-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-option-ok-or-else-lazy-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-from-residual-branch-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-panic-catch-unwind-boundary-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-error-source-backtrace-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-control-flow-break-continue-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-result-map-or-else-fallback-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-panic-location-file-line-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/error-handling/question/err-io-error-custom-payload-1</loc>
+    <loc>https://cratery.cratera.org/category/error-handling/question/err-unwrap-or-else-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3373,37 +3373,7 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-vs-loop-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-closure-ownership-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-lazy-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-fold-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-idiomatic-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-collect-type-1</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/closure-capture-scope-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3415,25 +3385,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-chain-efficiency-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/closure-move-copy-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-filter-map-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-into-iter-1</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/closure-fnonce-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3445,31 +3397,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-flat-map-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-zip-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/closure-capture-scope-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-take-while-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-enumerate-1</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/closure-move-copy-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3481,13 +3409,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-partition-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-scan-1</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-advance-by-n-efficiency-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3499,31 +3421,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-fuse-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/closure-fnonce-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-copied-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-peekable-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-rev-1</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-by-ref-adapter-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3535,7 +3433,121 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-chain-efficiency-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-closure-fn-cell-capture-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-closure-ownership-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-chunk-windows</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-closure-fnmut</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-custom-counter</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-flatten-options</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-sum-squares</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-zip-indices</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-collect-result-short-circuit-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-collect-type-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-copied-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-enumerate-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-filter-map-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-flat-map-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-flat-map-option-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-fold-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-fuse-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-fuse-once-none-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-idiomatic-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3547,55 +3559,67 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-inspect-side-effects-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-into-iter-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-lazy-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-partition-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-peekable-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-peekable-peek-mut-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-rchunks-exact-remainder-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-rev-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-scan-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-scan-internal-state-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-2</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-3</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-4</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-5</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-6</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-7</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-8</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3661,6 +3685,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-20</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -3721,6 +3751,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-3</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-30</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -3757,97 +3793,61 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-sum-squares</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-4</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-chunk-windows</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-5</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-custom-counter</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-6</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-flatten-options</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-7</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-closure-fnmut</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-8</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-code-zip-indices</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-fuse-once-none-1</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-take-while-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-by-ref-adapter-1</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-vs-loop-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-inspect-side-effects-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-flat-map-option-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-rchunks-exact-remainder-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-advance-by-n-efficiency-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-collect-result-short-circuit-1</loc>
+    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-zip-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-zip-shortest-termination-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-scan-internal-state-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/iterators-closures/question/iter-peekable-peek-mut-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3865,43 +3865,73 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-lifetime-link-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-cell-borrow-mut-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-slice-invalidation-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-cell-swap-in-place-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-split-borrow-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-closure-capture-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-nll-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-closure-capture-disjoint-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-reborrow-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-closure-disjoint-capture-edition-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-loop-scope-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-closure-immut-mut-capture-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-temporary-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-cell-replace</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-disjoint-fields</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-entry-api</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-index-mut</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-reborrow</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-split-mut</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3913,7 +3943,25 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-method-call-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-deref-mut-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-deref-mut-coercion-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-disjoint-capture-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-entry-api-vacant-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3931,19 +3979,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-shared-ok-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-index-mut-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-return-local-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3955,37 +3991,13 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-match-scrutinee-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-lifetime-link-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-deref-mut-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-closure-capture-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-slice-split-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-static-local-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-disjoint-capture-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-loop-scope-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -3997,67 +4009,103 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-two-phase-reservation-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-match-scrutinee-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-closure-disjoint-capture-edition-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-method-call-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-nll-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-nll-two-phase-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-pin-as-mut-reborrow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-reborrow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-reborrow-mut-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-return-local-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-shared-ok-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-slice-invalidation-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-slice-split-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-slice-split-mut-chunks-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-split-at-mut-slice-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-split-borrow-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-stacked-borrows-tree-1</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-static-local-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-2</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-3</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-4</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-5</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-6</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-7</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-8</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -4123,6 +4171,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-2</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-20</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -4183,303 +4237,63 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-3</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-30</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-split-mut</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-4</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-reborrow</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-5</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-index-mut</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-6</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-entry-api</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-7</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-cell-replace</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-8</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-code-disjoint-fields</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-supporter-9</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-nll-two-phase-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-temporary-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-reborrow-mut-1</loc>
+    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-two-phase-reservation-1</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-cell-borrow-mut-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-entry-api-vacant-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-closure-capture-disjoint-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-split-at-mut-slice-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-stacked-borrows-tree-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-deref-mut-coercion-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-slice-split-mut-chunks-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-pin-as-mut-reborrow-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-cell-swap-in-place-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/category/borrow-checker/question/borrow-closure-immut-mut-capture-1</loc>
-    <lastmod>2026-08-31</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/01-hello-world</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/02-variables-and-mutability</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/03-primitive-types</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/04-compound-types</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/05-functions-and-returns</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/06-control-flow-if</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/07-loops-and-labels</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/08-ownership-fundamentals</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/09-borrowing-and-references</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/10-mutable-references</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/11-slices</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/12-structs-and-methods</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/13-enums-and-option</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/14-pattern-matching</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/15-if-let-while-let</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/16-vectors</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/17-strings-in-depth</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/18-hashmaps</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/19-panic-vs-result</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/20-question-mark-operator</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/21-generics</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/22-traits-and-bounds</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/23-lifetime-annotations</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/24-struct-lifetimes</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/25-closures</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/26-iterators-and-adapters</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/27-box-pointer</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/28-rc-and-arc</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/29-refcell-interior-mutability</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/30-threads-and-spawn</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cratery.cratera.org/learn/31-channels-and-shared-state</loc>
-    <lastmod>2026-08-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
   </url>
 </urlset>

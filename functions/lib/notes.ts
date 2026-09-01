@@ -32,6 +32,50 @@ export type UserNote = {
     updated_at: string
 }
 
+type NoteProfile = { username?: string; avatar?: unknown }
+
+type NoteListRow = {
+    views_count?: number | string | null
+    runs_count?: number | string | null
+    forks_count?: number | string | null
+    profiles?: NoteProfile | NoteProfile[] | null
+}
+
+function asRecord(value: unknown): Record<string, unknown> | null {
+    if (typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        return value as Record<string, unknown>
+    }
+    return null
+}
+
+async function readJsonRecord(request: Request): Promise<Record<string, unknown> | null> {
+    try {
+        return asRecord(await request.json())
+    } catch {
+        return null
+    }
+}
+
+function noteProfile(row: NoteListRow): NoteProfile | undefined {
+    const p = row.profiles
+    if (Array.isArray(p)) return p[0]
+    return p ?? undefined
+}
+
+function parseNoteCell(c: unknown, idx: number, regenerateId = false): NoteCell {
+    const rec = asRecord(c) ?? {}
+    return {
+        id:
+            !regenerateId && typeof rec.id === 'string'
+                ? rec.id
+                : `cell_${Date.now()}_${idx}_${Math.random().toString(36).slice(2, 6)}`,
+        type: rec.type === 'code' ? 'code' : 'markdown',
+        content: typeof rec.content === 'string' ? rec.content : '',
+        caption: typeof rec.caption === 'string' ? rec.caption : undefined,
+        language: typeof rec.language === 'string' ? rec.language : 'rust',
+    }
+}
+
 export const BUILTIN_NOTE_TEMPLATES: Array<{
     id: string
     title: string
@@ -349,14 +393,16 @@ export async function handleListNotes(request: Request, env: Env): Promise<Respo
             return errorResponse(error.message, 500, env, request)
         }
 
-        const notes = (data || []).map((row: any) => {
+        const notes = (data || []).map((row) => {
+            const r = row as NoteListRow
+            const profile = noteProfile(r)
             return {
                 ...row,
-                views_count: Number(row.views_count) || 0,
-                runs_count: Number(row.runs_count) || 0,
-                forks_count: Number(row.forks_count) || 0,
-                author_username: row.profiles?.username || user.username || 'rustacean',
-                author_avatar: row.profiles?.avatar || null,
+                views_count: Number(r.views_count) || 0,
+                runs_count: Number(r.runs_count) || 0,
+                forks_count: Number(r.forks_count) || 0,
+                author_username: profile?.username || user.username || 'rustacean',
+                author_avatar: profile?.avatar || null,
             }
         })
 
@@ -392,14 +438,16 @@ export async function handleListNotes(request: Request, env: Env): Promise<Respo
         return errorResponse(error.message, 500, env, request)
     }
 
-    const notes = (data || []).map((row: any) => {
+    const notes = (data || []).map((row) => {
+        const r = row as NoteListRow
+        const profile = noteProfile(r)
         return {
             ...row,
-            views_count: Number(row.views_count) || 0,
-            runs_count: Number(row.runs_count) || 0,
-            forks_count: Number(row.forks_count) || 0,
-            author_username: row.profiles?.username || 'rustacean',
-            author_avatar: row.profiles?.avatar || null,
+            views_count: Number(r.views_count) || 0,
+            runs_count: Number(r.runs_count) || 0,
+            forks_count: Number(r.forks_count) || 0,
+            author_username: profile?.username || 'rustacean',
+            author_avatar: profile?.avatar || null,
         }
     })
 
@@ -446,13 +494,14 @@ export async function handleGetNote(request: Request, env: Env): Promise<Respons
             void supabase.rpc('increment_note_views', { p_note_id: data.id })
         }
 
+        const profile = noteProfile(data as NoteListRow)
         const note = {
             ...data,
             views_count: (Number(data.views_count) || 0) + 1,
             runs_count: Number(data.runs_count) || 0,
             forks_count: Number(data.forks_count) || 0,
-            author_username: (data as any).profiles?.username || 'rustacean',
-            author_avatar: (data as any).profiles?.avatar || null,
+            author_username: profile?.username || 'rustacean',
+            author_avatar: profile?.avatar || null,
         }
 
         return jsonResponse({ status: 'ok', note }, 200, env, request)
@@ -494,10 +543,8 @@ export async function handleGetNote(request: Request, env: Env): Promise<Respons
 
 export async function handleIncrementNoteViews(request: Request, env: Env): Promise<Response> {
     const supabase = createSupabaseClient(env)
-    let body: any
-    try {
-        body = await request.json()
-    } catch {
+    const body = await readJsonRecord(request)
+    if (!body) {
         return errorResponse('Invalid JSON body', 400, env, request)
     }
 
@@ -515,10 +562,8 @@ export async function handleIncrementNoteViews(request: Request, env: Env): Prom
 
 export async function handleIncrementNoteRuns(request: Request, env: Env): Promise<Response> {
     const supabase = createSupabaseClient(env)
-    let body: any
-    try {
-        body = await request.json()
-    } catch {
+    const body = await readJsonRecord(request)
+    if (!body) {
         return errorResponse('Invalid JSON body', 400, env, request)
     }
 
@@ -570,10 +615,8 @@ export async function handleCreateNote(request: Request, env: Env): Promise<Resp
         }
     }
 
-    let body: any
-    try {
-        body = await request.json()
-    } catch {
+    const body = await readJsonRecord(request)
+    if (!body) {
         return errorResponse('Invalid JSON body', 400, env, request)
     }
 
@@ -594,13 +637,7 @@ export async function handleCreateNote(request: Request, env: Env): Promise<Resp
         : []
 
     const cells: NoteCell[] = Array.isArray(body.cells)
-        ? body.cells.map((c: any, idx: number) => ({
-              id: typeof c.id === 'string' ? c.id : `cell_${Date.now()}_${idx}_${Math.random().toString(36).slice(2, 6)}`,
-              type: c.type === 'code' ? 'code' : 'markdown',
-              content: typeof c.content === 'string' ? c.content : '',
-              caption: typeof c.caption === 'string' ? c.caption : undefined,
-              language: typeof c.language === 'string' ? c.language : 'rust',
-          }))
+        ? body.cells.map((c, idx) => parseNoteCell(c, idx))
         : [
               {
                   id: `cell_${Date.now()}_1`,
@@ -653,10 +690,8 @@ export async function handleUpdateNote(request: Request, env: Env): Promise<Resp
         return errorResponse('Authentication required to edit note', 401, env, request)
     }
 
-    let body: any
-    try {
-        body = await request.json()
-    } catch {
+    const body = await readJsonRecord(request)
+    if (!body) {
         return errorResponse('Invalid JSON body', 400, env, request)
     }
 
@@ -706,13 +741,7 @@ export async function handleUpdateNote(request: Request, env: Env): Promise<Resp
     }
 
     if (Array.isArray(body.cells)) {
-        updates.cells = body.cells.map((c: any, idx: number) => ({
-            id: typeof c.id === 'string' ? c.id : `cell_${Date.now()}_${idx}_${Math.random().toString(36).slice(2, 6)}`,
-            type: c.type === 'code' ? 'code' : 'markdown',
-            content: typeof c.content === 'string' ? c.content : '',
-            caption: typeof c.caption === 'string' ? c.caption : undefined,
-            language: typeof c.language === 'string' ? c.language : 'rust',
-        }))
+        updates.cells = body.cells.map((c, idx) => parseNoteCell(c, idx))
     }
 
     updates.updated_at = new Date().toISOString()
@@ -775,10 +804,8 @@ export async function handleForkNote(request: Request, env: Env): Promise<Respon
         return errorResponse('Sign in required to fork notes to your workspace', 401, env, request)
     }
 
-    let body: any
-    try {
-        body = await request.json()
-    } catch {
+    const body = await readJsonRecord(request)
+    if (!body) {
         return errorResponse('Invalid JSON body', 400, env, request)
     }
 
@@ -872,13 +899,7 @@ export async function handleForkNote(request: Request, env: Env): Promise<Respon
     const slug = `${baseSlug}-${uniqueSuffix}`.slice(0, 80)
 
     const cells: NoteCell[] = Array.isArray(sourceNote.cells)
-        ? sourceNote.cells.map((c: any, idx: number) => ({
-              id: `cell_${Date.now()}_${idx}_${Math.random().toString(36).slice(2, 6)}`,
-              type: c.type === 'code' ? 'code' : 'markdown',
-              content: typeof c.content === 'string' ? c.content : '',
-              caption: typeof c.caption === 'string' ? c.caption : undefined,
-              language: typeof c.language === 'string' ? c.language : 'rust',
-          }))
+        ? sourceNote.cells.map((c, idx) => parseNoteCell(c, idx, true))
         : []
 
     const { data: forkedNote, error: insertError } = await supabase

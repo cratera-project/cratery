@@ -91,3 +91,38 @@ export type DiscordInteractionResponse = {
   type: InteractionResponseType
   data?: DiscordResponseData
 }
+
+export type DiscordCommandOption = {
+  name: string
+  type?: number
+  value?: string | number | boolean
+  options?: DiscordCommandOption[]
+  user?: DiscordUser
+}
+
+export type DiscordUser = {
+  id?: string
+  username?: string
+  global_name?: string
+}
+
+export type DiscordInteraction = {
+  type: number
+  token?: string
+  application_id?: string
+  user?: DiscordUser
+  member?: { user?: DiscordUser }
+  data?: {
+    name?: string
+    type?: number
+    target_id?: string
+    custom_id?: string
+    options?: DiscordCommandOption[]
+    resolved?: {
+      messages?: Record<string, { content?: string }>
+    }
+    components?: Array<{
+      components?: Array<{ value?: string }>
+    }>
+  }
+}

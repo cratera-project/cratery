@@ -102,7 +102,7 @@ Cratery focuses on compiler behavior, ownership transfers, lifetime variance, co
 
 ### Prerequisites
 
-- Node.js 20+
+- Node.js 22+
 - Rust toolchain (`rustc` and `cargo`)
 
 ### Local Setup

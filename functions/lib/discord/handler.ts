@@ -8,6 +8,7 @@ import {
   type DiscordInteractionResponse,
   type DiscordActionRow,
   type DiscordEmbed,
+  type DiscordInteraction,
 } from './types'
 import { verifyDiscordRequest } from './verify'
 import { getRandomQuiz, getDailyQuiz, getQuizById, type DiscordQuizItem } from './questions'
@@ -35,14 +36,15 @@ function jsonResponse(data: DiscordInteractionResponse, status = 200): Response 
 }
 
 async function updateDiscordDeferredMessage(
-  applicationId: string,
-  token: string,
+  applicationId: string | undefined,
+  token: string | undefined,
   payload: {
     content?: string
     embeds?: DiscordEmbed[]
     components?: DiscordActionRow[]
   }
 ) {
+  if (!applicationId || !token) return
   const url = `https://discord.com/api/v10/webhooks/${applicationId}/${token}/messages/@original`
   const res = await fetch(url, {
     method: 'PATCH',
@@ -84,9 +86,13 @@ export async function handleDiscordInteraction(
     return new Response('Invalid request signature', { status: 401 })
   }
 
-  let body: any
+  let body: DiscordInteraction
   try {
-    body = JSON.parse(rawBody)
+    const parsed: unknown = JSON.parse(rawBody)
+    if (!parsed || typeof parsed !== 'object' || !('type' in parsed)) {
+      return new Response('Bad request', { status: 400 })
+    }
+    body = parsed as DiscordInteraction
   } catch {
     return new Response('Bad request', { status: 400 })
   }
@@ -109,12 +115,15 @@ export async function handleDiscordInteraction(
     if (body.type === InteractionType.APPLICATION_COMMAND) {
       const cmdName = body.data?.name
       const options = body.data?.options || []
-      const getOpt = (name: string) => options.find((o: any) => o.name === name)?.value
+      const getOpt = (name: string): string | undefined => {
+        const v = options.find((o) => o.name === name)?.value
+        return typeof v === 'string' ? v : undefined
+      }
 
       
       if (body.data?.type === 3 && (cmdName === 'Run in Cratera' || body.data?.name === 'Run in Cratera')) {
         const targetId = body.data?.target_id
-        const targetMsg = body.data?.resolved?.messages?.[targetId]
+        const targetMsg = targetId ? body.data?.resolved?.messages?.[targetId] : undefined
         const rawContent = targetMsg?.content || ''
         const codeMatch = rawContent.match(/```(?:rust|rs)?\s*([\s\S]*?)```/i)
         const code = (codeMatch && codeMatch[1]?.trim()) ? codeMatch[1].trim() : rawContent.trim()
@@ -228,14 +237,17 @@ export async function handleDiscordInteraction(
                 },
               ],
             })
-          } catch (err: any) {
+          } catch (err: unknown) {
             console.error('[discord-context-run] Execution error:', err)
             await updateDiscordDeferredMessage(appId, token, {
               embeds: [
                 {
                   color: 0xef4444,
                   title: '❌ Execution Failed',
-                  description: err?.message || 'An error occurred while communicating with the judge.',
+                  description:
+                    err instanceof Error
+                      ? err.message
+                      : 'An error occurred while communicating with the judge.',
                   footer: { text: 'Cratera microVM · cratery.cratera.org' },
                 },
               ],
@@ -476,14 +488,17 @@ export async function handleDiscordInteraction(
                 },
               ],
             })
-          } catch (err: any) {
+          } catch (err: unknown) {
             console.error('[discord-run] Execution error:', err)
             await updateDiscordDeferredMessage(appId, token, {
               embeds: [
                 {
                   color: 0xef4444,
                   title: '❌ Execution Failed',
-                  description: err?.message || 'An error occurred while communicating with the judge.',
+                  description:
+                    err instanceof Error
+                      ? err.message
+                      : 'An error occurred while communicating with the judge.',
                   footer: { text: 'Cratera microVM · cratery.cratera.org' },
                 },
               ],
@@ -510,7 +525,8 @@ export async function handleDiscordInteraction(
       const subOpts = options[0]?.options || []
 
       if (sub === 'set') {
-        const key = (subOpts.find((o: any) => o.name === 'api_key')?.value as string || '').trim()
+        const rawKey = subOpts.find((o) => o.name === 'api_key')?.value
+        const key = (typeof rawKey === 'string' ? rawKey : '').trim()
         if (key.length < 10) {
           return jsonResponse({
             type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
@@ -644,16 +660,16 @@ export async function handleDiscordInteraction(
     
     if (cmdName === 'stats') {
       const targetUser = options[0]?.user || user
-      const unified = await getUnifiedUserStats(supabase, targetUser.id)
+      const unified = await getUnifiedUserStats(supabase, targetUser?.id || userId)
 
       if (!unified.discordStats && !unified.crateryUser) {
         return jsonResponse({
           type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
           data: {
             content:
-              targetUser.id === userId
+              (targetUser?.id || userId) === userId
                 ? "You haven't solved any quizzes yet. Use `/race`, `/quiz`, or `/daily` to earn XP!\n\n*Tip: Link your Cratery account with `/key set <key>` to sync stats across web and Discord.*"
-                : `${targetUser.username} hasn't participated in any quizzes yet.`,
+                : `${targetUser?.username || 'That user'} hasn't participated in any quizzes yet.`,
             flags: InteractionResponseFlags.EPHEMERAL,
           },
         })
@@ -679,7 +695,7 @@ export async function handleDiscordInteraction(
         { name: '⌨️ Forge Trials', value: `**${unified.discordStats?.coding_solves ?? 0}**`, inline: true }
       )
 
-      if (!unified.crateryUser && targetUser.id === userId) {
+      if (!unified.crateryUser && targetUser?.id === userId) {
         fields.push({
           name: '🔗 Link Web Account',
           value: 'Run `/key set <key>` to sync your solves, earn official web XP, and boost your streak on **[cratery.cratera.org](https://cratery.cratera.org)**!',
@@ -693,7 +709,7 @@ export async function handleDiscordInteraction(
           embeds: [
             {
               color: 0xd85820,
-              title: `📊 Rust Quiz & Cratery Stats for ${targetUser.username}`,
+              title: `📊 Rust Quiz & Cratery Stats for ${targetUser?.username || 'Rustacean'}`,
               fields,
               footer: { text: 'Cratery Rust Platform · cratery.cratera.org' },
             },
@@ -1166,14 +1182,15 @@ export async function handleDiscordInteraction(
               },
             ],
           })
-        } catch (err: any) {
+        } catch (err: unknown) {
           console.error('[discord-modal] Grading error:', err)
           await updateDiscordDeferredMessage(appId, token, {
             embeds: [
               {
                 color: 0xef4444,
                 title: '❌ Grading Failed',
-                description: err?.message || 'An error occurred while grading your submission.',
+                description:
+                  err instanceof Error ? err.message : 'An error occurred while grading your submission.',
                 footer: { text: 'Cratera microVM · cratery.cratera.org' },
               },
             ],
@@ -1300,14 +1317,17 @@ export async function handleDiscordInteraction(
               },
             ],
           })
-        } catch (err: any) {
+        } catch (err: unknown) {
           console.error('[discord-modal-run] Execution error:', err)
           await updateDiscordDeferredMessage(appId, token, {
             embeds: [
               {
                 color: 0xef4444,
                 title: '❌ Execution Failed',
-                description: err?.message || 'An error occurred while communicating with the judge.',
+                description:
+                  err instanceof Error
+                    ? err.message
+                    : 'An error occurred while communicating with the judge.',
                 footer: { text: 'Cratera microVM · cratery.cratera.org' },
               },
             ],
@@ -1333,7 +1353,7 @@ export async function handleDiscordInteraction(
     type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
     data: { content: 'Unhandled interaction' },
   })
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error('[discord-interaction] Unhandled error:', err)
     return jsonResponse({
       type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,

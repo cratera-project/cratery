@@ -18,7 +18,7 @@ type AnswerResult = {
   isCorrect?: boolean
   correctIndex?: number
   explanation?: string | null
-  
+  error?: string
   needsTurnstile?: boolean
   xpEarned?: number
   totalXp?: number
@@ -204,8 +204,18 @@ export const useProgressStore = create<ProgressState>()(
           })
           const result = (await response.json().catch(() => ({}))) as ServerAnswer
 
+          if (response.status === 403) {
+            return {
+              status: 'error',
+              needsTurnstile: true,
+              error: result.error || 'forbidden',
+            }
+          }
           if (!response.ok) {
-            return resolveLocalFallback()
+            return {
+              status: 'error',
+              error: result.error || `Request failed (${response.status})`,
+            }
           }
 
           const correctIndex = result.answer?.correct_index

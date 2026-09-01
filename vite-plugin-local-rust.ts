@@ -1,6 +1,7 @@
 import { type Plugin } from 'vite'
 import { spawn } from 'node:child_process'
 import { writeFileSync, mkdirSync, rmSync } from 'node:fs'
+import type { IncomingMessage } from 'node:http'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { randomUUID } from 'node:crypto'
@@ -54,10 +55,14 @@ export function localRustPlugin(): Plugin {
             res.statusCode = 200
             res.setHeader('Content-Type', 'application/json')
             res.end(JSON.stringify(result))
-          } catch (err: any) {
+          } catch (err: unknown) {
             res.statusCode = 500
             res.setHeader('Content-Type', 'application/json')
-            res.end(JSON.stringify({ error: err?.message || 'Local execution failed' }))
+            res.end(
+              JSON.stringify({
+                error: err instanceof Error ? err.message : 'Local execution failed',
+              }),
+            )
           }
           return
         }
@@ -176,6 +181,13 @@ export function localRustPlugin(): Plugin {
           return
         }
 
+        if (url?.startsWith('/api/community-quest')) {
+          res.statusCode = 404
+          res.setHeader('Content-Type', 'application/json')
+          res.end(JSON.stringify({ error: 'Quest not found' }))
+          return
+        }
+
         if (url === '/api/quest-stats' || url === '/api/quest-stats-batch') {
           res.statusCode = 200
           res.setHeader('Content-Type', 'application/json')
@@ -209,17 +221,27 @@ export function localRustPlugin(): Plugin {
           const authRoute = url.replace('/auth', '')
           if (req.method === 'POST') {
             const raw = await readBody(req)
-            let body: any = {}
+            let body: Record<string, unknown> = {}
             try {
-              body = JSON.parse(raw)
+              const parsed: unknown = JSON.parse(raw)
+              if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+                body = parsed as Record<string, unknown>
+              }
             } catch {
               body = {}
             }
 
+            const email = typeof body.email === 'string' ? body.email : 'local@cratera.org'
+            const username =
+              typeof body.username === 'string'
+                ? body.username
+                : typeof body.email === 'string'
+                  ? body.email.split('@')[0]
+                  : 'local_rustacean'
             const mockUser = {
               id: 'local-dev-user-id',
-              email: body.email || 'local@cratera.org',
-              username: body.username || (body.email ? body.email.split('@')[0] : 'local_rustacean'),
+              email,
+              username,
             }
             const mockToken = 'local-dev-offline-jwt-token'
 
@@ -250,10 +272,10 @@ export function localRustPlugin(): Plugin {
   }
 }
 
-async function readBody(req: any): Promise<string> {
+async function readBody(req: IncomingMessage): Promise<string> {
   const chunks: Buffer[] = []
   for await (const chunk of req) {
-    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : chunk)
+    chunks.push(typeof chunk === 'string' ? Buffer.from(chunk) : Buffer.from(chunk))
   }
   return Buffer.concat(chunks).toString('utf-8')
 }
@@ -286,15 +308,16 @@ function executeLocalRust(sourceCode: string, mode: 'run' | 'submit'): Promise<L
     try {
       mkdirSync(workDir, { recursive: true })
       writeFileSync(srcFile, sourceCode, 'utf-8')
-    } catch (e: any) {
+    } catch (e: unknown) {
+      const message = e instanceof Error ? e.message : String(e)
       return resolve({
         compilationSuccess: false,
-        compilationError: `Failed to create temp directory: ${e?.message}`,
+        compilationError: `Failed to create temp directory: ${message}`,
         passed: false,
         status: 'Compilation Error',
         verdict: 'CE',
         stdout: null,
-        stderr: e?.message,
+        stderr: message,
         executionTime: 0,
         compileMs: 0,
         wallMs: 0,

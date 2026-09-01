@@ -9,6 +9,7 @@ import { rankForXp } from '../../src/lib/ranks'
 import { trackCodeExecution } from './executionStats'
 
 import { getJudgeLimits } from './limits'
+import { incrementQuestAnswerStats } from './questStats'
 
 export type GradeKind = 'run' | 'submit'
 
@@ -310,68 +311,44 @@ async function handleGrade(
             let totalXp = 0
             let rank = ''
 
-            if (passed && contestId && user) {
+            if (contestId) {
                 const supabase = createSupabaseClient(env)
-                scoreUpdated = await recordContestScore(env, user.sub, contestId, harness, data)
+                if (passed && user) {
+                    scoreUpdated = await recordContestScore(env, user.sub, contestId, harness, data)
 
-                const catSlug =
-                    BUILTIN_ANSWERS[contestId]?.categorySlug ??
-                    (contestId.startsWith('tut-') ? 'tutorial' : 'interactive')
+                    const catSlug =
+                        BUILTIN_ANSWERS[contestId]?.categorySlug ??
+                        (contestId.startsWith('tut-') ? 'tutorial' : 'interactive')
 
-                
-                const { data: existingAnswer } = await supabase
-                    .from('quest_answers')
-                    .select('id, is_correct')
-                    .eq('user_id', user.sub)
-                    .eq('question_id', contestId)
-                    .maybeSingle()
-
-                if (!existingAnswer || !existingAnswer.is_correct) {
-                    xpEarned = 55
-
-                    await supabase.from('quest_answers').upsert(
-                        {
-                            user_id: user.sub,
-                            question_id: contestId,
-                            category_slug: catSlug,
-                            selected_index: 0,
-                            is_correct: true,
-                            xp_earned: xpEarned,
-                            answered_at: new Date().toISOString(),
-                        },
-                        { onConflict: 'user_id,question_id' }
-                    )
-                }
-
-                try {
-                    const { data: row } = await supabase
-                        .from('quest_answer_stats')
-                        .select('solve_count, correct_count')
+                    const { data: existingAnswer } = await supabase
+                        .from('quest_answers')
+                        .select('id, is_correct')
+                        .eq('user_id', user.sub)
                         .eq('question_id', contestId)
                         .maybeSingle()
 
-                    if (row) {
-                        await supabase
-                            .from('quest_answer_stats')
-                            .update({
-                                solve_count: Number(row.solve_count) + 1,
-                                correct_count: Number(row.correct_count) + 1,
-                                updated_at: new Date().toISOString(),
-                            })
-                            .eq('question_id', contestId)
-                    } else {
-                        await supabase.from('quest_answer_stats').insert({
-                            question_id: contestId,
-                            solve_count: 1,
-                            correct_count: 1,
-                        })
-                    }
-                } catch {
-                    /* non-fatal stats recording */
-                }
+                    if (!existingAnswer || !existingAnswer.is_correct) {
+                        xpEarned = 55
 
-                totalXp = await loadTotalXp(supabase, user.sub)
-                rank = rankForXp(totalXp).name
+                        await supabase.from('quest_answers').upsert(
+                            {
+                                user_id: user.sub,
+                                question_id: contestId,
+                                category_slug: catSlug,
+                                selected_index: 0,
+                                is_correct: true,
+                                xp_earned: xpEarned,
+                                answered_at: new Date().toISOString(),
+                            },
+                            { onConflict: 'user_id,question_id' }
+                        )
+                    }
+
+                    totalXp = await loadTotalXp(supabase, user.sub)
+                    rank = rankForXp(totalXp).name
+                } else {
+                    await incrementQuestAnswerStats(supabase, contestId, passed)
+                }
             }
 
             return json(

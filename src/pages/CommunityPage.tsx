@@ -37,7 +37,7 @@ export function CommunityPage() {
   useEffect(() => {
     let cancelled = false
     setLoading(true)
-    getCommunityQuests(60, { sort })
+    getCommunityQuests(100, { sort })
       .then((rows) => {
         if (cancelled) return
         setQuests(rows)

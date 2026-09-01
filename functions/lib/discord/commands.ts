@@ -156,11 +156,12 @@ export async function syncDiscordCommands(
       return { ok: false, error: `${res.status}: ${err}` }
     }
 
-    const data = (await res.json()) as any[]
-    console.log(`[discord-sync] Successfully registered ${data.length} global commands`)
-    return { ok: true, count: data.length }
-  } catch (err: any) {
+    const data: unknown = await res.json()
+    const count = Array.isArray(data) ? data.length : 0
+    console.log(`[discord-sync] Successfully registered ${count} global commands`)
+    return { ok: true, count }
+  } catch (err: unknown) {
     console.error('[discord-sync] Sync error:', err)
-    return { ok: false, error: err.message || String(err) }
+    return { ok: false, error: err instanceof Error ? err.message : String(err) }
   }
 }

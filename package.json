@@ -15,7 +15,7 @@
     "check": "bash scripts/ci.sh",
     "typecheck": "tsc -b && tsc -p functions --noEmit",
     "backfill:customerio": "npx tsx scripts/backfill_customerio.ts",
-    "lint": "eslint .",
+    "lint": "eslint . --max-warnings 0",
     "preview": "wrangler dev",
     "deploy": "GENERATE_SITEMAP=1 npm run build && wrangler deploy",
     "deploy:discord": "node scripts/deploy-discord-commands.mjs"
@@ -52,7 +52,7 @@
     "wrangler": "^4.120.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "allowScripts": {
     "esbuild": true,
