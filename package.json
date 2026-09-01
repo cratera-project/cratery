@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "node scripts/compile-content.mjs && vite",
     "dev:full": "npm run build && npm run preview",
-    "build": "node scripts/compile-content.mjs && node scripts/generate-sitemap.js && npm run generate:answers && tsc -b && tsc -p functions --noEmit && vite build",
-    "build:content": "node scripts/compile-content.mjs",
+    "build": "node scripts/compile-content.mjs && node scripts/generate-question-catalog.mjs && node scripts/generate-sitemap.js && npm run generate:answers && tsc -b && tsc -p functions --noEmit && vite build",
+    "build:content": "node scripts/compile-content.mjs && node scripts/generate-question-catalog.mjs",
     "sitemap": "node scripts/generate-sitemap.js --force",
     "generate:answers": "node scripts/generate-builtin-answers.mjs",
+    "generate:catalog": "node scripts/generate-question-catalog.mjs",
     "check:questions": "node scripts/generate-question-catalog.mjs && node scripts/check-questions.mjs && node scripts/check-contest-ids.mjs",
     "check:harnesses": "node scripts/check-rust-harnesses.mjs",
     "check": "bash scripts/ci.sh",
