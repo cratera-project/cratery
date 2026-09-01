@@ -21,13 +21,13 @@ fn main() {
 ```
 
 # Options
-- [ ] A) Stack copy takes O(1) time; heap allocation takes O(N) time
-- [x] B) Stack copy takes O(N) time; heap allocation takes O(1) time
-- [ ] C) Stack allocation requires synchronization; heap is lock-free
-- [ ] D) Stack data uses dynamic sizing; heap data uses static sizing
+- [x] A) It must write into both places, so each needs an exclusive `&mut`
+- [ ] B) It clones both values first, so both types must implement `Clone`
+- [ ] C) It runs Drop on both values, so both bindings must be declared `mut`
+- [ ] D) It heap-allocates a temporary, so both owners must remain valid
 
 # Hint
 Exchanging contents in-place requires writing new data into both places.
 
 # Explanation
-`std::mem::swap` exchanges the values at two mutable locations by copying their bit patterns without running destructors. Exclusive `&mut` references ensure neither location is read or aliased during the swap.
+The signature is `swap<T>(x: &mut T, y: &mut T)`. Docs: it swaps the values at two mutable locations without deinitializing either one (no `Drop`, no `Clone`). `&mut` makes both places readable and writable and non-overlapping, which is required because each location is overwritten.
