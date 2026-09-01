@@ -5,7 +5,6 @@ import { PixelButton } from '../components/ui/PixelButton'
 import { SEO } from '../components/SEO'
 import { getLeaderboard, getCreatorLeaderboard, type LeaderboardEntry, type CreatorLeaderboardEntry } from '../lib/userQuests'
 import { rankForXp } from '../lib/ranks'
-import { isSupabaseConfigured } from '../lib/supabase'
 import { useAuth } from '../context/AuthContext'
 import { avatarUrl } from '../lib/avatar'
 
@@ -66,7 +65,7 @@ export function LeaderboardPage() {
         {loading ? (
           <div className="animate-pulse font-code text-lg text-ink-dim">Loading ranks…</div>
         ) : tab === 'creators' ? (
-          !isSupabaseConfigured || creators.length === 0 ? (
+          creators.length === 0 ? (
             <div className="space-y-3 py-4 text-center">
               <p className="read-body text-xl text-ink-dim">
                 No creators ranked yet. Publish a quest and teach someone.
@@ -117,7 +116,7 @@ export function LeaderboardPage() {
               })}
             </div>
           )
-        ) : !isSupabaseConfigured || entries.length === 0 ? (
+        ) : entries.length === 0 ? (
           <div className="space-y-3 py-4 text-center">
             <p className="read-body text-xl text-ink-dim">
               No ranked rustaceans yet. Be the first to answer a quest while signed in.
