@@ -15,6 +15,7 @@ import { execFileSync } from 'child_process'
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'fs'
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
+import { QUESTION_CATEGORIES } from './lib/questionCategories.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = resolve(__dirname, '..')
@@ -51,17 +52,7 @@ const staticPages = [
   { path: '/privacy', file: 'src/pages/PrivacyPage.tsx', priority: '0.2', changefreq: 'yearly' },
 ]
 
-const categorySlugs = [
-  'ownership',
-  'lifetimes',
-  'traits',
-  'concurrency',
-  'pointers',
-  'macros',
-  'error-handling',
-  'iterators-closures',
-  'borrow-checker',
-]
+const categorySlugs = QUESTION_CATEGORIES
 
 /** Parse existing sitemap.xml to preserve previous lastmod dates when git is unavailable. */
 function parseExistingSitemap() {

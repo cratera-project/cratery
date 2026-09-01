@@ -181,20 +181,14 @@ Configure optional environment secrets in Cloudflare Workers or `.dev.vars`:
 
 ## Quality Assurance & Verification
 
-Every question, contest, and code trial passes automated validation to prevent ambiguous answers and formatting defects:
+Every question, contest, and code trial passes automated validation to prevent ambiguous answers and formatting defects. The same script runs locally and in GitHub Actions:
 
 ```bash
-# Compile markdown content into generated TypeScript data
-npm run build:content
+# Full CI gate: content, schema, rustc harnesses, lint, typecheck, security, build
+npm run check
 
-# Run question catalog validation and contest ID checks
-npm run check:questions
-
-# Execute linting and static analysis
-npm run lint
-
-# Build full distribution bundle
-npm run build
+# Faster local loop (skips sitemap + vite build)
+npm run check -- --skip-build
 ```
 
 ---

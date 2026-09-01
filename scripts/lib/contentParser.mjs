@@ -94,7 +94,7 @@ export function extractCodeBlock(markdown) {
 }
 
 export function parseOptionsList(optionsMarkdown) {
-  if (!optionsMarkdown) return { options: [], correctIndex: -1 }
+  if (!optionsMarkdown) return { options: [], correctIndex: -1, correctCount: 0 }
 
   const lines = optionsMarkdown
     .split(/\r?\n/)
@@ -103,6 +103,7 @@ export function parseOptionsList(optionsMarkdown) {
 
   const options = []
   let correctIndex = -1
+  let correctCount = 0
 
   const OPTION_LABELS = ['A', 'B', 'C', 'D']
 
@@ -110,6 +111,7 @@ export function parseOptionsList(optionsMarkdown) {
     const isCorrect = line.startsWith('- [x]') || line.startsWith('- [X]') || line.startsWith('* [x]') || line.startsWith('* [X]')
     if (isCorrect) {
       correctIndex = idx
+      correctCount++
     }
 
     let text = line.replace(/^[-*]\s*\[[ xX]\]\s*/, '')
@@ -119,7 +121,7 @@ export function parseOptionsList(optionsMarkdown) {
     options.push({ label, text })
   })
 
-  return { options, correctIndex }
+  return { options, correctIndex, correctCount }
 }
 
 export function parseQuestionMarkdown(filePath) {
@@ -166,7 +168,7 @@ export function parseQuestionMarkdown(filePath) {
   }
 
   const code = extractCodeBlock(sections['code'] || '')
-  const { options, correctIndex } = parseOptionsList(sections['options'] || '')
+  const { options, correctIndex, correctCount } = parseOptionsList(sections['options'] || '')
 
   return {
     id,
@@ -178,6 +180,7 @@ export function parseQuestionMarkdown(filePath) {
     language: 'rust',
     options: options.length > 0 ? options : undefined,
     correctIndex: correctIndex >= 0 ? correctIndex : (Number(fm.correctIndex) ?? 0),
+    correctCount,
     hint: hint || undefined,
     explanation,
     difficulty,

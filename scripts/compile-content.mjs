@@ -6,6 +6,7 @@ import {
   loadContestsFromDir,
   loadTutorialChaptersFromDir,
 } from './lib/contentParser.mjs'
+import { QUESTION_CATEGORIES } from './lib/questionCategories.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const rootDir = resolve(__dirname, '..')
@@ -16,17 +17,7 @@ if (!existsSync(outputDir)) {
   mkdirSync(outputDir, { recursive: true })
 }
 
-const categories = [
-  'ownership',
-  'borrow-checker',
-  'lifetimes',
-  'traits',
-  'concurrency',
-  'pointers',
-  'macros',
-  'error-handling',
-  'iterators-closures',
-]
+const categories = QUESTION_CATEGORIES
 
 function toCamelCase(slug) {
   return slug.replace(/-([a-z])/g, (_, g) => g.toUpperCase())
@@ -37,7 +28,7 @@ const indexExports = []
 
 for (const cat of categories) {
   const catDir = join(contentDir, 'questions', cat)
-  const qs = loadQuestionsFromDir(catDir)
+  const qs = loadQuestionsFromDir(catDir).map(({ correctCount: _correctCount, ...q }) => q)
   totalQuestions += qs.length
 
   const varName = `${toCamelCase(cat)}MarkdownQuestions`

@@ -26,5 +26,5 @@ Inspired by [cppquiz](https://cppquiz.org), [dtolnay/rust-quiz](https://github.c
 ## Workflow
 
 1. Write code + prompt + 4 balanced options + explanation (+ optional hint).
-2. Run `npm run check:questions`.
-3. Fix any length-bias or distribution failures before merging.
+2. Run `npm run check` (or `npm run check -- --skip-build` while iterating).
+3. Fix any schema, length-bias, distribution, or rustc harness failures before merging.

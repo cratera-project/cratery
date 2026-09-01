@@ -6,13 +6,16 @@
   "scripts": {
     "dev": "node scripts/compile-content.mjs && vite",
     "dev:full": "npm run build && npm run preview",
-    "build": "node scripts/compile-content.mjs && node scripts/generate-sitemap.js && npm run generate:answers && npm run check:questions && tsc -b && vite build",
+    "build": "node scripts/compile-content.mjs && node scripts/generate-sitemap.js && npm run generate:answers && tsc -b && tsc -p functions --noEmit && vite build",
     "build:content": "node scripts/compile-content.mjs",
     "sitemap": "node scripts/generate-sitemap.js --force",
     "generate:answers": "node scripts/generate-builtin-answers.mjs",
     "check:questions": "node scripts/generate-question-catalog.mjs && node scripts/check-questions.mjs && node scripts/check-contest-ids.mjs",
+    "check:harnesses": "node scripts/check-rust-harnesses.mjs",
+    "check": "bash scripts/ci.sh",
+    "typecheck": "tsc -b && tsc -p functions --noEmit",
     "backfill:customerio": "npx tsx scripts/backfill_customerio.ts",
-    "lint": "eslint . && npm run check:questions",
+    "lint": "eslint .",
     "preview": "wrangler dev",
     "deploy": "GENERATE_SITEMAP=1 npm run build && wrangler deploy",
     "deploy:discord": "node scripts/deploy-discord-commands.mjs"
@@ -47,6 +50,9 @@
     "typescript-eslint": "^8.46.4",
     "vite": "^7.2.4",
     "wrangler": "^4.120.0"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "allowScripts": {
     "esbuild": true,

@@ -1,7 +1,8 @@
-import { readdirSync } from 'node:fs'
+import { readdirSync, statSync } from 'node:fs'
 import { resolve, dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { loadQuestionsFromDir } from './lib/contentParser.mjs'
+import { parseQuestionMarkdown } from './lib/contentParser.mjs'
+import { QUESTION_CATEGORIES } from './lib/questionCategories.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const contentDir = resolve(__dirname, '..', 'content', 'questions')
@@ -161,16 +162,147 @@ function checkDisplayRuns(all, label) {
   return issues
 }
 
+function checkSchema() {
+  const issues = []
+  const seenIds = new Map()
+  const dirents = readdirSync(contentDir)
+  const catDirs = dirents.filter((name) => {
+    try {
+      return statSync(join(contentDir, name)).isDirectory()
+    } catch {
+      return false
+    }
+  })
+
+  for (const extra of catDirs) {
+    if (!QUESTION_CATEGORIES.includes(extra)) {
+      issues.push({
+        id: '*',
+        file: extra,
+        kind: 'unknown-category',
+        detail: `directory content/questions/${extra} is not in QUESTION_CATEGORIES`,
+      })
+    }
+  }
+
+  for (const cat of QUESTION_CATEGORIES) {
+    const catDir = join(contentDir, cat)
+    if (!catDirs.includes(cat)) {
+      issues.push({
+        id: '*',
+        file: cat,
+        kind: 'missing-category',
+        detail: `expected directory content/questions/${cat}`,
+      })
+      continue
+    }
+
+    const files = readdirSync(catDir).filter((f) => f.endsWith('.md'))
+    for (const file of files) {
+      const rel = `${cat}/${file}`
+      const q = parseQuestionMarkdown(join(catDir, file))
+
+      if (!q.id) {
+        issues.push({ id: file, file: rel, kind: 'schema', detail: 'missing frontmatter id' })
+        continue
+      }
+      if (!q.title) {
+        issues.push({ id: q.id, file: rel, kind: 'schema', detail: 'missing title' })
+      }
+      if (!q.prompt) {
+        issues.push({ id: q.id, file: rel, kind: 'schema', detail: 'missing prompt' })
+      }
+      if (q.categorySlug !== cat) {
+        issues.push({
+          id: q.id,
+          file: rel,
+          kind: 'schema',
+          detail: `categorySlug "${q.categorySlug}" does not match directory "${cat}"`,
+        })
+      }
+      if (![1, 2, 3].includes(q.difficulty)) {
+        issues.push({
+          id: q.id,
+          file: rel,
+          kind: 'schema',
+          detail: `difficulty must be 1, 2, or 3 (got ${q.difficulty})`,
+        })
+      }
+
+      const prev = seenIds.get(q.id)
+      if (prev) {
+        issues.push({
+          id: q.id,
+          file: rel,
+          kind: 'duplicate-id',
+          detail: `id already used in ${prev}`,
+        })
+      } else {
+        seenIds.set(q.id, rel)
+      }
+
+      if (q.kind === 'coding') {
+        const harness = q.testHarness || ''
+        const markers = harness.match(/\{\{SOLUTION\}\}/g) || []
+        if (!q.solutionCode?.trim()) {
+          issues.push({ id: q.id, file: rel, kind: 'schema', detail: 'coding question missing solution' })
+        }
+        if (markers.length !== 1) {
+          issues.push({
+            id: q.id,
+            file: rel,
+            kind: 'schema',
+            detail: 'test harness must contain exactly one {{SOLUTION}}',
+          })
+        }
+        if (!/\bfn\s+main\s*\(/.test(harness)) {
+          issues.push({ id: q.id, file: rel, kind: 'schema', detail: 'test harness missing fn main' })
+        }
+      } else {
+        const opts = q.options || []
+        if (opts.length !== 4) {
+          issues.push({
+            id: q.id,
+            file: rel,
+            kind: 'schema',
+            detail: `MCQ must have 4 options (got ${opts.length})`,
+          })
+        }
+        if (q.correctCount !== 1) {
+          issues.push({
+            id: q.id,
+            file: rel,
+            kind: 'schema',
+            detail: `MCQ must mark exactly one correct option (got ${q.correctCount ?? 0})`,
+          })
+        }
+        if (opts.some((o) => !o.text)) {
+          issues.push({ id: q.id, file: rel, kind: 'schema', detail: 'MCQ has an empty option' })
+        }
+      }
+    }
+  }
+
+  return issues
+}
+
 const allQuestions = []
-for (const cat of readdirSync(contentDir)) {
+for (const cat of QUESTION_CATEGORIES) {
   const catDir = join(contentDir, cat)
-  const qs = loadQuestionsFromDir(catDir)
-  for (const q of qs) {
-    allQuestions.push({ ...q, file: cat })
+  try {
+    if (!statSync(catDir).isDirectory()) continue
+  } catch {
+    continue
+  }
+  const files = readdirSync(catDir).filter((f) => f.endsWith('.md'))
+  for (const file of files) {
+    const q = parseQuestionMarkdown(join(catDir, file))
+    if (q.id && q.prompt) allQuestions.push({ ...q, file: cat })
   }
 }
 
 const issues = [
+  ...checkSchema(),
   ...checkBank(allQuestions, 'built-in'),
   ...checkDisplayRuns(allQuestions, 'built-in'),
 ]

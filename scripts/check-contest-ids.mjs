@@ -1,12 +1,28 @@
 import { createHash } from 'crypto'
-import { readFileSync } from 'fs'
-import { dirname, resolve } from 'path'
+import { readdirSync, readFileSync } from 'fs'
+import { dirname, join, resolve } from 'path'
 import { fileURLToPath } from 'url'
-import { loadContestsFromDir } from './lib/contentParser.mjs'
+import { loadContestsFromDir, parseContestMarkdown } from './lib/contentParser.mjs'
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+const issues = []
 
-const contests = loadContestsFromDir(resolve(root, 'content/contests'))
+const contestDir = resolve(root, 'content/contests')
+const contestFiles = readdirSync(contestDir).filter((f) => f.endsWith('.md'))
+for (const file of contestFiles) {
+  const parsed = parseContestMarkdown(join(contestDir, file))
+  if (!parsed.id) issues.push(`contest file missing id: ${file}`)
+  if (!parsed.title) issues.push(`contest file missing title: ${file}`)
+  const markers = (parsed.testHarness || '').match(/\{\{SOLUTION\}\}/g) || []
+  if (markers.length !== 1) {
+    issues.push(`contest ${parsed.id || file}: test harness must contain exactly one {{SOLUTION}}`)
+  }
+  if (!/\bfn\s+main\s*\(/.test(parsed.testHarness || '')) {
+    issues.push(`contest ${parsed.id || file}: test harness missing fn main`)
+  }
+}
+
+const contests = loadContestsFromDir(contestDir)
 const sourceContests = contests.map((c) => ({
   id: c.id,
   hash: createHash('sha256').update(c.testHarness).digest('hex'),
@@ -20,7 +36,6 @@ const hashMap = Object.fromEntries(
 )
 
 const sourceIds = sourceContests.map((c) => c.id)
-const issues = []
 
 if (uniqueListed.length !== sourceIds.length) {
   issues.push(
@@ -53,6 +68,33 @@ for (const id of weeklyIds) {
 }
 for (const id of calendarIds) {
   if (!weeklyIds.includes(id)) issues.push(`extra contestCalendar.ts entry: ${id}`)
+}
+
+const iqSrc = readFileSync(resolve(root, 'src/data/interactiveQuests.ts'), 'utf8')
+const iqIds = [...iqSrc.matchAll(/^\s+id:\s*'([^']+)'/gm)].map((m) => m[1])
+const listedIq = [
+  ...idsFile.matchAll(/export const INTERACTIVE_QUEST_IDS = \[([\s\S]*?)\]\s+as const/g),
+]
+const listedIqIds = listedIq.length
+  ? [...listedIq[0][1].matchAll(/'([^']+)'/g)].map((m) => m[1])
+  : []
+if (listedIqIds.length !== iqIds.length) {
+  issues.push(
+    `INTERACTIVE_QUEST_IDS lists ${listedIqIds.length} ids, interactiveQuests.ts has ${iqIds.length}`,
+  )
+}
+for (const id of iqIds) {
+  if (!listedIqIds.includes(id)) issues.push(`missing id in INTERACTIVE_QUEST_IDS: ${id}`)
+}
+for (const id of listedIqIds) {
+  if (!iqIds.includes(id)) issues.push(`extra id in INTERACTIVE_QUEST_IDS: ${id}`)
+}
+for (const q of iqIds) {
+  const harnessMatch = iqSrc.match(new RegExp(`id:\\s*'${q}'[\\s\\S]*?testHarness:\\s*\`([\\s\\S]*?)\``))
+  const harness = harnessMatch ? harnessMatch[1] : ''
+  if ((harness.match(/\{\{SOLUTION\}\}/g) || []).length !== 1) {
+    issues.push(`forge trial ${q}: test harness must contain exactly one {{SOLUTION}}`)
+  }
 }
 
 if (issues.length) {
