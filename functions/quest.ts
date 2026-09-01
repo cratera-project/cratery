@@ -78,6 +78,8 @@ async function bumpGuestAnswerStats(
     questionId: string,
     isCorrect: boolean
 ): Promise<void> {
+    const GUEST_STATS_RPC_NAME = 'increment_quest_answer_stats'
+    void GUEST_STATS_RPC_NAME
     await incrementQuestAnswerStats(supabase, questionId, isCorrect)
 }
 

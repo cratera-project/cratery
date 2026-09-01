@@ -17,7 +17,7 @@
     "backfill:customerio": "npx tsx scripts/backfill_customerio.ts",
     "lint": "eslint . --max-warnings 0",
     "preview": "wrangler dev",
-    "deploy": "GENERATE_SITEMAP=1 npm run build && wrangler deploy",
+    "deploy": "wrangler deploy",
     "deploy:discord": "node scripts/deploy-discord-commands.mjs"
   },
   "dependencies": {

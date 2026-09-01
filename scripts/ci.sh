@@ -59,7 +59,7 @@ node scripts/security_smoke.mjs
 
 if [[ "$SKIP_BUILD" -eq 0 ]]; then
   step "Sitemap + production build"
-  node scripts/generate-sitemap.js --force
+  node scripts/generate-sitemap.js
   npx vite build
 else
   echo
