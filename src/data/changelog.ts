@@ -7,6 +7,13 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-09-01',
+    title: 'Guest Solution Rates & Community Stats Update',
+    items: [
+      'Synced the database for missing guest solution rates and solve counts to global stats so guest contributions are accurately included in total quests answered.',
+    ],
+  },
+  {
     date: '2026-08-28',
     title: 'Quest Solution Explanations & Cloudflare Turnstile Fixes',
     items: [
