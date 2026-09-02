@@ -30,7 +30,13 @@ import {
   buildOrganizationSchema,
   buildFAQSchema,
 } from '../components/seo-schemas'
-import { ZULIP_COMMUNITY_URL, DISCORD_BOT_INVITE_URL } from '../lib/constants'
+import {
+  ZULIP_COMMUNITY_URL,
+  DISCORD_BOT_INVITE_URL,
+  CRATERA_ORG_URL,
+  CRATERA_GITHUB_URL,
+  CRATERY_GITHUB_URL,
+} from '../lib/constants'
 
 function categoryStats(slug: string, answeredIds: Set<string>) {
   const qs = questions.filter((q) => q.categorySlug === slug)
@@ -224,55 +230,89 @@ export function HomePage() {
         )
       })()}
 
-      {/* Cratera Open Source Engine Announcement */}
-      <PixelPanel className="!border-emerald/60 bg-gradient-to-r from-emerald/10 via-night-panel to-night-panel !p-3.5 sm:!p-4 shadow-pixel">
-        <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center sm:justify-between min-w-0">
-          <div className="flex items-center gap-3 min-w-0 flex-1">
+      {/* Open Source Announcement: Cratera (engine) + Cratery (this platform) */}
+      <div className="grid gap-3 md:grid-cols-2">
+        <PixelPanel className="!border-emerald/60 bg-gradient-to-br from-emerald/10 via-night-panel to-night-panel !p-3.5 sm:!p-4 shadow-pixel">
+          <div className="flex items-start gap-3 min-w-0">
             <InventorySlot className="h-11 w-11 shrink-0 border-emerald/50 bg-emerald/20">
               <span className="text-xl">🦀</span>
             </InventorySlot>
             <div className="min-w-0 flex-1">
-              <div className="flex items-center gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="font-pixel text-[9px] uppercase tracking-wider text-emerald">
-                  Engine Update · Open Source
+                  Engine · Open Source
                 </span>
                 <span className="border border-emerald/70 bg-emerald/15 px-1.5 py-0.5 font-pixel text-[8px] uppercase text-emerald">
                   Cratera is Live
                 </span>
               </div>
-              <div className="mt-0.5 truncate font-pixel text-xs uppercase text-ink">
-                Cratera microVM Code Execution Engine is Now Open Source
+              <div className="mt-0.5 font-pixel text-xs uppercase text-ink">
+                Cratera microVM Code Execution Engine
               </div>
-              <div className="truncate font-code text-xs text-ink-dim">
-                Hardware-isolated KVM sandbox built in Rust · 30 languages · Test or self-host it today
+              <div className="font-code text-xs text-ink-dim">
+                Hardware-isolated KVM sandbox built in Rust · 30 languages
               </div>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 shrink-0 sm:self-center">
+          <div className="mt-3.5 flex items-center gap-2">
             <a
-              href="https://cratera.org"
+              href={CRATERA_ORG_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0"
             >
               <PixelButton size="sm" variant="secondary">
                 Live Demo ↗
               </PixelButton>
             </a>
             <a
-              href="https://github.com/cratera-project/cratera"
+              href={CRATERA_GITHUB_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="shrink-0"
             >
               <PixelButton size="sm" className="!bg-emerald hover:!bg-emerald/80 !text-black !border-black">
                 GitHub Repo →
               </PixelButton>
             </a>
           </div>
-        </div>
-      </PixelPanel>
+        </PixelPanel>
+
+        <PixelPanel className="!border-gold/60 bg-gradient-to-br from-gold/10 via-night-panel to-night-panel !p-3.5 sm:!p-4 shadow-pixel">
+          <div className="flex items-start gap-3 min-w-0">
+            <InventorySlot className="h-11 w-11 shrink-0 border-gold/50 bg-gold/20">
+              <span className="text-xl">📦</span>
+            </InventorySlot>
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="font-pixel text-[9px] uppercase tracking-wider text-gold">
+                  Platform · Open Source
+                </span>
+                <span className="border border-gold/70 bg-gold/15 px-1.5 py-0.5 font-pixel text-[8px] uppercase text-gold">
+                  100% Free
+                </span>
+              </div>
+              <div className="mt-0.5 font-pixel text-xs uppercase text-ink">
+                Cratery is Open Source — Star Us on GitHub
+              </div>
+              <div className="font-code text-xs text-ink-dim">
+                Quests, contests, editor & API · Read, fork or contribute
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-3.5 flex items-center gap-2">
+            <a
+              href={CRATERY_GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <PixelButton size="sm" className="!bg-gold hover:!bg-amber-400 !text-stone-darkest !border-black">
+                GitHub Repo →
+              </PixelButton>
+            </a>
+          </div>
+        </PixelPanel>
+      </div>
 
       {/* Continue strip for returning players */}
       {totalDone > 0 ? (

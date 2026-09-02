@@ -7,9 +7,9 @@ import { AuthButton } from './AuthButton'
 import { AuthModal } from './AuthModal'
 import { StreakIcon } from './StreakIcon'
 import { RankUpModal } from './RankUpModal'
-import { ChevronDown, BookOpen, Users, Dices, Swords, Plus, Menu, X, Trophy, Swords as ContestIcon, Code2, Mail, Terminal, Sparkles, MessageSquare, Bot, FileCode } from 'lucide-react'
+import { ChevronDown, BookOpen, Users, Dices, Swords, Plus, Menu, X, Trophy, Swords as ContestIcon, Code2, Mail, Terminal, Sparkles, MessageSquare, Bot, FileCode, Github } from 'lucide-react'
 import { createRival } from '../lib/rivals'
-import { ZULIP_COMMUNITY_URL, DISCORD_BOT_INVITE_URL } from '../lib/constants'
+import { ZULIP_COMMUNITY_URL, DISCORD_BOT_INVITE_URL, CRATERY_GITHUB_URL } from '../lib/constants'
 
 
 const navBtn = 'shrink-0 !h-[42px] !border-3 !px-3 !py-2.5 text-[11px] leading-none'
@@ -425,6 +425,17 @@ export function Header() {
             </div>
 
             <div className="flex shrink-0 items-center gap-1.5">
+              <a
+                href={CRATERY_GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Cratery on GitHub · Star us!"
+                aria-label="Cratery on GitHub"
+              >
+                <PixelButton size="sm" variant="secondary" className={`${navBtn} !px-2.5`}>
+                  <Github className="h-4 w-4" />
+                </PixelButton>
+              </a>
               <StreakIcon />
               <AuthButton />
             </div>
@@ -432,6 +443,17 @@ export function Header() {
 
           {/* Mobile Right Controls (< md) */}
           <div className="flex items-center gap-1.5 md:hidden">
+            <a
+              href={CRATERY_GITHUB_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Cratery on GitHub · Star us!"
+              aria-label="Cratery on GitHub"
+            >
+              <PixelButton size="sm" variant="secondary" className="!h-[42px] !w-[42px] !border-3 !p-0">
+                <Github className="h-4 w-4" />
+              </PixelButton>
+            </a>
             <StreakIcon />
             <AuthButton />
             <button
@@ -689,6 +711,17 @@ export function Header() {
               >
                 <Terminal className="h-3.5 w-3.5" />
                 <span>Cratera ↗</span>
+              </a>
+
+              <a
+                href={CRATERY_GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center justify-center gap-1.5 border-2 border-ink-faint/40 bg-night-raised py-2 px-2 font-pixel text-[9px] uppercase text-ink hover:border-ink"
+              >
+                <Github className="h-3.5 w-3.5" />
+                <span>GitHub ↗</span>
               </a>
 
               <a
