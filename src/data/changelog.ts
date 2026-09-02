@@ -7,6 +7,17 @@ export type ChangelogEntry = {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    date: '2026-09-02',
+    title: 'Cratery v1.0.0 — First Stable Release',
+    items: [
+      'Cratery is officially out of beta: 682 quests across 10 topic tracks, 15 weekly contests, and a 13-chapter interactive Learn curriculum.',
+      'Interactive notebooks with live Rust execution in hardware-isolated Firecracker microVMs, plus an in-browser Firecracker judge for advanced forge challenges.',
+      'Official Discord bot with multiplayer lobbies, XP sync, and code execution from any Discord message.',
+      'Community quests, notes, comments, leaderboards, and profiles — with guest participation, email verification, and Turnstile-protected auth.',
+      'This site now ships as versioned releases; follow the repository for future updates.',
+    ],
+  },
+  {
     date: '2026-09-01',
     title: 'Guest Solution Rates & Community Stats Update',
     items: [
