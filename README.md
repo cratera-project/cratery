@@ -5,12 +5,14 @@
 ### Rust Learning Platform & Coding Arena
 
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+[![CI](https://github.com/cratera-project/cratery/actions/workflows/ci.yml/badge.svg)](https://github.com/cratera-project/cratery/actions/workflows/ci.yml)
 [![Rust Edition](https://img.shields.io/badge/Rust-Edition_2024-orange.svg)](https://www.rust-lang.org)
 [![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=black)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![Vite](https://img.shields.io/badge/Vite-7.2-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
 [![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?logo=cloudflare&logoColor=white)](https://workers.cloudflare.com)
 [![Engine](https://img.shields.io/badge/Sandbox-Cratera_MicroVM-black)](https://github.com/cratera-project/cratera)
+[![Sponsor](https://img.shields.io/badge/Sponsor-Cratery-ea4aaa?logo=github)](https://github.com/sponsors/sundanc)
 
 An open-source Rust training platform built around compiler-driven practice, deep language semantics, and isolated code execution.
 
@@ -102,8 +104,8 @@ Cratery focuses on compiler behavior, ownership transfers, lifetime variance, co
 
 ### Prerequisites
 
-- Node.js 22+
-- Rust toolchain (`rustc` and `cargo`)
+- **Node.js 22+** — required, older versions fail the build. Check with `node -v` (a version check also runs automatically on `npm run dev` and `npm run build`).
+- Rust toolchain (`rustc` and `cargo`) — for local code grading. [`rustup`](https://rustup.rs) installs it.
 
 ### Local Setup
 
@@ -156,26 +158,59 @@ content/
 
 ## Deployment and Self-Hosting
 
-### Cloudflare Workers Deployment
+Cratery runs at three tiers. Start at tier 1 and add backends only when you need them.
 
-Deploy Cratery to Cloudflare Workers with edge routing:
+### Tier 1 — Local, zero backend (default)
+
+`npm install && npm run dev`. Everything grades through your host `rustc`, and progress persists in browser `localStorage`. No accounts, no databases, no secrets. This is the full learning experience minus cloud sync and multiplayer.
+
+### Tier 2 — Full stack locally (accounts, sync, community)
+
+Adds a Supabase project (free tier works) and Cloudflare's local worker runtime:
+
+1. Create a Supabase project (free tier works) and apply [`supabase/schema.sql`](supabase/schema.sql) in its SQL editor.
+2. Copy the templates and fill in the Supabase values:
+   ```bash
+   cp .dev.vars.example .dev.vars       # worker secrets (server-side)
+   cp .env.local.example .env.local     # Vite vars (browser-side anon key)
+   ```
+3. Run the stack:
+   ```bash
+   npm run build     # compile content + production assets
+   npm run preview   # wrangler dev — serves the app with the worker runtime
+   ```
+
+At this tier you get sign-up/sign-in, cross-device progress, community quests, notes, comments, and leaderboards. Email verification needs a transactional email token (Mailtrap) or stays unverified; Turnstile CAPTCHA can be skipped locally.
+
+### Tier 3 — Production on Cloudflare Workers
 
 ```bash
 npm run build
 npx wrangler deploy
 ```
 
+Set the same secrets as tier 2 via `wrangler secret put <NAME>` (or the Cloudflare dashboard), with `APP_URL` pointing at your deployed origin. The `[vars]` block in [`wrangler.toml`](wrangler.toml) documents every supported variable, including optional Mailtrap, Customer.io, and Discord bot integrations.
+
+### Code execution backend
+
+Local grading uses host `rustc` (dev tier). For production-grade isolation, submissions route to **[Cratera](https://github.com/cratera-project/cratera)**, a separate Firecracker microVM grading cluster — point `GRADE_URL` and `GRADE_INTERNAL_KEY` at your Cratera deployment. Without it, the site still works; browser-side and host-compiler execution paths keep functioning.
+
 ### Environment Configuration
 
-Configure optional environment secrets in Cloudflare Workers or `.dev.vars`:
+Core variables (all optional — the platform boots without them):
 
-| Variable | Requirement | Description |
-| :--- | :--- | :--- |
-| `GRADE_URL` | Optional | HTTPS endpoint pointing to a Cratera microVM cluster |
-| `GRADE_INTERNAL_KEY` | Optional | Shared authentication secret for the grading cluster |
-| `SUPABASE_URL` | Optional | Supabase project URL for cloud authentication and cross-device sync |
-| `SUPABASE_ANON_KEY` | Optional | Supabase anonymous public key |
-| `SUPABASE_SERVICE_ROLE_KEY` | Optional | Supabase administrative key for backend edge workers |
+| Variable | Description |
+| :--- | :--- |
+| `GRADE_URL` | HTTPS endpoint pointing to a Cratera microVM cluster |
+| `GRADE_INTERNAL_KEY` | Shared authentication secret for the grading cluster |
+| `SUPABASE_URL` | Supabase project URL for cloud authentication and cross-device sync |
+| `SUPABASE_ANON_KEY` | Supabase anonymous public key (browser side, `VITE_` prefixed in `.env.local`) |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase administrative key for backend edge workers |
+| `JWT_SECRET` | Signs session tokens (generate with `openssl rand -hex 32`) |
+| `APP_URL` | Public origin of your deployment (verification links, CORS) |
+| `TURNSTILE_SECRET` | Cloudflare Turnstile CAPTCHA secret for public endpoints |
+
+See `.dev.vars.example` for the full annotated list, including email, analytics, Discord bot, and rate-limit tuning variables.
 
 ---
 

@@ -1,0 +1,51 @@
+name: Quest proposal
+description: Propose a new Rust quest topic, contest idea, or tutorial chapter
+labels: [content, good first issue]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Quest content is markdown under `content/` — see
+        [CONTRIBUTING.md](https://github.com/cratera-project/cratery/blob/main/CONTRIBUTING.md)
+        for a 15-minute walkthrough. You can either propose a topic for someone
+        else to write, or claim it and write it yourself in the same PR.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Concept quest (multiple choice)
+        - Coding quest (write Rust against a harness)
+        - Weekly contest idea
+        - Tutorial chapter
+    validations:
+      required: true
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic track
+      options:
+        - ownership
+        - borrow-checker
+        - lifetimes
+        - traits
+        - concurrency
+        - pointers
+        - macros
+        - error-handling
+        - iterators-closures
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: The quest idea
+      description: What Rust concept or misconception should it teach? Include a code snippet if you have one.
+    validations:
+      required: true
+  - type: checkboxes
+    id: claim
+    attributes:
+      label: Authoring
+      options:
+        - label: I'd like to write this quest myself (we'll help you through the first one)

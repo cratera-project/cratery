@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Cratera Zulip Chat
+    url: https://cratera.zulipchat.com
+    about: Real-time discussion about the platform, Rust, and contributing.
+  - name: Security vulnerabilities
+    url: https://github.com/cratera-project/cratery/blob/main/SECURITY.md
+    about: Please report security issues privately — do not open a public issue.
