@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node scripts/compile-content.mjs && vite",
+    "dev": "node scripts/compile-content.mjs && node scripts/generate-changelog.mjs && vite",
     "dev:full": "npm run build && npm run preview",
-    "build": "node scripts/compile-content.mjs && node scripts/generate-question-catalog.mjs && node scripts/generate-sitemap.js && npm run generate:answers && tsc -b && tsc -p functions --noEmit && vite build",
+    "build": "node scripts/compile-content.mjs && node scripts/generate-changelog.mjs && node scripts/generate-question-catalog.mjs && node scripts/generate-sitemap.js && npm run generate:answers && tsc -b && tsc -p functions --noEmit && vite build",
+    "changelog": "node scripts/generate-changelog.mjs",
     "build:content": "node scripts/compile-content.mjs && node scripts/generate-question-catalog.mjs",
     "sitemap": "node scripts/generate-sitemap.js --force",
     "generate:answers": "node scripts/generate-builtin-answers.mjs",

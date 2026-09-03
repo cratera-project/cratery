@@ -36,6 +36,7 @@ fi
 step "Compile markdown content"
 node scripts/compile-content.mjs
 node scripts/generate-builtin-answers.mjs
+node scripts/generate-changelog.mjs
 
 step "Question catalog, schema, and contest IDs"
 node scripts/generate-question-catalog.mjs
