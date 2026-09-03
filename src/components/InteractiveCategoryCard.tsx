@@ -21,28 +21,31 @@ export function InteractiveCategoryCard() {
             ? 'border-emerald/60 bg-emerald/5 hover:border-emerald'
             : 'border-night-edge bg-night-raised hover:border-ink-faint'
         }`}>
-          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-start gap-3 min-w-0 flex-1">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex min-w-0 flex-1 items-start gap-3">
               <InventorySlot className="shrink-0">
                 <span className="text-2xl">⚒️</span>
               </InventorySlot>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="font-pixel text-[10px] uppercase text-ink">Forge Trials</span>
-                  <span className="border-2 border-black/60 bg-night px-1.5 py-0.5 font-pixel text-[8px] uppercase text-rust-orange">
-                    Interactive Coding
+                  <span className="border border-rust-orange/60 bg-rust-orange/10 px-1.5 py-0.5 font-pixel text-[8px] uppercase text-rust-orange">
+                    Browser editor
+                  </span>
+                  <span className="border border-black/60 bg-night px-1.5 py-0.5 font-pixel text-[8px] uppercase text-ink-dim">
+                    Hands-on coding
                   </span>
                   {done > 0 && (
                     <span className="border border-emerald/60 bg-emerald/15 px-1.5 py-0.5 font-pixel text-[8px] uppercase text-emerald">
-                      {done}/{total} Solved
+                      {done}/{total} done
                     </span>
                   )}
                 </div>
-                <p className="mt-1 read-body text-base text-ink-dim sm:text-lg">
-                  Write real Rust in the browser editor. Step from single-line warmups to full systems with instant test feedback.
+                <p className="mt-2 max-w-2xl read-body text-base leading-tight text-ink-dim sm:text-lg">
+                  Practice Rust in your browser. Run tests as you go.
                 </p>
                 {done > 0 && (
-                  <div className="mt-2 max-w-xs">
+                  <div className="mt-3 max-w-xs">
                     <ProgressBar value={done} max={total} />
                   </div>
                 )}
