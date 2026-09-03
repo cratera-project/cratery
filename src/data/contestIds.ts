@@ -1,5 +1,6 @@
 
 export const CONTEST_IDS = [
+  '2026-09-03-generational-arena',
   '2026-08-27-versioned-kv',
   '2026-08-20-frame-multiplexer',
   '2026-08-13-lexicon',
@@ -18,6 +19,7 @@ export const CONTEST_IDS = [
 ] as const
 
 export const CONTEST_HARNESS_SHA256: Record<(typeof CONTEST_IDS)[number], string> = {
+  '2026-09-03-generational-arena': '709bc6cf1f6834d81b6a7372ef158d41f07e3868c22f319f16ea4d4c21ca5676',
   '2026-08-27-versioned-kv': '7652903798dea430efefa08a3fcee816db3930230f0fedf5cd6af5da282a8d9e',
   '2026-08-20-frame-multiplexer': '74cd1ec63f5031511590129935ed98cc4f55270653b8179453e40a6b6cedad80',
   '2026-08-13-lexicon': '571f54630d42480812e50d4634418c874e5484ecc0dc28faf8387402451d2e36',

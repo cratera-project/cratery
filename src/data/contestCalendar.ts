@@ -12,6 +12,14 @@ export type ContestCalendarEntry = {
 
 export const contestCalendar: ContestCalendarEntry[] = [
   {
+    id: '2026-09-03-generational-arena',
+    title: 'The Generational Slot Arena',
+    weekLabel: 'Thu Sep 3 → Thu Sep 10, 2026',
+    difficulty: 2,
+    opensAt: '2026-09-03T00:00:00.000Z',
+    closesAt: '2026-09-10T00:00:00.000Z',
+  },
+  {
     id: '2026-08-27-versioned-kv',
     title: 'The Multi-Version Key-Value Store',
     weekLabel: 'Thu Aug 27 → Thu Sep 3, 2026',

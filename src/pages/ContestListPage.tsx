@@ -20,6 +20,9 @@ function statusLabel(opensAt: string, closesAt: string): string {
 
 export function ContestListPage() {
   const current = getCurrentContest()
+  const latestContests = [...contests].sort(
+    (a, b) => Date.parse(b.opensAt) - Date.parse(a.opensAt),
+  )
   const answersByQuestionId = useProgressStore((s) => s.answersByQuestionId)
   const isContestSolved = (id: string) => Boolean(answersByQuestionId[id]?.isCorrect || isContestSolvedLocally(id))
   const isCurrentSolved = isContestSolved(current.id)
@@ -63,7 +66,7 @@ export function ContestListPage() {
 
       <PixelPanel title="Weeks">
         <div className="space-y-2">
-          {contests.map((c) => {
+          {latestContests.map((c) => {
             const status = statusLabel(c.opensAt, c.closesAt)
             const isSolved = isContestSolved(c.id)
             return (
