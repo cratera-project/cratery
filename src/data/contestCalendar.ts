@@ -12,6 +12,14 @@ export type ContestCalendarEntry = {
 
 export const contestCalendar: ContestCalendarEntry[] = [
   {
+    id: '2026-09-10-budget-streak',
+    title: 'The Longest Budget Streak',
+    weekLabel: 'Thu Sep 10 → Thu Sep 17, 2026',
+    difficulty: 2,
+    opensAt: '2026-09-10T00:00:00.000Z',
+    closesAt: '2026-09-17T00:00:00.000Z',
+  },
+  {
     id: '2026-09-03-generational-arena',
     title: 'The Generational Slot Arena',
     weekLabel: 'Thu Sep 3 → Thu Sep 10, 2026',
