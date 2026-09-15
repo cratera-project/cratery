@@ -432,7 +432,7 @@ export function Header() {
                 title="Cratery on GitHub · Star us!"
                 aria-label="Cratery on GitHub"
               >
-                <PixelButton size="sm" variant="secondary" className={`${navBtn} !px-2.5`}>
+                <PixelButton size="sm" variant="secondary" className={`${navBtn} inline-flex !px-2.5 items-center justify-center leading-none`}>
                   <Github className="h-4 w-4" />
                 </PixelButton>
               </a>
@@ -450,7 +450,7 @@ export function Header() {
               title="Cratery on GitHub · Star us!"
               aria-label="Cratery on GitHub"
             >
-              <PixelButton size="sm" variant="secondary" className="!h-[42px] !w-[42px] !border-3 !p-0">
+              <PixelButton size="sm" variant="secondary" className="inline-flex !h-[42px] !w-[42px] !border-3 !p-0 items-center justify-center leading-none">
                 <Github className="h-4 w-4" />
               </PixelButton>
             </a>

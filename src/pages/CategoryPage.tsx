@@ -153,14 +153,14 @@ export function CategoryPage() {
                   to={`/contest/${q.id}`}
                   className="group block"
                 >
-                  <div className={`pixel-ui border-3 p-3 shadow-pixel transition-all duration-100 ease-linear hover:-translate-y-0.5 hover:shadow-pixel-lg sm:p-3.5 ${
+                  <div className={`pixel-ui min-w-0 overflow-hidden border-3 p-3 shadow-pixel transition-all duration-100 ease-linear hover:-translate-y-0.5 hover:shadow-pixel-lg sm:p-3.5 ${
                     isSolved
                       ? 'border-emerald/60 bg-emerald/5 hover:border-emerald'
                       : 'border-night-edge bg-night-raised hover:border-ink-faint'
                   }`}>
-                    <div className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between">
-                      <div className="min-w-0 flex-1">
-                        <div className="flex flex-wrap items-center gap-1.5 font-pixel text-[9px] uppercase text-ink-dim sm:text-[10px]">
+                    <div className="flex min-w-0 flex-col gap-2.5">
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-1.5 font-pixel text-[9px] uppercase leading-relaxed text-ink-dim sm:text-[10px]">
                           <span>#{index + 1}</span>
                           <span>·</span>
                           <span className={diffClass}>{difficultyLabel(q.difficulty).toUpperCase()}</span>
@@ -172,21 +172,19 @@ export function CategoryPage() {
                             </span>
                           )}
                         </div>
-                        <h2 className={`mt-1 font-pixel text-xs uppercase break-words sm:text-sm ${isSolved ? 'text-emerald-300' : 'text-ink'}`}>
+                        <h2 className={`mt-1 font-pixel text-xs uppercase leading-relaxed sm:text-sm ${isSolved ? 'text-emerald-300' : 'text-ink'}`}>
                           <InlineMarkdown text={q.title} variant="title" />
                         </h2>
                         {q.signature && (
-                          <div className="mt-1 font-code text-xs text-ink-faint truncate">
+                          <div className="mt-1 max-w-full break-words font-code text-[11px] leading-relaxed text-ink-faint">
                             {q.signature}
                           </div>
                         )}
                       </div>
 
-                      <div className="shrink-0 self-end sm:self-center">
-                        <PixelButton size="sm" variant={isSolved ? 'success' : 'primary'}>
-                          {isSolved ? 'Review →' : 'Open →'}
-                        </PixelButton>
-                      </div>
+                      <PixelButton size="sm" className="w-full" variant={isSolved ? 'success' : 'primary'}>
+                        {isSolved ? 'Review →' : 'Open →'}
+                      </PixelButton>
                     </div>
                   </div>
                 </Link>

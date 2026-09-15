@@ -111,19 +111,25 @@ export function TutorialQuestRunner({ quest }: Props) {
       </div>
 
       {/* Quest Title & Prompt */}
-      <div className="space-y-2">
-        <h4 className="font-pixel text-xs uppercase text-ink">{quest.title}</h4>
-        <div className="text-sm font-sans leading-relaxed text-stone-200">
+      <div className="min-w-0 space-y-2">
+        <h4 className="break-words font-pixel text-xs uppercase text-ink">{quest.title}</h4>
+        <div className="min-w-0 text-sm font-sans leading-relaxed text-stone-200">
           <MarkdownBody>{quest.prompt}</MarkdownBody>
         </div>
-        <div className="inline-block border border-night-edge bg-night px-2.5 py-1 font-code text-xs text-emerald-300">
-          Signature: <code>{quest.signature}</code>
+        <div className="block max-w-full overflow-x-auto border border-night-edge bg-night px-2.5 py-1 font-code text-xs text-emerald-300">
+          Signature: <code className="break-all whitespace-pre-wrap">{quest.signature}</code>
         </div>
       </div>
 
       {/* Monaco Code Editor */}
-      <div className="pixel-ui border-3 border-night-edge overflow-hidden shadow-inner">
-        <MonacoEditor value={code} onChange={setCode} height="280px" language="rust" />
+      <div className="pixel-ui min-w-0 overflow-hidden border-3 border-night-edge shadow-inner">
+        <MonacoEditor
+          value={code}
+          onChange={setCode}
+          height="280px"
+          language="rust"
+          onRun={() => void handleRun()}
+        />
       </div>
 
       {/* Controls Bar */}

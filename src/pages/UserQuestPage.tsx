@@ -505,8 +505,8 @@ export function UserQuestPage() {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <h1 className="min-w-0 font-pixel text-sm uppercase tracking-[0.02em] text-ink">
+      <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <h1 className="min-w-0 w-full font-pixel text-xs uppercase leading-relaxed tracking-[0.02em] text-ink sm:text-sm">
           <InlineMarkdown text={quest.title} variant="title" />
         </h1>
         {isCoding ? (
@@ -537,7 +537,7 @@ export function UserQuestPage() {
       {isCoding ? (
         <>
           <PixelPanel>
-            <div className="mb-4 read-body text-2xl leading-snug whitespace-pre-wrap text-ink">
+            <div className="mb-4 min-w-0 break-words read-body text-xl leading-snug whitespace-pre-wrap text-ink sm:text-2xl">
               <InlineMarkdown text={quest.prompt} />
             </div>
             {quest.hint ? (
@@ -546,17 +546,16 @@ export function UserQuestPage() {
                   Hint
                 </PixelButton>
                 {showHint ? (
-                  <div className="border-3 border-gold bg-gold/10 p-4 shadow-pixel">
+                  <div className="border-3 border-gold bg-gold/10 p-3 shadow-pixel sm:p-4">
                     <div className="font-pixel text-[10px] uppercase text-gold">Hint</div>
-                    <div className="mt-2 read-body text-xl leading-relaxed text-ink">
+                    <div className="mt-2 min-w-0 break-words read-body text-lg leading-relaxed text-ink sm:text-xl">
                       <InlineMarkdown text={quest.hint} />
                     </div>
                   </div>
                 ) : null}
               </div>
             ) : null}
-            <MonacoEditor value={code} onChange={setCode} height="320px" />
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mb-3 flex flex-wrap gap-2">
               <PixelButton
                 onClick={() => void runTests()}
                 disabled={running || submittingJudge}
@@ -578,6 +577,12 @@ export function UserQuestPage() {
                 Reset starter
               </PixelButton>
             </div>
+            <MonacoEditor
+              value={code}
+              onChange={setCode}
+              height="320px"
+              onRun={() => void runTests()}
+            />
             <GradeResultPanel
               running={running || submittingJudge}
               runningLabel={submittingJudge ? 'Submitting full tests…' : 'Running first 3 tests…'}
@@ -613,7 +618,7 @@ export function UserQuestPage() {
           {quest.code ? <CodeBlock code={quest.code} language="rust" /> : null}
 
           <PixelPanel>
-            <div className="mb-4 read-body text-2xl leading-snug text-ink">
+            <div className="mb-4 min-w-0 break-words read-body text-xl leading-snug text-ink sm:text-2xl">
               <InlineMarkdown text={quest.prompt} />
             </div>
 

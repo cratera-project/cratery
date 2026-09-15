@@ -9,9 +9,9 @@ export function PixelPanel({
   return (
     <section
       className={cx(
-        'pixel-ui bg-night-panel text-ink',
+        'pixel-ui min-w-0 bg-night-panel text-ink',
         'border-4 border-black/60 shadow-pixel',
-        'p-4',
+        'p-3 sm:p-4',
         className,
       )}
     >

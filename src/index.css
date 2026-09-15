@@ -91,5 +91,14 @@
     white-space: pre;
     overflow-x: auto;
     font-feature-settings: normal;
+    max-width: 100%;
+  }
+
+  /* Native phone editor: 16px so iOS does not zoom on focus */
+  .native-code-editor {
+    font-size: 16px;
+    line-height: 1.5;
+    tab-size: 4;
+    -webkit-text-size-adjust: 100%;
   }
 }

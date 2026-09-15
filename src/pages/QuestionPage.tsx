@@ -432,9 +432,9 @@ export function QuestionPage() {
         </div>
       </div>
 
-      <div className="flex flex-wrap items-start justify-between gap-3">
-        <div>
-          <h1 className="min-w-0 font-pixel text-sm uppercase tracking-[0.02em] text-ink">
+      <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-start sm:justify-between">
+        <div className="min-w-0">
+          <h1 className="w-full font-pixel text-xs uppercase leading-relaxed tracking-[0.02em] text-ink sm:text-sm">
             <InlineMarkdown text={q.title} variant="title" />
           </h1>
           <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
@@ -479,7 +479,7 @@ export function QuestionPage() {
       {isCoding ? (
         <>
           <PixelPanel>
-            <div className="mb-4 read-body text-2xl leading-snug text-ink">
+            <div className="mb-4 min-w-0 break-words read-body text-xl leading-snug text-ink sm:text-2xl">
               <InlineMarkdown text={q.prompt} />
             </div>
             {q.hint ? (
@@ -488,9 +488,9 @@ export function QuestionPage() {
                   Hint · H
                 </PixelButton>
                 {showHint ? (
-                  <div className="border-3 border-gold bg-gold/10 p-4 shadow-pixel">
+                  <div className="border-3 border-gold bg-gold/10 p-3 shadow-pixel sm:p-4">
                     <div className="font-pixel text-[10px] uppercase text-gold">Hint</div>
-                    <div className="mt-2 read-body text-xl leading-relaxed text-ink">
+                    <div className="mt-2 min-w-0 break-words read-body text-lg leading-relaxed text-ink sm:text-xl">
                       <InlineMarkdown text={getHint(q)} />
                     </div>
                   </div>
@@ -498,9 +498,7 @@ export function QuestionPage() {
               </div>
             ) : null}
 
-            <MonacoEditor value={code} onChange={setCode} height="320px" />
-
-            <div className="mt-4 flex flex-wrap gap-2">
+            <div className="mb-3 flex flex-wrap gap-2">
               <PixelButton
                 onClick={() => void runTests()}
                 disabled={running || submittingJudge}
@@ -531,6 +529,13 @@ export function QuestionPage() {
                 </PixelButton>
               )}
             </div>
+
+            <MonacoEditor
+              value={code}
+              onChange={setCode}
+              height="320px"
+              onRun={() => void runTests()}
+            />
 
             <GradeResultPanel
               running={running || submittingJudge}
@@ -595,7 +600,7 @@ export function QuestionPage() {
       ) : (
         <>
           <PixelPanel>
-            <div className="mb-4 read-body text-2xl leading-snug text-ink">
+            <div className="mb-4 min-w-0 break-words read-body text-xl leading-snug text-ink sm:text-2xl">
               <InlineMarkdown text={q.prompt} />
             </div>
 

@@ -137,7 +137,7 @@ export function CodeBlock({
 
   return (
     <>
-      <div className="pixel-ui my-4 w-full overflow-hidden border-4 border-black/60 bg-[#191b20] shadow-pixel">
+      <div className="pixel-ui my-4 w-full min-w-0 overflow-hidden border-4 border-black/60 bg-[#191b20] shadow-pixel">
         {/* Retro Pixel Code Header Bar with Interactive Controls */}
         <div className="flex flex-wrap items-center justify-between gap-2 border-b-2 border-night-edge bg-night-raised px-3 py-1.5 text-xs text-ink-dim">
           <div className="flex items-center gap-2 min-w-0">
@@ -242,10 +242,17 @@ export function CodeBlock({
               onKeyDown={handleKeyDownInEditor}
               rows={Math.max(4, currentCode.split('\n').length + 1)}
               spellCheck={false}
-              className="w-full resize-y bg-transparent font-code text-[13px] sm:text-[14px] leading-relaxed text-emerald-200 focus:outline-none selection:bg-rust-orange/40"
+              autoCapitalize="none"
+              autoCorrect="off"
+              autoComplete="off"
+              inputMode="text"
+              enterKeyHint="enter"
+              wrap="soft"
+              className="native-code-editor w-full resize-y bg-transparent font-code text-base leading-relaxed text-emerald-200 focus:outline-none selection:bg-rust-orange/40 sm:text-[14px]"
               style={{
                 fontFamily:
                   "ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace",
+                fontSize: 16,
               }}
             />
             <div className="mt-1 flex items-center justify-between font-pixel text-[8px] uppercase text-ink-faint border-t border-night-edge/40 pt-1.5">
@@ -256,9 +263,9 @@ export function CodeBlock({
         ) : (
           <Highlight theme={retroPixelTheme} code={normalized} language={language as Language}>
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
-              <div className="overflow-x-auto p-3">
+              <div className="max-w-full overflow-x-auto p-3">
                 <pre
-                  className={`${className} font-code text-[13px] sm:text-[14px] leading-relaxed table min-w-full`}
+                  className={`${className} font-code text-[13px] sm:text-[14px] leading-relaxed table w-full table-fixed`}
                   style={{
                     ...style,
                     margin: 0,
@@ -279,7 +286,7 @@ export function CodeBlock({
                       >
                         {i + 1}
                       </span>
-                      <span className="table-cell whitespace-pre font-code">
+                      <span className="table-cell whitespace-pre-wrap break-all font-code sm:whitespace-pre sm:break-normal">
                         {line.map((token, key: number) => (
                           <span key={key} {...getTokenProps({ token })} />
                         ))}

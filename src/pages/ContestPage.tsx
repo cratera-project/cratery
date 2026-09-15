@@ -48,7 +48,6 @@ function saveDraft(id: string, lang: string, code: string) {
   }
 }
 
-
 export function ContestPage() {
   const { contestId } = useParams()
   const contest = contestId ? getContest(contestId) : undefined
@@ -239,44 +238,41 @@ export function ContestPage() {
       </div>
 
       <div
-        className="flex min-h-0 flex-1 select-none flex-col overflow-auto px-2.5 pb-2.5 sm:px-4 sm:pb-4 lg:flex-row lg:overflow-hidden"
+        className="flex min-h-0 min-w-0 flex-1 select-none flex-col overflow-auto px-2.5 pb-2.5 sm:px-4 sm:pb-4 lg:flex-row lg:overflow-hidden"
         style={{ ['--left' as string]: `${leftWidth}%` }}
         onMouseMove={resize}
         onMouseUp={stopResizing}
         onMouseLeave={stopResizing}
       >
         {/* Left: problem */}
-        <aside
-          className="flex w-full shrink-0 flex-col overflow-hidden border-4 border-black/60 bg-night-panel shadow-pixel lg:h-full lg:w-[var(--left)]"
-        >
-          <div className="flex items-center justify-between gap-2 border-b-4 border-black/60 bg-night-raised px-3 py-2">
-            <div className="min-w-0">
-              <Link
-                to={isTrial ? '/category/interactive' : '/contest'}
-                className="font-pixel text-[9px] uppercase text-ink-dim hover:text-rust-orange"
-              >
-                {isTrial ? '← Forge Trials' : '← Weekly Contests'}
-              </Link>
-              <div className="flex items-center gap-2">
-                <h1 className="truncate font-pixel text-xs uppercase tracking-[0.02em]">
-                  {contest.title}
-                </h1>
-                {isSolved && (
-                  <span className="shrink-0 inline-flex items-center border border-emerald/60 bg-emerald/15 px-1.5 py-0.2 font-pixel text-[8px] uppercase tracking-wider text-emerald">
-                    ✓ Solved
-                  </span>
-                )}
-              </div>
+        <aside className="contents lg:flex lg:h-full lg:w-[var(--left)] lg:min-w-0 lg:shrink-0 lg:flex-col lg:overflow-y-auto lg:border-4 lg:border-black/60 lg:bg-night-panel lg:shadow-pixel">
+          <div className="order-1 flex w-full min-w-0 flex-col overflow-hidden border-4 border-black/60 bg-night-panel shadow-pixel lg:border-0 lg:shadow-none">
+          <div className="flex flex-col gap-2 border-b-4 border-black/60 bg-night-raised px-3 py-2">
+            <Link
+              to={isTrial ? '/category/interactive' : '/contest'}
+              className="w-fit font-pixel text-[9px] uppercase leading-relaxed text-ink-dim hover:text-rust-orange"
+            >
+              {isTrial ? '← Forge Trials' : '← Weekly Contests'}
+            </Link>
+            <h1 className="w-full font-pixel text-[11px] uppercase leading-relaxed tracking-[0.02em] sm:text-xs">
+              {contest.title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-2">
+              {isSolved ? (
+                <span className="inline-flex items-center border border-emerald/60 bg-emerald/15 px-1.5 py-0.5 font-pixel text-[8px] uppercase tracking-wider text-emerald">
+                  ✓ Solved
+                </span>
+              ) : null}
+              <span className="border-2 border-black/60 bg-night-panel px-2 py-1 font-pixel text-[8px] uppercase leading-relaxed text-ink-dim sm:text-[9px]">
+                {contest.weekLabel} · {difficultyLabel(contest.difficulty).toUpperCase()}
+              </span>
             </div>
-            <span className="shrink-0 border-2 border-black/60 bg-night-panel px-2 py-1 font-pixel text-[9px] uppercase text-ink-dim">
-              {contest.weekLabel} · {difficultyLabel(contest.difficulty).toUpperCase()}
-            </span>
           </div>
 
-          <div className="min-h-0 flex-1 select-text overflow-y-auto p-3.5 space-y-4">
+          <div className="min-h-0 min-w-0 flex-1 select-text overflow-visible p-3 space-y-4 sm:p-3.5 lg:overflow-y-auto">
             <div className="border border-night-edge bg-night px-3 py-2">
               <span className="block font-pixel text-[8px] uppercase tracking-wider text-ink-dim mb-1">Signature</span>
-              <code className="font-code text-xs sm:text-[13px] text-emerald-300 font-semibold break-all">
+              <code className="block font-code text-[12px] leading-relaxed text-emerald-300 font-semibold break-words sm:text-[13px]">
                 {contest.signature}
               </code>
             </div>
@@ -301,7 +297,7 @@ export function ContestPage() {
                       <span className="block font-pixel text-[8px] uppercase tracking-wider text-stone-400">
                         Input
                       </span>
-                      <pre className="overflow-x-auto border border-night-edge bg-night p-2.5 font-code text-xs leading-relaxed text-emerald-300">
+                      <pre className="max-w-full overflow-x-auto whitespace-pre-wrap border border-night-edge bg-night p-2.5 font-code text-xs leading-relaxed text-emerald-300">
                         {ex.input}
                       </pre>
                     </div>
@@ -311,7 +307,7 @@ export function ContestPage() {
                       <span className="block font-pixel text-[8px] uppercase tracking-wider text-stone-400">
                         Output
                       </span>
-                      <pre className="overflow-x-auto border border-night-edge bg-night p-2.5 font-code text-xs leading-relaxed text-gold font-bold">
+                      <pre className="max-w-full overflow-x-auto whitespace-pre-wrap border border-night-edge bg-night p-2.5 font-code text-xs leading-relaxed text-gold font-bold">
                         {ex.output}
                       </pre>
                     </div>
@@ -327,8 +323,11 @@ export function ContestPage() {
                 ))}
               </div>
             </div>
+            </div>
+          </div>
 
-            <div className="mt-3 border-2 border-black/60">
+          <div className="order-3 mt-3 w-full min-w-0 space-y-4 overflow-hidden border-4 border-black/60 bg-night-panel p-3 shadow-pixel sm:p-3.5 lg:mt-0 lg:border-0 lg:p-3 lg:pt-0 lg:shadow-none">
+            <div className="border-2 border-black/60">
               <button
                 type="button"
                 onClick={() => setSolutionOpen((o) => !o)}
@@ -443,21 +442,21 @@ export function ContestPage() {
         </div>
 
         {/* Right: editor */}
-        <section className="mt-3 flex min-h-[70vh] w-full min-w-0 flex-1 flex-col overflow-hidden lg:mt-0 lg:h-full lg:min-h-0">
+        <section className="order-2 mt-3 flex h-[70dvh] w-full min-w-0 flex-col overflow-hidden lg:order-none lg:mt-0 lg:h-full lg:min-h-0">
           <div className="flex min-h-0 flex-1 flex-col overflow-hidden border-4 border-black/60 bg-night-panel shadow-pixel">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b-4 border-black/60 bg-night-raised px-3 py-2">
               <div className="flex items-center gap-2">
                 <span className="font-pixel text-[10px] uppercase text-ink-dim">Your solution</span>
                 <ContestTimerButton contestId={contest.id} />
               </div>
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="grid w-full grid-cols-2 gap-2 sm:flex sm:w-auto sm:flex-wrap sm:items-center">
                 {/* Language selector */}
                 {getContestLanguages(contest).length > 1 && (
                   <select
                     value={language}
                     onChange={(e) => handleLanguageChange(e.target.value as SupportedLanguage)}
                     disabled={running || submittingJudge}
-                    className="border-2 border-black/60 bg-night px-2 py-1 font-pixel text-[9px] uppercase text-ink-dim hover:border-rust-orange focus:border-rust-orange focus:outline-none disabled:opacity-50"
+                    className="col-span-2 border-2 border-black/60 bg-night px-2 py-2 font-pixel text-[9px] uppercase text-ink-dim hover:border-rust-orange focus:border-rust-orange focus:outline-none disabled:opacity-50 sm:col-span-1 sm:py-1"
                     aria-label="Programming language"
                   >
                     {getContestLanguages(contest).map((lang) => (
@@ -469,6 +468,7 @@ export function ContestPage() {
                 )}
                 <PixelButton
                   size="sm"
+                  className="w-full sm:w-auto"
                   onClick={() => void runTests()}
                   disabled={running || submittingJudge}
                 >
@@ -476,6 +476,7 @@ export function ContestPage() {
                 </PixelButton>
                 <PixelButton
                   size="sm"
+                  className="w-full sm:w-auto"
                   variant="secondary"
                   onClick={() => void submitTests()}
                   disabled={running || submittingJudge}
@@ -484,6 +485,7 @@ export function ContestPage() {
                 </PixelButton>
                 <PixelButton
                   size="sm"
+                  className="w-full sm:w-auto"
                   variant="secondary"
                   onClick={() => setShowStats(true)}
                 >
@@ -491,6 +493,7 @@ export function ContestPage() {
                 </PixelButton>
                 <PixelButton
                   size="sm"
+                  className="w-full sm:w-auto"
                   variant="secondary"
                   onClick={() => setCode(getStarterCode(contest, language))}
                 >
@@ -499,7 +502,14 @@ export function ContestPage() {
               </div>
             </div>
             <div className="min-h-0 flex-1 bg-night">
-              <MonacoEditor value={code} onChange={setCode} height="100%" fill language={LANGUAGE_MONACO_IDS[language]} />
+              <MonacoEditor
+                value={code}
+                onChange={setCode}
+                height="100%"
+                fill
+                language={LANGUAGE_MONACO_IDS[language]}
+                onRun={() => void runTests()}
+              />
             </div>
             <GradeResultPanel
               running={running || submittingJudge}

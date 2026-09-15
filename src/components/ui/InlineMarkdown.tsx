@@ -1,4 +1,5 @@
 import React from 'react'
+import { cx } from '../../lib/cx'
 
 export type InlineMarkdownVariant = 'default' | 'title' | 'subtle'
 
@@ -23,12 +24,14 @@ export function InlineMarkdown({
   if (!resolvedCodeClass) {
     if (variant === 'title') {
       
-      resolvedCodeClass = 'font-pixel text-rust-orange normal-case tracking-normal px-0.5'
+      resolvedCodeClass =
+        'inline-block max-w-full font-pixel text-rust-orange normal-case tracking-normal px-0.5'
     } else if (variant === 'subtle') {
-      resolvedCodeClass = 'font-code text-emerald-400 bg-night-raised px-1 py-0.2 text-[0.9em]'
+      resolvedCodeClass =
+        'inline-block max-w-full break-words font-code text-emerald-400 bg-night-raised px-1 py-0.2 text-[0.9em]'
     } else {
       resolvedCodeClass =
-        'border border-night-edge bg-night-raised px-1.5 py-0.5 font-code text-emerald-300 text-[0.88em] font-medium align-baseline mx-0.5'
+        'inline-block max-w-full break-words border border-night-edge bg-night-raised px-1 py-0.5 font-code text-emerald-300 text-[0.88em] font-medium align-baseline mx-0.5'
     }
   }
 
@@ -36,7 +39,7 @@ export function InlineMarkdown({
   const tokens = text.split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*)/g)
 
   return (
-    <span className={className}>
+    <span className={cx(variant === 'title' ? '' : 'break-words', className)}>
       {tokens.map((token, idx) => {
         if (!token) return null
 

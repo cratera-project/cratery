@@ -26,7 +26,7 @@ const components: Components = {
     </h4>
   ),
   p: ({ children }) => (
-    <p className="my-2.5 text-stone-200 leading-relaxed first:mt-0 last:mb-0">
+    <p className="my-2.5 break-words text-stone-200 leading-relaxed first:mt-0 last:mb-0">
       {children}
     </p>
   ),
@@ -37,7 +37,7 @@ const components: Components = {
     <ol className="my-2.5 list-decimal space-y-1.5 pl-5 marker:text-rust-orange/80">{children}</ol>
   ),
   li: ({ children }) => (
-    <li className="pl-0.5 text-stone-300 leading-relaxed [&>p]:my-1">{children}</li>
+    <li className="break-words pl-0.5 text-stone-300 leading-relaxed [&>p]:my-1">{children}</li>
   ),
   strong: ({ children }) => <strong className="font-semibold text-white">{children}</strong>,
   em: ({ children }) => <em className="italic text-stone-200">{children}</em>,
@@ -51,7 +51,7 @@ const components: Components = {
       return <CodeBlock code={codeString} language={lang} />
     }
     return (
-      <code className="border border-night-edge bg-night-raised px-1.5 py-0.5 font-code text-xs text-emerald-300 font-medium">
+      <code className="inline-block max-w-full break-words border border-night-edge bg-night-raised px-1 py-0.5 font-code text-xs text-emerald-300 font-medium">
         {children}
       </code>
     )
@@ -74,7 +74,7 @@ const components: Components = {
     </blockquote>
   ),
   table: ({ children }) => (
-    <div className="my-4 overflow-x-auto border-2 border-night-edge bg-night/80 shadow-pixel">
+    <div className="my-4 w-full max-w-full overflow-x-auto border-2 border-night-edge bg-night/80 shadow-pixel">
       <table className="w-full text-left text-xs sm:text-sm font-sans border-collapse">
         {children}
       </table>
@@ -116,7 +116,7 @@ type MarkdownBodyProps = {
 export function MarkdownBody({ children, className }: MarkdownBodyProps) {
   if (!children) return null
   return (
-    <div className={cx('font-sans text-sm sm:text-[14.5px] leading-relaxed text-stone-200 antialiased', className)}>
+    <div className={cx('min-w-0 max-w-full break-words font-sans text-sm sm:text-[14.5px] leading-relaxed text-stone-200 antialiased', className)}>
       <Markdown remarkPlugins={[remarkGfm]} components={components}>
         {children}
       </Markdown>
