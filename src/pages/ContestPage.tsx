@@ -246,7 +246,7 @@ export function ContestPage() {
       >
         {/* Left: problem */}
         <aside className="contents lg:flex lg:h-full lg:w-[var(--left)] lg:min-w-0 lg:shrink-0 lg:flex-col lg:overflow-y-auto lg:border-4 lg:border-black/60 lg:bg-night-panel lg:shadow-pixel">
-          <div className="order-1 flex w-full min-w-0 flex-col overflow-hidden border-4 border-black/60 bg-night-panel shadow-pixel lg:border-0 lg:shadow-none">
+          <div className="order-1 flex w-full min-w-0 flex-col overflow-hidden border-4 border-black/60 bg-night-panel shadow-pixel lg:shrink-0 lg:border-0 lg:shadow-none">
           <div className="flex flex-col gap-2 border-b-4 border-black/60 bg-night-raised px-3 py-2">
             <Link
               to={isTrial ? '/category/interactive' : '/contest'}
@@ -269,7 +269,7 @@ export function ContestPage() {
             </div>
           </div>
 
-          <div className="min-h-0 min-w-0 flex-1 select-text overflow-visible p-3 space-y-4 sm:p-3.5 lg:overflow-y-auto">
+          <div className="min-h-0 min-w-0 flex-1 select-text overflow-visible p-3 space-y-4 sm:p-3.5">
             <div className="border border-night-edge bg-night px-3 py-2">
               <span className="block font-pixel text-[8px] uppercase tracking-wider text-ink-dim mb-1">Signature</span>
               <code className="block font-code text-[12px] leading-relaxed text-emerald-300 font-semibold break-words sm:text-[13px]">
@@ -326,7 +326,7 @@ export function ContestPage() {
             </div>
           </div>
 
-          <div className="order-3 mt-3 w-full min-w-0 space-y-4 overflow-hidden border-4 border-black/60 bg-night-panel p-3 shadow-pixel sm:p-3.5 lg:mt-0 lg:border-0 lg:p-3 lg:pt-0 lg:shadow-none">
+          <div className="order-3 mt-3 w-full min-w-0 space-y-4 overflow-hidden border-4 border-black/60 bg-night-panel p-3 shadow-pixel sm:p-3.5 lg:mt-0 lg:shrink-0 lg:border-0 lg:p-3 lg:pt-0 lg:shadow-none">
             <div className="border-2 border-black/60">
               <button
                 type="button"

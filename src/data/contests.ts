@@ -86,14 +86,15 @@ export function getContest(id: string): Contest | undefined {
   return contests.find((c) => c.id === id) ?? getInteractiveQuest(id)
 }
 
-export function getCurrentContest(): Contest {
-  const now = Date.now()
+export function getCurrentContest(now = Date.now()): Contest {
+  const byOpening = [...contests].sort(
+    (a, b) => Date.parse(a.opensAt) - Date.parse(b.opensAt),
+  )
+
   return (
-    contests.find((c) => {
-      const open = Date.parse(c.opensAt)
-      const close = Date.parse(c.closesAt)
-      return now >= open && now < close
-    }) ?? contests[0]
+    byOpening.find((c) => now >= Date.parse(c.opensAt) && now < Date.parse(c.closesAt)) ??
+    byOpening.find((c) => now < Date.parse(c.opensAt)) ??
+    byOpening[byOpening.length - 1]
   )
 }
 

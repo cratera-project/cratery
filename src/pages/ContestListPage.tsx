@@ -20,6 +20,7 @@ function statusLabel(opensAt: string, closesAt: string): string {
 
 export function ContestListPage() {
   const current = getCurrentContest()
+  const currentStatus = statusLabel(current.opensAt, current.closesAt)
   const latestContests = [...contests].sort(
     (a, b) => Date.parse(b.opensAt) - Date.parse(a.opensAt),
   )
@@ -57,7 +58,13 @@ export function ContestListPage() {
           <div className="shrink-0">
             <Link to={`/contest/${current.id}`}>
               <PixelButton variant={isCurrentSolved ? 'success' : 'primary'}>
-                {isCurrentSolved ? 'Review this week →' : 'This week →'}
+                {isCurrentSolved
+                  ? 'Review contest →'
+                  : currentStatus === 'Upcoming'
+                    ? 'Next contest →'
+                    : currentStatus === 'Closed'
+                      ? 'Latest contest →'
+                      : 'This week →'}
               </PixelButton>
             </Link>
           </div>
